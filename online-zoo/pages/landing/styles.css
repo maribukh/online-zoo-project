@@ -1,34 +1,137 @@
 .bg-img1 {
-  width: 100%;
   background-image: url(../../assets/images/Background.jpg);
-  margin-right: 75px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero {
-  width: 100%;
-  padding: 129px 0px;
+  padding: 129px 0;
 }
 
 .hero h1 {
-  width: 61.8%;
+  max-width: 890px;
   font-size: 82px;
-  font-weight: bolder;
-  color: var(--color-green);
-  text-transform: uppercase;
+  font-weight: 900;
 }
 
 .hero .description {
-  width: 30%;
-  padding: 50px 0px;
+  max-width: 430px;
+  padding: 50px 0;
 }
 
-.hero button {
-height: 100%;
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 26px 45px;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-orange {
   background-color: var(--color-orange);
-  color: white;
+  color: var(--color-white);
 }
 
-.hero button:hover {
+.btn-orange:hover,
+.btn-box:hover {
   background-color: var(--color-orange-hover);
-  box-shadow: 0px 4px 30px 0px #f580214d;
+  box-shadow: 0px 4px 30px 0px rgba(245, 128, 33, 0.3);
+}
+
+.how-it-work {
+  padding: 150px 0;
+}
+
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 150px;
+}
+
+.about-content--reverse {
+  margin-bottom: 0;
+}
+
+.about {
+  flex: 1;
+}
+
+.about .description {
+  margin-top: 50px;
+}
+
+.about__image img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 5px;
+  display: block;
+}
+
+.donation-banner {
+  width: 100%;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  margin-top: 150px;
+}
+
+.donation-banner .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.donation-banner h3 {
+  font-size: 42px;
+  font-weight: 500;
+}
+
+.donation-banner .description {
+  margin-top: 20px;
+}
+
+.donation-banner .subheader {
+  font-size: 26px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-white);
+  border-radius: 5px;
+  min-width: 320px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.btn-container p {
+  flex: 1;
+  margin-left: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.btn-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-orange);
+  margin-left: 14px;
+  width: 80px;
+  height: 74px;
+  border: none;
+  cursor: pointer;
 }
