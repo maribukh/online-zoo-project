@@ -292,3 +292,75 @@
 .pet-card__link:hover .icon-hover {
   display: inline;
 }
+
+/* Pay and feed Section */
+
+.pay-and-feed {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  padding: 100px 0;
+}
+
+.pay-and-feed .second-title {
+  margin-bottom: 100px;
+  color: var(--color-white);
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 93px;
+  margin-bottom: 82px;
+}
+
+.step-number {
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--color-white);
+}
+
+.step-line {
+  height: 1px;
+  background-color: var(--color-white);
+  flex-grow: 1; 
+}
+
+.step-body {
+  display: flex;
+  gap: 160px;
+  margin-bottom: 100px;
+}
+
+
+.step-image img {
+  border-radius: 5px;
+  display: block;
+}
+
+.step-content {
+  margin-top: 20px;
+  flex: 1;
+}
+
+.step-icon {
+  width: 100px;
+  margin-bottom: 30px;
+}
+
+.step-title {
+  font-size: 26px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.step-desc {
+  font-size: 18px;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.pay-footer {
+margin-top: 50px;
+display: flex;
+}
