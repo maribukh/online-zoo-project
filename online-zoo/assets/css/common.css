@@ -96,3 +96,7 @@ header .social-icons img {
 header .social-icons img:hover {
   transform: scale(1.1);
 }
+
+header a:hover {
+  color: var(--color-green-hover);
+}
