@@ -169,15 +169,16 @@
   padding-bottom: 150px;
 }
 
-.pets .btn-fav {
+ .btn-fav {
   text-align: center;
   margin: auto;
   margin-top: 100px;
   border: 1px solid var(--color-blue);
   background-color: white;
+  text-transform: uppercase;
 }
 
-.pets .btn-fav:hover {
+.btn-fav:hover {
   background-color: var(--color-blue);
   border: 1px solid var(--color-white);
   color: white;
@@ -500,3 +501,115 @@
   border: 1px solid var(--color-white);
   cursor: pointer;
 }
+
+/* Care Animals Section */
+
+.care-animals {
+  padding: 100px 0;
+  background-color: var(--color-white);
+}
+
+.care-header {
+  width: 46.78%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.care-header h2 {
+  font-size: 54px;
+  margin-bottom: 30px;
+}
+
+.care-header .description {
+  width: 81.98%;
+  margin: auto;
+}
+
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 30px;
+}
+
+.care-item--large {
+  grid-column: span 2;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.care-item {
+  background-color: var(--color-blue);
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.care-img-wrapper {
+  height: 373px;
+  overflow: hidden;
+}
+
+.care-img-wrapper img {
+  width: 100%;
+}
+
+.care-content {
+  padding: 30px 25px;
+  color: var(--color-white);
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.care-content p {
+  font-weight: 400;
+  margin-bottom: 50px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.feed-link {
+  color: var(--color-orange);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.3s;
+  padding: 26px 0px;
+  font-weight: 600;
+}
+
+.feed-link:hover {
+  color: var(--color-white);
+}
+
+.care-footer {
+  display: flex;
+  justify-content: center;
+}
+
+/* Video Promo Section */
+.video-promo {
+  padding: 150px 0;
+  text-align: center;
+}
+
+.video-display {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.video-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
