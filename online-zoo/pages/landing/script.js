@@ -1,11 +1,11 @@
-const buttons = document.querySelectorAll('.btn, .pet-card__link');
+const buttons = document.querySelectorAll('.btn, .pet-card__link, .arrow-btn');
 
 buttons.forEach((button) => {
   const icon = button.querySelector('img');
   if (!icon) return;
 
   const defaultSrc = icon.src;
-  const hoverSrc = '../../assets/icons/Union.svg';
+  const hoverSrc = button.getAttribute('data-hover-src') || '../../assets/icons/Union.svg';
 
   button.addEventListener('mouseenter', () => {
     icon.src = hoverSrc;

@@ -100,3 +100,7 @@ header .social-icons img:hover {
 header a:hover {
   color: var(--color-green-hover);
 }
+
+.d-none {
+  display: none !important;
+}
