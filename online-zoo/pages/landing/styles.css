@@ -311,6 +311,31 @@
   z-index: 5;
 }
 
+.pets-slider-window {
+  max-width: 1400px; 
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#pets-grid {
+  display: grid !important;
+  grid-template-rows: 747px 747px;
+  grid-auto-flow: column;
+  grid-auto-columns: 440px;
+  gap: 40px;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.pets-grid {
+  grid-template-columns: none !important;
+}
+
+.pet-card {
+  width: 440px;
+  flex-shrink: 0;
+}
+
 /* Pay and feed Section */
 
 .pay-and-feed {
@@ -416,7 +441,6 @@
   grid-template-columns: repeat(2, 515px);
   gap: 30px;
 }
-
 
 .testimonials-info {
   display: flex;

@@ -158,7 +158,7 @@
             </p>
             <div class="pets-arrows">
               <button
-                class="arrow-btn"
+                class="arrow-btn btn-prev"
                 aria-label="Previous"
                 data-hover-src="../../assets/icons/union-white-left.svg"
               >
@@ -168,7 +168,7 @@
                 />
               </button>
               <button
-                class="arrow-btn"
+                class="arrow-btn btn-next"
                 aria-label="Next"
                 data-hover-src="../../assets/icons/union-white-right.svg"
               >
@@ -179,237 +179,239 @@
               </button>
             </div>
           </div>
-          <div class="pets-grid">
-            <div class="pet-card">
-              <div class="pet-card__image-wrapper">
-                <img
-                  src="../../assets/images/pets/panda.webp"
-                  alt="Giant Panda"
-                  class="pet-card__img"
-                />
-                <span class="pet-card__name-tag">Lucas</span>
-              </div>
-              <div class="pet-card__content">
-                <h3 class="pet-card__title">Giant Panda</h3>
-                <p class="pet-card__desc">
-                  Native to central China, giant pandas have come to symbolize
-                  vulnerable species.
-                </p>
-                <a
-                  href="../panda/index.html"
-                  class="pet-card__link btn"
-                  data-hover-src="../../assets/icons/Union.svg"
-                >
-                  View Live Cam
+          <div class="pets-slider-window">
+            <div class="pets-grid" id="pets-grid">
+              <div class="pet-card">
+                <div class="pet-card__image-wrapper">
                   <img
-                    src="../../assets/icons/union-orange.svg"
-                    alt=""
-                    aria-hidden="true"
+                    src="../../assets/images/pets/panda.webp"
+                    alt="Giant Panda"
+                    class="pet-card__img"
                   />
-                </a>
+                  <span class="pet-card__name-tag">Lucas</span>
+                </div>
+                <div class="pet-card__content">
+                  <h3 class="pet-card__title">Giant Panda</h3>
+                  <p class="pet-card__desc">
+                    Native to central China, giant pandas have come to symbolize
+                    vulnerable species.
+                  </p>
+                  <a
+                    href="../panda/index.html"
+                    class="pet-card__link btn"
+                    data-hover-src="../../assets/icons/Union.svg"
+                  >
+                    View Live Cam
+                    <img
+                      src="../../assets/icons/union-orange.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="pet-card">
-              <div class="pet-card__image-wrapper">
-                <img
-                  src="../../assets/images/pets/lemur.webp"
-                  alt="Madagascarian Lemur"
-                  class="pet-card__img"
-                />
-                <span class="pet-card__name-tag">Andy</span>
-              </div>
-              <div class="pet-card__content">
-                <h3 class="pet-card__title">Madagascarian Lemur</h3>
-                <p class="pet-card__desc">
-                  Lemurs are considered the world’s most endangered group of
-                  mammals.
-                </p>
-                <a
-                  href="../lemur/index.html"
-                  class="pet-card__link btn"
-                  data-hover-src="../../assets/icons/Union.svg"
-                >
-                  View Live Cam
+              <div class="pet-card">
+                <div class="pet-card__image-wrapper">
                   <img
-                    src="../../assets/icons/union-orange.svg"
-                    alt=""
-                    aria-hidden="true"
+                    src="../../assets/images/pets/lemur.webp"
+                    alt="Madagascarian Lemur"
+                    class="pet-card__img"
                   />
-                </a>
+                  <span class="pet-card__name-tag">Andy</span>
+                </div>
+                <div class="pet-card__content">
+                  <h3 class="pet-card__title">Madagascarian Lemur</h3>
+                  <p class="pet-card__desc">
+                    Lemurs are considered the world’s most endangered group of
+                    mammals.
+                  </p>
+                  <a
+                    href="../lemur/index.html"
+                    class="pet-card__link btn"
+                    data-hover-src="../../assets/icons/Union.svg"
+                  >
+                    View Live Cam
+                    <img
+                      src="../../assets/icons/union-orange.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="pet-card">
-              <div class="pet-card__image-wrapper">
-                <img
-                  src="../../assets/images/pets/gorila.webp"
-                  alt="Gorilla in Congo"
-                  class="pet-card__img"
-                />
-                <span class="pet-card__name-tag">Glen</span>
-              </div>
-              <div class="pet-card__content">
-                <h3 class="pet-card__title">Gorilla in Congo</h3>
-                <p class="pet-card__desc">
-                  Variety of snacks very important for the healthy life of
-                  gorillas and his plenty of babies.
-                </p>
-                <a
-                  href="../gorilla/index.html"
-                  class="pet-card__link btn"
-                  data-hover-src="../../assets/icons/Union.svg"
-                >
-                  View Live Cam
+              <div class="pet-card">
+                <div class="pet-card__image-wrapper">
                   <img
-                    src="../../assets/icons/union-orange.svg"
-                    alt=""
-                    aria-hidden="true"
+                    src="../../assets/images/pets/gorila.webp"
+                    alt="Gorilla in Congo"
+                    class="pet-card__img"
                   />
-                </a>
+                  <span class="pet-card__name-tag">Glen</span>
+                </div>
+                <div class="pet-card__content">
+                  <h3 class="pet-card__title">Gorilla in Congo</h3>
+                  <p class="pet-card__desc">
+                    Variety of snacks very important for the healthy life of
+                    gorillas and his plenty of babies.
+                  </p>
+                  <a
+                    href="../gorilla/index.html"
+                    class="pet-card__link btn"
+                    data-hover-src="../../assets/icons/Union.svg"
+                  >
+                    View Live Cam
+                    <img
+                      src="../../assets/icons/union-orange.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="pet-card d-none">
-              <div class="pet-card__image-wrapper">
-                <img
-                  src="../../assets/images/pets/aligator.webp"
-                  alt="Chinese Alligato"
-                  class="pet-card__img"
-                />
-                <span class="pet-card__name-tag">Mike</span>
-              </div>
-              <div class="pet-card__content">
-                <h3 class="pet-card__title">Chinese Alligator</h3>
-                <p class="pet-card__desc">
-                  From nose to tail, belly to back, hard scales protect this
-                  petite alligator.
-                </p>
-                <a
-                  href="../alligator/index.html"
-                  class="pet-card__link btn"
-                  data-hover-src="../../assets/icons/Union.svg"
-                >
-                  View Live Cam
+              <div class="pet-card">
+                <div class="pet-card__image-wrapper">
                   <img
-                    src="../../assets/icons/union-orange.svg"
-                    alt=""
-                    aria-hidden="true"
+                    src="../../assets/images/pets/aligator.webp"
+                    alt="Chinese Alligato"
+                    class="pet-card__img"
                   />
-                </a>
+                  <span class="pet-card__name-tag">Mike</span>
+                </div>
+                <div class="pet-card__content">
+                  <h3 class="pet-card__title">Chinese Alligator</h3>
+                  <p class="pet-card__desc">
+                    From nose to tail, belly to back, hard scales protect this
+                    petite alligator.
+                  </p>
+                  <a
+                    href="../alligator/index.html"
+                    class="pet-card__link btn"
+                    data-hover-src="../../assets/icons/Union.svg"
+                  >
+                    View Live Cam
+                    <img
+                      src="../../assets/icons/union-orange.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="pet-card">
-              <div class="pet-card__image-wrapper">
-                <img
-                  src="../../assets/images/pets/eagles.webp"
-                  alt="Gorilla in Congo"
-                  class="pet-card__img"
-                />
-                <span class="pet-card__name-tag">Sam & Lora</span>
-              </div>
-              <div class="pet-card__content">
-                <h3 class="pet-card__title">West End Bald Eagles</h3>
-                <p class="pet-card__desc">
-                  Pair of eagle parents lay and protect eggs, feed their chicks
-                  and teach them to hunt and fly.
-                </p>
-                <a
-                  href="../eagles/index.html"
-                  class="pet-card__link btn"
-                  data-hover-src="../../assets/icons/Union.svg"
-                >
-                  View Live Cam
+              <div class="pet-card">
+                <div class="pet-card__image-wrapper">
                   <img
-                    src="../../assets/icons/union-orange.svg"
-                    alt=""
-                    aria-hidden="true"
+                    src="../../assets/images/pets/eagles.webp"
+                    alt="Gorilla in Congo"
+                    class="pet-card__img"
                   />
-                </a>
+                  <span class="pet-card__name-tag">Sam & Lora</span>
+                </div>
+                <div class="pet-card__content">
+                  <h3 class="pet-card__title">West End Bald Eagles</h3>
+                  <p class="pet-card__desc">
+                    Pair of eagle parents lay and protect eggs, feed their
+                    chicks and teach them to hunt and fly.
+                  </p>
+                  <a
+                    href="../eagles/index.html"
+                    class="pet-card__link btn"
+                    data-hover-src="../../assets/icons/Union.svg"
+                  >
+                    View Live Cam
+                    <img
+                      src="../../assets/icons/union-orange.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="pet-card">
-              <div class="pet-card__image-wrapper">
-                <img
-                  src="../../assets/images/pets/koala.webp"
-                  alt="Australian Koala"
-                  class="pet-card__img"
-                />
-                <span class="pet-card__name-tag">Liz</span>
-              </div>
-              <div class="pet-card__content">
-                <h3 class="pet-card__title">Australian Koala</h3>
-                <p class="pet-card__desc">
-                  The elevated walkways bring you to eye level with the koalas
-                  as they perch in their forest.
-                </p>
-                <a
-                  href="#"
-                  class="pet-card__link btn"
-                  data-hover-src="../../assets/icons/Union.svg"
-                >
-                  View Live Cam
+              <div class="pet-card">
+                <div class="pet-card__image-wrapper">
                   <img
-                    src="../../assets/icons/union-orange.svg"
-                    alt=""
-                    aria-hidden="true"
+                    src="../../assets/images/pets/koala.webp"
+                    alt="Australian Koala"
+                    class="pet-card__img"
                   />
-                </a>
+                  <span class="pet-card__name-tag">Liz</span>
+                </div>
+                <div class="pet-card__content">
+                  <h3 class="pet-card__title">Australian Koala</h3>
+                  <p class="pet-card__desc">
+                    The elevated walkways bring you to eye level with the koalas
+                    as they perch in their forest.
+                  </p>
+                  <a
+                    href="#"
+                    class="pet-card__link btn"
+                    data-hover-src="../../assets/icons/Union.svg"
+                  >
+                    View Live Cam
+                    <img
+                      src="../../assets/icons/union-orange.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="pet-card">
-              <div class="pet-card__image-wrapper">
-                <img
-                  src="../../assets/images/pets/lion.webp"
-                  alt="African Lion"
-                  class="pet-card__img"
-                />
-                <span class="pet-card__name-tag">Shake</span>
-              </div>
-              <div class="pet-card__content">
-                <h3 class="pet-card__title">African Lion</h3>
-                <p class="pet-card__desc">
-                  Lions roam the savannas and grasslands of Africa, hunting and
-                  raising cubs in the pride.
-                </p>
-                <a
-                  href="#"
-                  class="pet-card__link btn"
-                  data-hover-src="../../assets/icons/Union.svg"
-                >
-                  View Live Cam
+              <div class="pet-card">
+                <div class="pet-card__image-wrapper">
                   <img
-                    src="../../assets/icons/union-orange.svg"
-                    alt=""
-                    aria-hidden="true"
+                    src="../../assets/images/pets/lion.webp"
+                    alt="African Lion"
+                    class="pet-card__img"
                   />
-                </a>
+                  <span class="pet-card__name-tag">Shake</span>
+                </div>
+                <div class="pet-card__content">
+                  <h3 class="pet-card__title">African Lion</h3>
+                  <p class="pet-card__desc">
+                    Lions roam the savannas and grasslands of Africa, hunting
+                    and raising cubs in the pride.
+                  </p>
+                  <a
+                    href="#"
+                    class="pet-card__link btn"
+                    data-hover-src="../../assets/icons/Union.svg"
+                  >
+                    View Live Cam
+                    <img
+                      src="../../assets/icons/union-orange.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="pet-card d-none">
-              <div class="pet-card__image-wrapper">
-                <img
-                  src="../../assets/images/pets/tiger.webp"
-                  alt="African Lion"
-                  class="pet-card__img"
-                />
-                <span class="pet-card__name-tag">Senja</span>
-              </div>
-              <div class="pet-card__content">
-                <h3 class="pet-card__title">Sumatran Tiger</h3>
-                <p class="pet-card__desc">
-                  Sumatran Tigers are the smallest of the five sub-species, and
-                  are found in Indonesia.
-                </p>
-                <a
-                  href="#"
-                  class="pet-card__link btn"
-                  data-hover-src="../../assets/icons/Union.svg"
-                >
-                  View Live Cam
+              <div class="pet-card">
+                <div class="pet-card__image-wrapper">
                   <img
-                    src="../../assets/icons/union-orange.svg"
-                    alt=""
-                    aria-hidden="true"
+                    src="../../assets/images/pets/tiger.jpg"
+                    alt="African Lion"
+                    class="pet-card__img"
                   />
-                </a>
+                  <span class="pet-card__name-tag">Senja</span>
+                </div>
+                <div class="pet-card__content">
+                  <h3 class="pet-card__title">Sumatran Tiger</h3>
+                  <p class="pet-card__desc">
+                    Sumatran Tigers are the smallest of the five sub-species,
+                    and are found in Indonesia.
+                  </p>
+                  <a
+                    href="#"
+                    class="pet-card__link btn"
+                    data-hover-src="../../assets/icons/Union.svg"
+                  >
+                    View Live Cam
+                    <img
+                      src="../../assets/icons/union-orange.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
