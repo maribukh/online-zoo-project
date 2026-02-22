@@ -101,6 +101,18 @@ header a:hover {
   color: var(--color-green-hover);
 }
 
+/* Hovers */
+.pets-arrows .arrow-btn:hover {
+  background-color: var(--color-blue);
+  border-color: var(--color-blue);
+  cursor: pointer;
+}
+
+.btn-outline-white:hover {
+  background: var(--color-green-hover);
+  background-color: var(--color-green-hover);
+}
+
 .d-none {
   display: none !important;
 }

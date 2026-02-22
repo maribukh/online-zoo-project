@@ -40,7 +40,8 @@
 }
 
 .btn-orange:hover,
-.btn-box:hover {
+.btn-box:hover,
+.feed-link:hover {
   background-color: var(--color-orange-hover);
   box-shadow: 0px 4px 30px 0px rgba(245, 128, 33, 0.3);
 }
@@ -162,7 +163,9 @@
 
 .arrow-btn {
   background-color: var(--color-white);
-  border: none;
+  border: 1px solid var(--color-blue);
+  padding: 20px;
+  border-radius: 5px;
 }
 
 .pets {
@@ -299,17 +302,6 @@
   position: relative;
 }
 
-.pet-card__link::after,
-.feed-link::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 10;
-}
-
 .pet-card__name-tag {
   z-index: 11;
 }
@@ -394,8 +386,6 @@
 /* Testimonials Section */
 
 .testimonials {
-  display: flex;
-  justify-content: right;
   position: relative;
   padding-top: 100px;
   padding-bottom: 600px;
@@ -415,12 +405,18 @@
 }
 
 .testimonials-wrapper {
-  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 50px;
+  gap: 60px;
 }
+
+.testimonials-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 515px);
+  gap: 30px;
+}
+
 
 .testimonials-info {
   display: flex;
@@ -450,7 +446,7 @@
 }
 
 .testimonials-content {
-  flex: 1;
+  /* flex: 1; */
 }
 
 .testimonials-grid {
@@ -525,6 +521,25 @@
   background-color: transparent;
   border: 1px solid var(--color-white);
   cursor: pointer;
+}
+
+.testimonials-nav button:hover {
+  background-color: white;
+  border: 1px solid white;
+}
+
+.btn-feedback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid var(--color-white);
+  cursor: pointer;
+  color: var(--color-white);
+}
+
+.btn-feedback:hover {
+  background-color: var(--color-green-hover);
 }
 
 /* Care Animals Section */
@@ -606,12 +621,15 @@
   justify-content: center;
   gap: 10px;
   transition: 0.3s;
-  padding: 26px 0px;
+  padding: 26px 28px;
+  width: fit-content;
+  margin: auto;
   font-weight: 600;
 }
 
 .feed-link:hover {
   color: var(--color-white);
+  border-radius: 5px;
 }
 
 .care-footer {
@@ -676,10 +694,6 @@
   transition: 0.3s;
 }
 
-.footer-nav a:hover {
-  color: var(--color-orange);
-}
-
 .footer-divider {
   border: none;
   height: 1px;
@@ -703,7 +717,6 @@
   display: flex;
   gap: 30px;
   opacity: 0.7;
-  
 }
 
 .footer-socials {
