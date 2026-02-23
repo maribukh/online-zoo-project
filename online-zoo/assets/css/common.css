@@ -243,6 +243,11 @@ header a:hover {
   background-color: var(--color-green-hover);
 }
 
+header nav ul li a.active {
+  color: var(--color-green-hover);
+}
+
+
 .d-none {
   display: none !important;
 }

@@ -116,6 +116,3 @@
   overflow: hidden;
 }
 
-header nav ul li a.active {
-  color: var(--color-green-hover);
-}
