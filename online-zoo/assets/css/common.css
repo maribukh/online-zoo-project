@@ -101,6 +101,136 @@ header a:hover {
   color: var(--color-green-hover);
 }
 
+/* Footer */
+
+.footer {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  padding-top: 82px;
+  padding-bottom: 36px;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-logos {
+  display: flex;
+  align-items: center;
+  gap: 65px;
+}
+
+.footer-logos img {
+  height: auto;
+  max-width: 130px;
+}
+
+.footer-nav ul {
+  display: flex;
+  gap: 46px;
+}
+
+.footer-nav a {
+  font-weight: 600;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.footer-divider {
+  border: none;
+  height: 1px;
+  background-color: var(--color-white);
+  margin-bottom: 44px;
+  margin-top: 70px;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyrights {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0%;
+
+  display: flex;
+  gap: 30px;
+  opacity: 0.7;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 40px;
+}
+
+.footer-socials img {
+  width: 40px;
+  transition: 0.3s;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 26px 45px;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-outline-white {
+  background: transparent;
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
+}
+
+/* --- ADAPTIVE (Tablet 640px) --- */
+@media (max-width: 940px) {
+  .footer-main {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .footer-info {
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 40px 0;
+  }
+
+  .footer-logos {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 30px;
+  }
+
+  .copyrights {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
 /* Hovers */
 .pets-arrows .arrow-btn:hover {
   background-color: var(--color-blue);
