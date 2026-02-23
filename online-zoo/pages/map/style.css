@@ -1,0 +1,79 @@
+.map {
+  padding-top: 40px;
+  padding-bottom: 150px;
+}
+
+.second-title_blue {
+  width: 42.85%;
+  margin: auto;
+  margin-bottom: 70px;
+  color: var(--color-blue);
+  font-weight: 600;
+  text-align: center;
+
+  font-size: 54px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.map .bg-img {
+  background-image: url(../../assets/images/map/Map.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 900px;
+  position: relative;
+}
+
+.map-pin {
+  position: absolute;
+  width: 65px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.pin-animal {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.map-pin:hover {
+  transform: scale(1.2) translateY(-5px);
+  filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.3));
+}
+
+.pin-eagle {
+  left: 17.5%;
+  top: 43%;
+}
+.pin-alligator {
+  left: 23.5%;
+  top: 48%;
+}
+.pin-gorilla {
+  left: 47.5%;
+  top: 51%;
+}
+.pin-tiger {
+  left: 53.5%;
+  top: 43%;
+}
+.pin-lemur {
+  left: 54%;
+  top: 57%;
+}
+.pin-panda {
+  left: 59.5%;
+  top: 44%;
+}
+.pin-koala {
+  left: 63.5%;
+  top: 58%;
+}
