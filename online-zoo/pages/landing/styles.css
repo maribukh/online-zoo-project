@@ -413,7 +413,7 @@
 .testimonials {
   position: relative;
   padding-top: 100px;
-  padding-bottom: 600px;
+  padding-bottom: 1360px;
   background:
     linear-gradient(144.77deg, #20113d 18.53%, rgba(32, 17, 61, 0) 46.43%),
     linear-gradient(177.34deg, #20113d 7.26%, rgba(32, 17, 61, 0) 14.89%),
@@ -422,11 +422,6 @@
   background-position: center;
   background-repeat: no-repeat;
   color: var(--color-white);
-}
-
-.testimonials .container {
-  margin: 0 0;
-  max-width: 1660px;
 }
 
 .testimonials-wrapper {
@@ -471,6 +466,8 @@
 
 .testimonials-content {
   /* flex: 1; */
+  position: absolute;
+  right: 0;
 }
 
 .testimonials-grid {

@@ -28,52 +28,94 @@
 
 .map-pin {
   position: absolute;
-  width: 65px;
-  height: auto;
+  width: 100px;
+  height: 144px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-image: url('../../assets/images/map/tag-orange.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
   transition: transform 0.3s ease;
+
+  filter: drop-shadow(0px 4px 15px rgba(245, 128, 33, 0.7));
+}
+
+.map-pin:hover,
+.map-pin:active {
+  background-image: url('../../assets/images/map/tag-white.svg');
+  width: 100px;
+  height: 144px;
+  filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.3));
+}
+
+.map-pin img {
+  filter: none;
 }
 
 .pin-animal {
   position: absolute;
-  top: 18%;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 15%;
   pointer-events: none;
 }
 
-.map-pin:hover {
-  transform: scale(1.2) translateY(-5px);
-  filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.3));
-}
 
 .pin-eagle {
-  left: 17.5%;
-  top: 43%;
+  left: 11.8%;
+  top: 42.9%;
 }
+
 .pin-alligator {
-  left: 23.5%;
-  top: 48%;
+  left: 20.8%;
+  top: 42.9%;
 }
+
 .pin-gorilla {
-  left: 47.5%;
+  left: 49%;
   top: 51%;
 }
-.pin-tiger {
-  left: 53.5%;
-  top: 43%;
+
+.pin-lion {
+  left: 42%;
+  top: 51%;
 }
+
 .pin-lemur {
-  left: 54%;
-  top: 57%;
+  left: 56.3%;
+  top: 64%;
 }
+
 .pin-panda {
-  left: 59.5%;
-  top: 44%;
+  left: 67.5%;
+  top: 36%;
 }
+
+.pin-tiger {
+  left: 71.8%;
+  top: 54%;
+}
+
 .pin-koala {
-  left: 63.5%;
-  top: 58%;
+  left: 81.3%;
+  top: 66%;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+header nav ul li a.active {
+  color: var(--color-green-hover);
 }
