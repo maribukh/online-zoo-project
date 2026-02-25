@@ -20,30 +20,10 @@
   padding: 50px 0;
 }
 
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 26px 45px;
-  border-radius: 5px;
-  border: none;
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
-}
 
 .btn-orange {
   background-color: var(--color-orange);
   color: var(--color-white);
-}
-
-.btn-orange:hover,
-.btn-box:hover,
-.feed-link:hover {
-  background-color: var(--color-orange-hover);
-  box-shadow: 0px 4px 30px 0px rgba(245, 128, 33, 0.3);
 }
 
 .how-it-works {

@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online-zoo - Panda</title>
+    <link
+      rel="shortcut icon"
+      href="../../assets/icons/Favicon.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../../assets/css/common.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="left-side">
+          <a href="../landing/index.html"
+            ><img src="../../assets/images/Logo.svg" alt="logo"
+          /></a>
+        </div>
+        <div class="right-side">
+          <nav>
+            <ul>
+              <li><a href="../landing/index.html">ABOUT</a></li>
+              <li><a href="../map/index.html">MAP</a></li>
+              <li><a href="panda.html" class="active">ZOOS</a></li>
+              <li><a href="../contact/index.html">CONTACT US</a></li>
+              <li><a href="#design">DESIGN</a></li>
+            </ul>
+          </nav>
+          <div class="social-icons">
+            <a
+              href="https://www.youtube.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img src="../../assets/icons/YouTube.svg" alt=""
+            /></a>
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img src="../../assets/icons/Instagram.svg" alt=""
+            /></a>
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img src="../../assets/icons/Facebook.svg" alt=""
+            /></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="zoos-bg">
+      <div class="zoos-main-container">
+        <aside class="side-panel" id="sidePanel">
+          <div class="side-header">
+            <div class="live-badge">
+              LIVE <img src="../../assets/icons/cam.svg" alt="cam icon" />
+            </div>
+            <button class="toggle-btn" id="toggleBtn">
+              <img
+                src="../../assets/icons/arrows-right.svg"
+                alt=""
+                id="toggleIcon"
+              />
+            </button>
+          </div>
+          <nav class="animal-nav">
+            <ul class="animal-list">
+              <li class="animal-item active">
+                <a href="panda.html">
+                  <div class="icon-circle">
+                    <img
+                      src="../../assets/images/map/animals/Panda.svg"
+                      alt=""
+                    />
+                  </div>
+                </a>
+              </li>
+              <li class="animal-item">
+                <a href="eagle.html">
+                  <div class="icon-circle">
+                    <img
+                      src="../../assets/images/map/animals/Eagle.svg"
+                      alt=""
+                    />
+                  </div>
+                </a>
+              </li>
+              <li class="animal-item">
+                <a href="gorilla.html">
+                  <div class="icon-circle">
+                    <img
+                      src="../../assets/images/map/animals/Gorilla.svg"
+                      alt=""
+                    />
+                  </div>
+                </a>
+              </li>
+              <li class="animal-item">
+                <a href="lemur.html">
+                  <div class="icon-circle">
+                    <img
+                      src="../../assets/images/map/animals/Lemur.svg"
+                      alt=""
+                    />
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="animal-nav-bottom">
+            <img src="../../assets/icons/arrow-down.svg" alt="" />
+          </div>
+        </aside>
+        <!-- <aside class="side-panel side-panel-hidden" id="sidePanel">
+          <div class="side-header side-header-hidden">
+            <div class="live-badge">
+              LIVE <img src="../../assets/icons/cam.svg" alt="cam icon" />
+            </div>
+            <button class="toggle-btn" id="toggleBtn">
+              <img
+                src="../../assets/icons/arrows-left.svg"
+                alt=""
+                id="toggleIcon"
+              />
+            </button>
+          </div>
+          <nav class="animal-nav">
+            <ul class="animal-list">
+              <li class="animal-item active">
+                <div class="animal-content">
+                  <a href="panda.html">
+                    <img src="../../assets/images/animals/Panda.svg" alt="" />
+                  </a>
+                  <div class="animal-desc">
+                    <p>Watch live from China's Panda Center</p>
+                  </div>
+                </div>
+              </li>
+              <li class="animal-item">
+                <div class="animal-content">
+                  <a href="eagle.html">
+                    <img src="../../assets/images/animals/Eagle.svg" alt="" />
+                  </a>
+                  <div class="animal-desc">
+                    <p>Watch The Bald Eagles Nest from West End cam</p>
+                  </div>
+                </div>
+              </li>
+              <li class="animal-item">
+                <div class="animal-content">
+                  <a href="gorilla.html">
+                    <img src="../../assets/images/animals/Gorilla.svg" alt="" />
+                  </a>
+                  <div class="animal-desc">
+                    <p>Livestream from Gorilla Forest Corridor habitat cam</p>
+                  </div>
+                </div>
+              </li>
+              <li class="animal-item">
+                <div class="animal-content">
+                  <a href="lemur.html">
+                    <img src="../../assets/images/animals/Lemur.svg" alt="" />
+                  </a>
+                  <div class="animal-desc">
+                    <p>
+                      The ring-tailed lemurs play in Madagascar, Lemuria Land
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <div class="animal-nav-bottom cursor">
+            <img src="../../assets/icons/arrow-down.svg" alt="" />
+          </div>
+        </aside> -->
+
+        <div class="video-content container">
+          <div class="video-header">
+            <h1 class="zoos-title">LIVE PANDA CAMS</h1>
+            <button class="btn-orange btn">
+              DONATE NOW <img src="../../assets/icons/Union.svg" alt="" />
+            </button>
+          </div>
+
+          <div class="video-main-wrapper">
+            <img
+              src="../../assets/images/panda-live.jpg"
+              alt=""
+              class="video-bg-img"
+            />
+            <div class="video-player-overlay">
+              <h3 class="video-title-overlay">Lucas, the Giant Panda cam 1</h3>
+              <button class="play-btn-center">
+                <img src="../../assets/icons/play-button.svg" alt="" />
+              </button>
+              <img
+                class="video-watermark"
+                src="../../assets/images/Logo2.svg"
+                alt=""
+              />
+              <div class="video-controls-bar">
+                <div class="video-timeline"></div>
+                <div class="controls-content">
+                  <div class="controls-left">
+                    <button class="ctrl-btn">
+                      <img src="../../assets/icons/ico-play.svg" alt="" />
+                    </button>
+                    <button class="ctrl-btn">
+                      <img src="../../assets/icons/ico-next.svg" alt="" />
+                    </button>
+                    <button class="ctrl-btn">
+                      <img src="../../assets/icons/ico-sound.svg" alt="" />
+                    </button>
+                    <div class="live-status">
+                      <span class="live-dot"></span>
+                      <span class="live-text">LIVE</span>
+                    </div>
+                  </div>
+                  <div class="controls-right">
+                    <button class="ctrl-btn">
+                      <img src="../../assets/icons/ico-titles.svg" alt="" />
+                    </button>
+                    <button class="ctrl-btn">
+                      <img src="../../assets/icons/ico-hd.svg" alt="" />
+                    </button>
+                    <button class="ctrl-btn">
+                      <img src="../../assets/icons/ico-theater.svg" alt="" />
+                    </button>
+                    <button class="ctrl-btn">
+                      <img src="../../assets/icons/ico-tv.svg" alt="" />
+                    </button>
+                    <button class="ctrl-btn">
+                      <img src="../../assets/icons/ico-fullscreen.svg" alt="" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="more-live-views">
+            <h3 class="sub-title">MORE LIVE VIEWS</h3>
+            <div class="video-slider">
+              <button class="slider-arrow">
+                <img src="../../assets/icons/chevron-left.svg" alt="" />
+              </button>
+              <div class="video-previews">
+                <div class="preview-item active">
+                  <img src="../../assets/images/zoos/panda-thumb1.jpg" alt="" />
+                </div>
+                <div class="preview-item">
+                  <img src="../../assets/images/zoos/panda-thumb2.jpg" alt="" />
+                </div>
+                <div class="preview-item">
+                  <img src="../../assets/images/zoos/panda-thumb3.jpg" alt="" />
+                </div>
+              </div>
+              <button class="slider-arrow">
+                <img src="../../assets/icons/chevron-right.svg" alt="" />
+              </button>
+            </div>
+          </div>
+
+          <section class="did-you-know">
+            <div class="fact-text">
+              <h3>DID YOU KNOW?</h3>
+              <p>
+                Giant pandas are bears that are native to south-central China.
+                They are easily recognized by the large, distinctive black
+                patches around their eyes, over the ears, and across their round
+                bodies.
+              </p>
+              <ul class="fact-list">
+                <li><strong>Common name:</strong> Giant Panda</li>
+                <li>
+                  <strong>Scientific name:</strong> Ailuropoda melanoleuca
+                </li>
+                <li><strong>Type:</strong> Mammals</li>
+                <li><strong>Diet:</strong> Herbivore</li>
+              </ul>
+            </div>
+            <div class="fact-image">
+              <img src="../../assets/images/zoos/panda-fact.jpg" alt="" />
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-logos">
+            <a href="../landing/index.html" class="logo"
+              ><img src="../../assets/images/Logo2.svg" alt=""
+            /></a>
+            <a href="#" class="logo-partnership"
+              ><img src="../../assets/images/Yem-Digital.svg" alt=""
+            /></a>
+            <a href="https://rs.school/" target="_blank" class="logo-rss"
+              ><img src="../../assets/images/rs_school_js-logo.svg" alt=""
+            /></a>
+          </div>
+          <nav class="footer-nav">
+            <ul>
+              <li><a href="../landing/index.html">ABOUT</a></li>
+              <li><a href="../map/index.html">MAP</a></li>
+              <li><a href="panda.html" class="active">ZOOS</a></li>
+              <li><a href="../contact/index.html">CONTACT US</a></li>
+            </ul>
+          </nav>
+          <button class="btn btn-outline-white">
+            DONATE FOR VOLUNTEERS
+            <img src="../../assets/icons/Union.svg" alt="" />
+          </button>
+        </div>
+        <hr class="footer-divider" />
+        <div class="footer-info">
+          <div class="copyrights">
+            <span>© 2021 DinaK</span><span>© Yem Digital</span
+            ><span>© RSSchool</span>
+          </div>
+          <div class="footer-socials">
+            <a href="#"><img src="../../assets/icons/YouTube.svg" alt="" /></a>
+            <a href="#"
+              ><img src="../../assets/icons/Instagram.svg" alt=""
+            /></a>
+            <a href="#"><img src="../../assets/icons/Facebook.svg" alt="" /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
