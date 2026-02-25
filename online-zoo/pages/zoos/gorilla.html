@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online-zoo - Gorilla</title>
+    <link
+      rel="shortcut icon"
+      href="../../assets/icons/Favicon.svg"
+      type="image/x-icon"
+   >
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="./style.css">
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800&display=swap"
+      rel="stylesheet"
+   >
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="left-side">
+          <a href="../landing/index.html"
+            ><img src="../../assets/images/Logo.svg" alt="logo"
+         ></a>
+        </div>
+        <div class="right-side">
+          <nav>
+            <ul>
+              <li><a href="../landing/index.html">ABOUT</a></li>
+              <li><a href="../map/index.html">MAP</a></li>
+              <li><a href="eagles.html" class="active">ZOOS</a></li>
+              <li><a href="../contact/index.html">CONTACT US</a></li>
+              <li><a href="#design">DESIGN</a></li>
+            </ul>
+          </nav>
+          <div class="social-icons">
+            <a
+              href="https://www.youtube.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img src="../../assets/icons/YouTube.svg" alt=""
+           ></a>
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img src="../../assets/icons/Instagram.svg" alt=""
+           ></a>
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img src="../../assets/icons/Facebook.svg" alt=""
+           ></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="zoos-bg">
+      <div class="zoos-main-container">
+        <aside class="side-panel" id="sidePanel">
+          <div class="side-header">
+            <div class="live-badge">
+              LIVE <img src="../../assets/icons/cam.svg" alt="cam icon">
+            </div>
+            <button class="toggle-btn" id="toggleBtn">
+              <img
+                src="../../assets/icons/arrows-right.svg"
+                alt=""
+                id="toggleIcon"
+             >
+            </button>
+          </div>
+          <nav class="animal-nav">
+            <ul class="animal-list">
+              <li class="animal-item active">
+                <a href="gorilla.html ">
+                  <div class="icon-circle">
+                    <img
+                      src="../../assets/images/map/animals/Gorilla.svg"
+                      alt=""
+                   >
+                  </div>
+                </a>
+              </li>
+              <li class="animal-item">
+                <a href="lemur.html">
+                  <div class="icon-circle">
+                    <img
+                      src="../../assets/images/map/animals/Lemur.svg"
+                      alt=""
+                   >
+                  </div>
+                </a>
+              </li>
+              <li class="animal-item">
+                <a href="panda.html">
+                  <div class="icon-circle">
+                    <img
+                      src="../../assets/images/map/animals/Panda.svg"
+                      alt=""
+                   >
+                  </div>
+                </a>
+              </li>
+              <li class="animal-item">
+                <a href="eagle.html">
+                  <div class="icon-circle">
+                    <img
+                      src="../../assets/images/map/animals/Eagle.svg"
+                      alt=""
+                   >
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="animal-nav-bottom">
+            <img src="../../assets/icons/arrow-down.svg" alt="">
+          </div>
+        </aside>
+        <!-- <aside class="side-panel side-panel-hidden" id="sidePanel">
+          <div class="side-header side-header-hidden">
+            <div class="live-badge">
+              LIVE <img src="../../assets/icons/cam.svg" alt="cam icon">
+            </div>
+            <button class="toggle-btn" id="toggleBtn">
+              <img
+                src="../../assets/icons/arrows-left.svg"
+                alt=""
+                id="toggleIcon"
+             >
+            </button>
+          </div>
+          <nav class="animal-nav">
+            <ul class="animal-list">
+              <li class="animal-item active">
+                <div class="animal-content">
+                  <a href="eagles.html">
+                    <img src="../../assets/images/animals/eagles.svg" alt="">
+                  </a>
+                  <div class="animal-desc">
+                    <p>Watch live from China's eagles Center</p>
+                  </div>
+                </div>
+              </li>
+              <li class="animal-item">
+                <div class="animal-content">
+                  <a href="eagle.html">
+                    <img src="../../assets/images/animals/Eagle.svg" alt="">
+                  </a>
+                  <div class="animal-desc">
+                    <p>Watch The Bald Eagles Nest from West End cam</p>
+                  </div>
+                </div>
+              </li>
+              <li class="animal-item">
+                <div class="animal-content">
+                  <a href="gorilla.html">
+                    <img src="../../assets/images/animals/Gorilla.svg" alt="">
+                  </a>
+                  <div class="animal-desc">
+                    <p>Livestream from Gorilla Forest Corridor habitat cam</p>
+                  </div>
+                </div>
+              </li>
+              <li class="animal-item">
+                <div class="animal-content">
+                  <a href="lemur.html">
+                    <img src="../../assets/images/animals/Lemur.svg" alt="">
+                  </a>
+                  <div class="animal-desc">
+                    <p>
+                      The ring-tailed lemurs play in Madagascar, Lemuria Land
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <div class="animal-nav-bottom cursor">
+            <img src="../../assets/icons/arrow-down.svg" alt="">
+          </div>
+        </aside> -->
+
+        <div class="video-content container">
+          <div class="video-header">
+            <h1 class="zoos-title">gorillas cams</h1>
+            <button class="btn-orange btn">
+              DONATE NOW <img src="../../assets/icons/Union.svg" alt="">
+            </button>
+          </div>
+
+          <div class="video-main-wrapper">
+            <img
+              src="../../assets/images/gorilla-background.jpg"
+              alt=""
+              class="video-bg-img"
+           >
+            <div class="video-player-overlay">
+              <h3 class="video-title-overlay">
+                Glen, Western lowland gorilla cam 1
+              </h3>
+              <button class="play-btn-center">
+                <img src="../../assets/icons/play-button.svg" alt="">
+              </button>
+              <img
+                class="video-watermark"
+                src="../../assets/images/Logo2.svg"
+                alt=""
+             >
+              <div class="video-controls-bar">
+                <div class="video-timeline"></div>
+                <div class="controls-content">
+                  <div class="controls-left">
+                    <button class="ctrl-btn">
+                      <img src="../../assets/icons/ico-play.svg" alt="">
+                    </button>
+                    <button class="ctrl-btn">
+                      <img src="../../assets/icons/ico-next.svg" alt="">
+                    </button>
+                    <button class="ctrl-btn">
+                      <img src="../../assets/icons/ico-sound.svg" alt="">
+                    </button>
+                    <div class="live-status">
+                      <span class="live-dot"></span>
+                      <span class="live-text">LIVE</span>
+                    </div>
+                  </div>
+                  <div class="controls-right">
+                    <button class="ctrl-btn">
+                      <img src="../../assets/icons/ico-titles.svg" alt="">
+                    </button>
+                    <button class="ctrl-btn">
+                      <img src="../../assets/icons/ico-hd.svg" alt="">
+                    </button>
+                    <button class="ctrl-btn">
+                      <img src="../../assets/icons/ico-theater.svg" alt="">
+                    </button>
+                    <button class="ctrl-btn">
+                      <img src="../../assets/icons/ico-tv.svg" alt="">
+                    </button>
+                    <button class="ctrl-btn">
+                      <img src="../../assets/icons/ico-fullscreen.svg" alt="">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <section class="more-live">
+            <h3 class="sub-title">MORE LIVE VIEWS</h3>
+
+            <div class="more-live__slider-wrapper">
+              <button class="slider-btn slider-btn_left">
+                <img src="../../assets/icons/union-blue-left.svg" alt="prev">
+              </button>
+
+              <div class="more-live__carousel">
+                <div class="live-card live-card_active">
+                  <img
+                    src="../../assets/images/cam/gorilla-live.jpg"
+                    alt="eagles cam 1"
+                    class="live-card__img"
+                 >
+                  <div class="live-card__badge">
+                    CAM 1 <img src="../../assets/icons/cam.svg" alt="">
+                  </div>
+                  <button class="live-card__play">
+                    <img src="../../assets/icons/play-button.svg" alt="play">
+                  </button>
+                </div>
+
+                <div class="live-card">
+                  <img
+                    src="../../assets/images/cam/gorilla-live2.jpg"
+                    alt="eagles cam 2"
+                    class="live-card__img"
+                 >
+                  <div class="live-card__badge">
+                    CAM 2 <img src="../../assets/icons/cam.svg" alt="">
+                  </div>
+                  <button class="live-card__play">
+                    <img src="../../assets/icons/play-button.svg" alt="play">
+                  </button>
+                </div>
+                <div class="live-card">
+                  <img
+                    src="../../assets/images/cam/gorilla-live3.jpg"
+                    alt="eagles cam 3"
+                    class="live-card__img"
+                 >
+                  <div class="live-card__badge">
+                    CAM 3 <img src="../../assets/icons/cam.svg" alt="">
+                  </div>
+                  <button class="live-card__play">
+                    <img src="../../assets/icons/play-button.svg" alt="play">
+                  </button>
+                </div>
+              </div>
+
+              <button class="slider-btn slider-btn_right">
+                <img src="../../assets/icons/union-blue-right.svg" alt="next">
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+      <section class="donation-banner">
+        <div class="container">
+          <div class="left-side">
+            <h3>make a difference for the gorillas!</h3>
+            <p class="description">
+              It is our goal to ensure the conservation and restoration of the
+              gorilla population and their habitat in Central Africa. To do
+              this, we need your help! Bring your food charity straight to Glen
+              and his family.
+            </p>
+          </div>
+          <div class="right-side">
+            <p class="subheader">Quick Donate</p>
+            <div class="btn-container">
+              <p>$ Donation Amount</p>
+              <button class="btn-box">
+                <img src="../../assets/icons/Union.svg" alt="union">
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="facts">
+        <div class="container">
+          <div class="facts__intro">
+            <h2 class="facts__intro-title">DID YOU KNOW?</h2>
+            <p class="facts__intro-text">
+              In addition to having distinctive fingerprints like humans do,
+              gorillas also have unique nose prints. Gorillas are the largest of
+              the great apes, but the western lowland gorilla is the smallest of
+              the subspecies.
+            </p>
+          </div>
+
+          <div class="facts__main">
+            <div class="facts__info">
+              <ul class="facts__list">
+                <li><strong>Common name:</strong> Western lowland gorillas</li>
+                <li>
+                  <strong>Scientific name:</strong> Gorilla gorilla gorilla
+                </li>
+                <li><strong>Type:</strong> Mammals</li>
+                <li>
+                  <strong>Size:</strong> Standing height, four to six feet
+                </li>
+                <li><strong>Diet:</strong> Omnivore</li>
+                <li><strong>Habitat:</strong> Rainforests</li>
+                <li class="position">
+                  <strong>Range:</strong> Western Africa
+                  <a href="../map/index.html" class="view-map-link btn">
+                    VIEW MAP
+                    <img src="../../assets/icons/union-orange.svg" alt="">
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="facts__image">
+              <img
+                src="../../assets/images/map/animals/about-gorilla.jpg"
+                alt="gorilla"
+             >
+            </div>
+          </div>
+
+          <p class="facts__description">
+            Western lowland gorillas are the smallest of the four subspecies.
+            They live in thick tropical rainforests, where they find plenty of
+            food for their vegetarian diet. They eat roots, shoots, fruit, wild
+            celery, and tree bark and pulp. Gorillas can climb trees, but
+            they’re usually found on the ground in communities—known as troops.
+            Troops are led by one dominant, older adult male, often called a
+            silverback because of the swath of silver hair that adorns his
+            otherwise dark fur. Troops also include several other young males,
+            some females, and their offspring. The leader organizes troop
+            activities, such as eating, nesting in leaves, and moving about the
+            group's home range. Gorillas prefer traveling on all fours, pushing
+            themselves forward with their knuckles and soles of their feet.
+            Female gorillas give birth to one infant after a pregnancy of nearly
+            nine months. These infants ride on their mothers’ backs from the age
+            of four months through the first two or three years of their lives.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-logos">
+            <a href="../landing/index.html" class="logo"
+              ><img src="../../assets/images/Logo2.svg" alt=""
+           ></a>
+            <a href="#" class="logo-partnership"
+              ><img src="../../assets/images/Yem-Digital.svg" alt=""
+           ></a>
+            <a href="https://rs.school/" target="_blank" class="logo-rss"
+              ><img src="../../assets/images/rs_school_js-logo.svg" alt=""
+           ></a>
+          </div>
+          <nav class="footer-nav">
+            <ul>
+              <li><a href="../landing/index.html">ABOUT</a></li>
+              <li><a href="../map/index.html">MAP</a></li>
+              <li><a href="eagles.html" class="active">ZOOS</a></li>
+              <li><a href="../contact/index.html">CONTACT US</a></li>
+            </ul>
+          </nav>
+          <button class="btn btn-outline-white">
+            DONATE FOR VOLUNTEERS
+            <img src="../../assets/icons/Union.svg" alt="">
+          </button>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-info">
+          <div class="copyrights">
+            <span>© 2021 DinaK</span><span>© Yem Digital</span
+            ><span>© RSSchool</span>
+          </div>
+          <div class="footer-socials">
+            <a href="#"><img src="../../assets/icons/YouTube.svg" alt=""></a>
+            <a href="#"
+              ><img src="../../assets/icons/Instagram.svg" alt=""
+           ></a>
+            <a href="#"><img src="../../assets/icons/Facebook.svg" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
