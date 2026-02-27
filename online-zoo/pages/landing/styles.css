@@ -148,6 +148,10 @@
   border-radius: 5px;
 }
 
+.arrow-btn:hover {
+  background-color: var(--color-blue);
+}
+
 .pets {
   padding-bottom: 150px;
 }

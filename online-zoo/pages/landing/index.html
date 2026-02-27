@@ -73,6 +73,7 @@
               natural setting without leaving your home.
             </p>
             <button
+              id="heroViewBtn"
               class="btn btn-orange"
               data-hover-src="../../assets/icons/Union.svg"
             >
@@ -860,5 +861,264 @@
         </div>
       </div>
     </footer>
+    <div class="modal-overlay" id="donationModal">
+      <div class="modal-window">
+        <button class="modal-close" id="closeModal">
+          <img src="../../assets/icons/x-mark.svg" alt="close" />
+        </button>
+
+        <div class="modal-image">
+          <img
+            src="../../assets/images/donate-image.jpg"
+            alt="Together we care"
+          />
+        </div>
+
+        <div class="modal-content">
+          <h2 class="modal-title">TOGETHER WE CARE, <br />SAVE AND PROTECT!</h2>
+          <p class="modal-text">
+            Your most generous gift not only cares for countless animals, but it
+            also offers hope and a vital lifeline to the world’s most endangered
+            wildlife relying on us to survive.
+          </p>
+
+          <div class="donation-options">
+            <button class="donate-btn">$20</button>
+            <button class="donate-btn">$30</button>
+            <button class="donate-btn">$50</button>
+            <button class="donate-btn">$80</button>
+            <button class="donate-btn">$100</button>
+            <button class="donate-btn donate-btn_other">OTHER AMOUNT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="stepModal">
+      <div class="donation-modal">
+        <header class="donation-modal__header">
+          <h3 class="donation-modal__title">MAKE YOUR DONATION</h3>
+        </header>
+
+        <div class="donation-modal__body">
+          <!-- STEP 1 -->
+          <div class="donation-step" id="step1">
+            <h3
+              class="donation-modal__subtitle"
+              style="padding: 0; margin-bottom: 10px"
+            >
+              Donation Information:
+            </h3>
+            <hr class="divider" />
+
+            <label class="input-label"
+              ><span>*</span> Choose your donation amount:</label
+            >
+            <div class="amount-grid">
+              <button class="amount-btn active">$10</button>
+              <button class="amount-btn">$20</button>
+              <button class="amount-btn">$30</button>
+              <button class="amount-btn">$50</button>
+              <button class="amount-btn">$80</button>
+              <button class="amount-btn">$100</button>
+            </div>
+
+            <div class="other-amount-row">
+              <button class="btn-dark-turquoise">OTHER AMOUNT</button>
+              <input type="number" class="other-input" placeholder="" />
+            </div>
+
+            <div class="pet-select-row">
+              <button class="btn-light-turquoise">FOR SPECIAL PET</button>
+
+              <div class="custom-select-container">
+                <div class="select-box" id="selectBox">
+                  <span class="select-current">Choose your favourite</span>
+                  <div class="select-arrow-wrapper">
+                    <img
+                      src="../../assets/icons/arrow-down-black.svg"
+                      alt=""
+                      id="selectArrow"
+                    />
+                  </div>
+                </div>
+
+                <ul class="select-list select-hide" id="selectList">
+                  <li class="select-item">Lukas the Panda</li>
+                  <li class="select-item">Andy the Lemur</li>
+                  <li class="select-item">Glen the Gorilla</li>
+                  <li class="select-item">Mike the Alligator</li>
+                  <li class="select-item">Sam & Lora the eagles family</li>
+                  <li class="select-item">Liz the Koala</li>
+                  <li class="select-item">Shake the Lion</li>
+                  <li class="select-item">Senja the Tiger</li>
+                </ul>
+              </div>
+            </div>
+
+            <label class="recurring-label">
+              <input type="checkbox" />
+              <span class="checkbox-custom"></span>
+              Make this a monthly recurring gift
+            </label>
+
+            <div class="donation-modal__footer">
+              <div class="step-indicator">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+              <button class="btn-next" id="toStep2">
+                NEXT
+                <img src="../../assets/icons/Union.svg" alt="" />
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="donation-step d-none" id="step2">
+            <h3
+              class="donation-modal__subtitle"
+              style="padding: 0; margin-bottom: 10px"
+            >
+              Billing Information:
+            </h3>
+            <hr class="divider" />
+
+            <div class="forms-group">
+              <div class="form-group">
+                <label for="bill-name"><span>*</span> Your Name</label>
+                <input
+                  type="text"
+                  id="bill-name"
+                  placeholder="First and last name"
+                  required
+                />
+                <span class="error-message">Error message</span>
+              </div>
+
+              <div class="form-group">
+                <label for="bill-email"
+                  ><span>*</span> Your Email Address</label
+                >
+                <input
+                  type="email"
+                  id="bill-email"
+                  placeholder="Enter your email"
+                  required
+                />
+                <span class="error-message">Error message</span>
+              </div>
+            </div>
+
+            <p class="disclaimer-text">
+              You will receive emails from the Online Zoo, including updates and
+              news on the latest discoveries and translations. You can
+              unsubscribe at any time.
+            </p>
+
+            <div class="donation-modal__footer">
+              <div class="step-indicator">
+                <span class="dot active"></span>
+                <span class="dot active"></span>
+                <span class="dot"></span>
+              </div>
+              <div class="footer-btns">
+                <button class="btn-back" id="backTo1">Back</button>
+                <button class="btn-next" id="toStep3">
+                  NEXT
+                  <img src="../../assets/icons/arrow-right-white.svg" alt="" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="donation-step d-none" id="step3">
+            <h3
+              class="donation-modal__subtitle"
+              style="padding: 0; margin-bottom: 10px"
+            >
+              Payment Information:
+            </h3>
+            <hr class="divider" />
+
+            <div class="payment-row">
+              <div class="form-group flex-grow">
+                <label for="card-num"><span>*</span> Credit Card Number</label>
+                <input type="text" id="card-num" required />
+                <span class="error-message">Error message</span>
+              </div>
+              <div class="form-group cvv-group">
+                <label for="cvv"><span>*</span> CVV Number</label>
+                <input type="password" id="cvv" maxlength="3" required />
+                <span class="error-message">Error message</span>
+              </div>
+            </div>
+
+            <div class="form-group form-date">
+              <label><span>*</span> Expiration Date</label>
+              <div class="expiration-row">
+                <div class="custom-select-container small-select">
+                  <div class="select-box" id="monthBox">
+                    <span class="select-current">Month</span>
+                    <div class="select-arrow-wrapper">
+                      <img
+                        src="../../assets/icons/arrow-down-black.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <ul class="select-list select-hide" id="monthList">
+                    <li class="select-item">01</li>
+                    <li class="select-item">02</li>
+                    <li class="select-item">03</li>
+                    <li class="select-item">04</li>
+                    <li class="select-item">05</li>
+                    <li class="select-item">06</li>
+                    <li class="select-item">07</li>
+                    <li class="select-item">08</li>
+                    <li class="select-item">09</li>
+                    <li class="select-item">10</li>
+                    <li class="select-item">11</li>
+                    <li class="select-item">12</li>
+                  </ul>
+                </div>
+                <div class="custom-select-container small-select">
+                  <div class="select-box" id="yearBox">
+                    <span class="select-current">Year</span>
+                    <div class="select-arrow-wrapper">
+                      <img
+                        src="../../assets/icons/arrow-down-black.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <ul class="select-list select-hide" id="yearList">
+                    <li class="select-item">2026</li>
+                    <li class="select-item">2027</li>
+                    <li class="select-item">2028</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="donation-modal__footer">
+              <div class="step-indicator">
+                <span class="dot active"></span>
+                <span class="dot active"></span>
+                <span class="dot active"></span>
+              </div>
+              <div class="footer-btns">
+                <button class="btn-back" id="backTo2">Back</button>
+                <button class="btn-complete" id="completeBtn">
+                  COMPLETE DONATION
+                  <img src="../../assets/icons/arrow-right-white.svg" alt="" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
