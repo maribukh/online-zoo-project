@@ -184,3 +184,11 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById('heroViewBtn')?.addEventListener('click', () => {
   window.location.href = '../zoos/panda.html';
 });
+
+const burgerBtn = document.getElementById('burgerBtn');
+const headerMenu = document.getElementById('headerMenu');
+
+burgerBtn?.addEventListener('click', () => {
+  headerMenu.classList.toggle('active');
+  burgerBtn.classList.toggle('open'); 
+});

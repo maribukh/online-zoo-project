@@ -20,7 +20,6 @@
   padding: 50px 0;
 }
 
-
 .btn-orange {
   background-color: var(--color-orange);
   color: var(--color-white);
@@ -74,6 +73,7 @@
 }
 
 .donation-banner h3 {
+  text-transform: uppercase;
   font-size: 42px;
   font-weight: 500;
 }
@@ -659,4 +659,220 @@
   width: 100%;
   display: block;
   object-fit: cover;
+}
+
+/* Responsive */
+
+@media (max-width: 1200px) {
+  #pets-grid {
+    gap: 20px !important;
+  }
+
+  .pets .container {
+    max-width: 1000px;
+  }
+
+  .pets .btn-fav {
+    margin-top: 50px;
+  }
+
+  .testimonials-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-info {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .testimonials-wrapper {
+    flex-direction: column;
+  }
+
+  .how-it-works {
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
+
+  .about-content {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 80px;
+  }
+
+  .about-content--reverse {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .about,
+  .about__image {
+    width: 46.66%;
+    max-width: 100%;
+  }
+
+  .about__image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .about h2 {
+    margin-top: 10px;
+    font-size: 48px;
+  }
+
+  .about .description {
+    margin-top: 25px;
+    font-size: 18px;
+  }
+
+  .donation-banner .container {
+    padding: 50px 0px !important;
+  }
+
+  .donation-banner .container .right-side {
+    width: 40%;
+  }
+
+  .pets-header .description {
+    width: 83%;
+    font-size: 26px;
+  }
+
+  .step-header {
+    gap: 63px !important;
+  }
+
+  .step-content {
+    text-align: center;
+  }
+
+  .step-body {
+    gap: 20px;
+    align-items: center;
+  }
+
+  .pay-footer {
+    position: absolute;
+  }
+
+  .testimonials-content {
+    top: 400px;
+  }
+
+  .testimonials-nav {
+    justify-content: flex-end;
+    margin-right: 41px;
+  }
+
+  .care-header {
+    width: 66% !important;
+  }
+
+  .care-header .description {
+    font-size: 26px;
+  }
+  .care-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+  }
+
+  .care-item--large {
+    grid-column: span 2;
+    height: auto;
+  }
+
+  .care-item--large img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+  }
+
+  .care-item {
+    width: 100%;
+  }
+
+  .care-img-wrapper {
+    height: 350px;
+  }
+
+  .care-content p {
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  .care-animals {
+    padding: 0px 0px;
+  }
+
+  .video-promo .container {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 940px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-content--reverse {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .step-body {
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .step-content {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero .description {
+    max-width: 100%;
+  }
+
+  #pets-grid {
+    grid-auto-columns: 100%;
+  }
+
+  .pet-card {
+    width: 100%;
+  }
+
+  .care-grid {
+    grid-template-columns: 1fr; 
+  }
+
+  .care-item--large {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 320px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .btn {
+    padding: 15px 20px;
+    width: 100%;
+  }
+
+  .testimonials-nav {
+    justify-content: center;
+  }
 }
