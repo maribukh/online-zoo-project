@@ -14,21 +14,21 @@
   z-index: 100;
 }
 
-.side-panel-hidden {
+.side-panel--large {
   width: 300px;
   height: 946px;
 }
 
-.side-panel-hidden .animal-list img {
+.side-panel--large .animal-list img {
   width: 100%;
 }
 
-.side-panel-hidden .animal-item a {
+.side-panel--large .animal-item a {
   width: 66px;
   padding: 0 0;
 }
 
-.side-panel-hidden .animal-content {
+.side-panel--large .animal-content {
   padding: 51px 17px 51px 27px;
   display: flex;
   align-items: center;
@@ -139,6 +139,22 @@
 .side-panel.collapsed .animal-info {
   opacity: 0;
   visibility: hidden;
+}
+
+
+
+.side-panel--small {
+  transform: translateX(0);
+  z-index: 2;
+}
+
+.side-panel--large {
+  transform: translateX(-100%);
+  z-index: 1000;
+}
+
+.side-panel--large.active {
+  transform: translateX(0);
 }
 
 .video-content {

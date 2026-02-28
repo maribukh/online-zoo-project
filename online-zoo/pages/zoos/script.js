@@ -1,23 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const sidePanel = document.getElementById('sidePanel');
-  const toggleBtn = document.getElementById('toggleBtn');
-  const toggleIcon = document.getElementById('toggleIcon');
+  const panelSmall = document.getElementById('panelSmall');
+  const panelLarge = document.getElementById('panelLarge');
+  const openBtn = document.querySelector('.toggle-open');
+  const closeBtn = document.querySelector('.toggle-close');
 
-  toggleBtn?.addEventListener('click', () => {
-    sidePanel.classList.toggle('collapsed');
-    if (toggleIcon) {
-      toggleIcon.style.transform = sidePanel.classList.contains('collapsed')
-        ? 'rotate(180deg)'
-        : 'rotate(0deg)';
-    }
+  openBtn?.addEventListener('click', () => {
+    panelLarge?.classList.add('active');
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    panelLarge?.classList.remove('active');
   });
 
   const modal1 = document.getElementById('donationModal');
   const modal2 = document.getElementById('stepModal');
+  const otherBtn = document.querySelector('.donate-btn_other');
   const donateButtons = document.querySelectorAll(
     '.btn-orange, .btn-outline-white, .btn-fav, .feed-link, .btn-box',
   );
-  const otherAmountBtn = document.querySelector('.donate-btn_other');
 
   donateButtons.forEach((btn) => {
     btn.addEventListener('click', (e) => {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  otherAmountBtn?.addEventListener('click', () => {
+  otherBtn?.addEventListener('click', () => {
     modal1?.classList.remove('open');
     modal2?.classList.add('open');
   });
@@ -69,43 +69,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('toStep2')?.addEventListener('click', () => {
     if (validateStep(steps[0])) {
-      steps[0].classList.add('d-none');
-      steps[1].classList.remove('d-none');
+      steps[0]?.classList.add('d-none');
+      steps[1]?.classList.remove('d-none');
     }
   });
 
   document.getElementById('toStep3')?.addEventListener('click', () => {
     if (validateStep(steps[1])) {
-      steps[1].classList.add('d-none');
-      steps[2].classList.remove('d-none');
+      steps[1]?.classList.add('d-none');
+      steps[2]?.classList.remove('d-none');
     }
   });
 
-  document.getElementById('completeBtn')?.addEventListener('click', () => {
-    if (validateStep(steps[2])) {
-      alert('Thank you for your donation!');
-      closeModal();
-      setTimeout(() => {
-        steps[2].classList.add('d-none');
-        steps[0].classList.remove('d-none');
-        document
-          .querySelectorAll('.donation-modal input')
-          .forEach((i) => (i.value = ''));
-      }, 500);
-    }
-  });
+  document
+    .getElementById('completeBtn')
+    ?.addEventListener('click', function () {
+      if (validateStep(steps[2])) {
+        const originalText = this.innerHTML;
+        this.innerHTML = 'SUCCESS! ❤️';
+        setTimeout(() => {
+          closeModal();
+          setTimeout(() => {
+            steps[2]?.classList.add('d-none');
+            steps[1]?.classList.add('d-none');
+            steps[0]?.classList.remove('d-none');
+            this.innerHTML = originalText;
+            document
+              .querySelectorAll('.donation-modal input')
+              .forEach((i) => (i.value = ''));
+          }, 500);
+        }, 1500);
+      }
+    });
 
   document.getElementById('backTo1')?.addEventListener('click', () => {
-    steps[1].classList.add('d-none');
-    steps[0].classList.remove('d-none');
+    steps[1]?.classList.add('d-none');
+    steps[0]?.classList.remove('d-none');
   });
 
   document.getElementById('backTo2')?.addEventListener('click', () => {
-    steps[2].classList.add('d-none');
-    steps[1].classList.remove('d-none');
+    steps[2]?.classList.add('d-none');
+    steps[1]?.classList.remove('d-none');
   });
 
-  const setupDropdown = (container) => {
+  document.querySelectorAll('.custom-select-container').forEach((container) => {
     const box = container.querySelector('.select-box');
     const list = container.querySelector('.select-list');
     const currentText = container.querySelector('.select-current');
@@ -115,11 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const isActive = container.classList.contains('active');
       document.querySelectorAll('.custom-select-container').forEach((c) => {
         c.classList.remove('active');
-        c.querySelector('.select-list').classList.add('select-hide');
+        c.querySelector('.select-list')?.classList.add('select-hide');
       });
       if (!isActive) {
         container.classList.add('active');
-        list.classList.remove('select-hide');
+        list?.classList.remove('select-hide');
       }
     });
 
@@ -135,18 +142,21 @@ document.addEventListener('DOMContentLoaded', () => {
         container.classList.remove('active');
       });
     });
-  };
-
-  document.querySelectorAll('.custom-select-container').forEach(setupDropdown);
-
-  document.querySelectorAll('input[required]').forEach((input) => {
-    input.addEventListener('blur', () => {
-      input.parentElement.classList.toggle('error', !input.validity.valid);
-    });
-    input.addEventListener('input', () => {
-      if (input.validity.valid) input.parentElement.classList.remove('error');
-    });
   });
+
+  document
+    .querySelectorAll('input[required], textarea[required]')
+    .forEach((input) => {
+      input.addEventListener('blur', () => {
+        input.parentElement.classList.toggle('error', !input.validity.valid);
+      });
+
+      input.addEventListener('input', () => {
+        if (input.validity.valid) {
+          input.parentElement.classList.remove('error');
+        }
+      });
+    });
 
   document.addEventListener('click', (e) => {
     if (e.target.classList.contains('modal-overlay')) {
@@ -160,3 +170,4 @@ document.addEventListener('DOMContentLoaded', () => {
       .forEach((c) => c.classList.remove('active'));
   });
 });
+
