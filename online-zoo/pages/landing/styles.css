@@ -534,7 +534,7 @@
 }
 
 .testimonials-pagination {
-  display: none; 
+  display: none;
   justify-content: center;
   gap: 15px;
   margin: 30px 0;
@@ -998,6 +998,7 @@
   .about-content--reverse {
     align-items: flex-end;
   }
+
 }
 
 @media (max-width: 640px) {
@@ -1483,5 +1484,17 @@
 
   .testimonials-info button {
     display: none;
+  }
+
+  .modal-title {
+    font-size: 20px;
+  }
+
+  .donation-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .modal-image img {
+    height: 150px;
   }
 }
