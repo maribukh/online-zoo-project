@@ -19,52 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', closeMobileMenu);
   });
 
-  const grid = document.getElementById('pets-grid');
-  const btnPrev = document.querySelector('.btn-prev');
-  const btnNext = document.querySelector('.btn-next');
-
-  if (grid && btnPrev && btnNext) {
-    let currentOffset = 0;
-    const updateSlider = () => {
-      const firstCard = grid.querySelector('.pet-card');
-      if (!firstCard) return { step: 0, maxOffset: 0 };
-      const cardWidth = firstCard.offsetWidth;
-      const gap = parseInt(window.getComputedStyle(grid).gap) || 0;
-      const step = cardWidth + gap;
-      const cards = grid.querySelectorAll('.pet-card');
-      const isMobile = window.innerWidth <= 940;
-      const totalSteps = isMobile ? cards.length : Math.ceil(cards.length / 2);
-      const visibleSteps = isMobile ? 2 : 3;
-      const maxOffset = (totalSteps - visibleSteps) * step;
-      return { step, maxOffset };
-    };
-
-    btnNext.addEventListener('click', () => {
-      const { step, maxOffset } = updateSlider();
-      currentOffset = currentOffset < maxOffset ? currentOffset + step : 0;
-      grid.style.transform = `translateX(-${currentOffset}px)`;
-    });
-
-    btnPrev.addEventListener('click', () => {
-      const { step, maxOffset } = updateSlider();
-      currentOffset = currentOffset > 0 ? currentOffset - step : maxOffset;
-      grid.style.transform = `translateX(-${currentOffset}px)`;
-    });
-
-    window.addEventListener('resize', () => {
-      currentOffset = 0;
-      grid.style.transform = `translateX(0px)`;
-    });
-  }
-
-  document.querySelectorAll('[data-hover-src]').forEach((button) => {
+  const hoverButtons = document.querySelectorAll('[data-hover-src]');
+  hoverButtons.forEach((button) => {
     const icon = button.querySelector('img');
     if (!icon) return;
     const defaultSrc = icon.src;
-    button.addEventListener(
-      'mouseenter',
-      () => (icon.src = button.dataset.hoverSrc),
-    );
+    const hoverSrc = button.dataset.hoverSrc;
+    button.addEventListener('mouseenter', () => (icon.src = hoverSrc));
     button.addEventListener('mouseleave', () => (icon.src = defaultSrc));
   });
 
@@ -115,7 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const validateStep = (stepElement) => {
     if (!stepElement) return true;
-    const inputs = stepElement.querySelectorAll('input[required]');
+    const inputs = stepElement.querySelectorAll(
+      'input[required], textarea[required]',
+    );
     let isValid = true;
     inputs.forEach((input) => {
       const parent = input.parentElement;
@@ -174,15 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
     steps[1].classList.remove('d-none');
   });
 
-  document.querySelectorAll('.amount-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      document
-        .querySelectorAll('.amount-btn')
-        .forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
-
   const setupDropdown = (container) => {
     const box = container.querySelector('.select-box');
     const list = container.querySelector('.select-list');
@@ -216,16 +170,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.custom-select-container').forEach(setupDropdown);
 
-  document
-    .querySelectorAll('input[required], textarea[required]')
-    .forEach((input) => {
-      input.addEventListener('blur', () =>
-        input.parentElement.classList.toggle('error', !input.validity.valid),
-      );
-      input.addEventListener('input', () => {
-        if (input.validity.valid) input.parentElement.classList.remove('error');
-      });
+  const allInputs = document.querySelectorAll(
+    'input[required], textarea[required]',
+  );
+  allInputs.forEach((input) => {
+    input.addEventListener('blur', () => {
+      if (!input.validity.valid) {
+        input.parentElement.classList.add('error');
+      } else {
+        input.parentElement.classList.remove('error');
+      }
     });
+
+    input.addEventListener('input', () => {
+      if (input.validity.valid) {
+        input.parentElement.classList.remove('error');
+      }
+    });
+  });
+
+  const forms = document.querySelectorAll('.contact-form, .donation-modal');
+  forms.forEach((form) => {
+    form.addEventListener('submit', (e) => {
+      let isFormValid = true;
+      const inputs = form.querySelectorAll(
+        'input[required], textarea[required]',
+      );
+      inputs.forEach((input) => {
+        if (!input.validity.valid) {
+          input.parentElement.classList.add('error');
+          isFormValid = false;
+        }
+      });
+      if (!isFormValid) {
+        e.preventDefault();
+      }
+    });
+  });
 
   document.addEventListener('click', () => {
     document
@@ -234,58 +215,5 @@ document.addEventListener('DOMContentLoaded', () => {
     document
       .querySelectorAll('.custom-select-container')
       .forEach((c) => c.classList.remove('active'));
-  });
-
-  document.getElementById('heroViewBtn')?.addEventListener('click', () => {
-    window.location.href = '../zoos/panda.html';
-  });
-
-  const testimonialGrid = document.querySelector('.testimonials-grid');
-  const tDots = document.querySelectorAll('.testimonials-pagination .dot');
-  const testBtnPrev = document.querySelector(
-    '.testimonials-nav button:first-child',
-  );
-  const testBtnNext = document.querySelector(
-    '.testimonials-nav button:last-child',
-  );
-
-  if (testimonialGrid) {
-    if (testBtnNext && testBtnPrev) {
-      let testOffset = 0;
-      testBtnNext.addEventListener('click', () => {
-        const step =
-          testimonialGrid.querySelector('.testimonial-card').offsetWidth + 20;
-        const max = testimonialGrid.scrollWidth - testimonialGrid.offsetWidth;
-        testOffset = testOffset < max ? testOffset + step : 0;
-        testimonialGrid.scrollTo({ left: testOffset, behavior: 'smooth' });
-      });
-      testBtnPrev.addEventListener('click', () => {
-        const step =
-          testimonialGrid.querySelector('.testimonial-card').offsetWidth + 20;
-        testOffset =
-          testOffset > 0 ? testOffset - step : testimonialGrid.scrollWidth;
-        testimonialGrid.scrollTo({ left: testOffset, behavior: 'smooth' });
-      });
-    }
-    tDots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        const step = testimonialGrid.offsetWidth;
-        testimonialGrid.scrollTo({ left: step * index, behavior: 'smooth' });
-        tDots.forEach((d) => d.classList.remove('active'));
-        dot.classList.add('active');
-      });
-    });
-  }
-
-  const careTrack = document.getElementById('careTrack640');
-  const careDots = document.querySelectorAll('.care-pagination .dot');
-  careDots.forEach((dot) => {
-    dot.addEventListener('click', () => {
-      const slideIndex = dot.getAttribute('data-slide');
-      if (careTrack)
-        careTrack.style.transform = `translateX(-${slideIndex * 100}%)`;
-      careDots.forEach((d) => d.classList.remove('active'));
-      dot.classList.add('active');
-    });
   });
 });
