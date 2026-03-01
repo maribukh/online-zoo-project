@@ -172,7 +172,7 @@
   }
 
   .contact-hero {
-    height: 217px;
+    height: 217px !important;
   }
 
   .contact-section {

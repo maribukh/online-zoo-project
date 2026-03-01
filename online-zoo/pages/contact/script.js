@@ -8,16 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('modal-open');
   });
 
-  closeBurger?.addEventListener('click', () => {
+  const closeMobileMenu = () => {
     headerMenu?.classList.remove('active');
     document.body.classList.remove('modal-open');
-  });
+  };
+
+  closeBurger?.addEventListener('click', closeMobileMenu);
 
   headerMenu?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      headerMenu.classList.remove('active');
-      document.body.classList.remove('modal-open');
-    });
+    link.addEventListener('click', closeMobileMenu);
   });
 
   const grid = document.getElementById('pets-grid');
@@ -26,32 +25,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (grid && btnPrev && btnNext) {
     let currentOffset = 0;
-    const cardWidth = 440;
-    const gap = 40;
-    const step = cardWidth + gap;
-    const cards = grid.querySelectorAll('.pet-card');
-    const totalColumns = Math.ceil(cards.length / 2);
-    const visibleColumns = 3;
-    const maxOffset = (totalColumns - visibleColumns) * step;
+    const updateSlider = () => {
+      const firstCard = grid.querySelector('.pet-card');
+      if (!firstCard) return { step: 0, maxOffset: 0 };
+      const cardWidth = firstCard.offsetWidth;
+      const gap = parseInt(window.getComputedStyle(grid).gap) || 0;
+      const step = cardWidth + gap;
+      const cards = grid.querySelectorAll('.pet-card');
+      const isMobile = window.innerWidth <= 940;
+      const totalSteps = isMobile ? cards.length : Math.ceil(cards.length / 2);
+      const visibleSteps = isMobile ? 2 : 3;
+      const maxOffset = (totalSteps - visibleSteps) * step;
+      return { step, maxOffset };
+    };
 
     btnNext.addEventListener('click', () => {
+      const { step, maxOffset } = updateSlider();
       currentOffset = currentOffset < maxOffset ? currentOffset + step : 0;
       grid.style.transform = `translateX(-${currentOffset}px)`;
     });
 
     btnPrev.addEventListener('click', () => {
+      const { step, maxOffset } = updateSlider();
       currentOffset = currentOffset > 0 ? currentOffset - step : maxOffset;
       grid.style.transform = `translateX(-${currentOffset}px)`;
     });
+
+    window.addEventListener('resize', () => {
+      currentOffset = 0;
+      grid.style.transform = `translateX(0px)`;
+    });
   }
 
-  const hoverButtons = document.querySelectorAll('[data-hover-src]');
-  hoverButtons.forEach((button) => {
+  document.querySelectorAll('[data-hover-src]').forEach((button) => {
     const icon = button.querySelector('img');
     if (!icon) return;
     const defaultSrc = icon.src;
-    const hoverSrc = button.dataset.hoverSrc;
-    button.addEventListener('mouseenter', () => (icon.src = hoverSrc));
+    button.addEventListener(
+      'mouseenter',
+      () => (icon.src = button.dataset.hoverSrc),
+    );
     button.addEventListener('mouseleave', () => (icon.src = defaultSrc));
   });
 
@@ -60,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeBtn1 = document.getElementById('closeModal');
   const closeBtn2 = document.getElementById('closeStepModal');
   const donateButtons = document.querySelectorAll(
-    '.btn-orange, .btn-outline-white, .btn-fav, .feed-link',
+    '.btn-orange:not(#heroViewBtn), .btn-outline-white, .btn-fav, .feed-link, .btn-box',
   );
   const otherAmountBtn = document.querySelector('.donate-btn_other');
 
@@ -72,60 +85,100 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  closeBtn1?.addEventListener('click', () => {
+  otherAmountBtn?.addEventListener('click', () => {
     modal1?.classList.remove('open');
-    document.body.classList.remove('modal-open');
+    modal2?.classList.add('open');
   });
 
-  if (otherAmountBtn && modal2) {
-    otherAmountBtn.addEventListener('click', () => {
-      modal1?.classList.remove('open');
-      modal2.classList.add('open');
-    });
-  }
-
-  closeBtn2?.addEventListener('click', () => {
-    modal2?.classList.remove('open');
+  const closeModal = () => {
+    document
+      .querySelectorAll('.modal-overlay')
+      .forEach((m) => m.classList.remove('open'));
     document.body.classList.remove('modal-open');
-  });
+  };
+
+  [closeBtn1, closeBtn2].forEach((btn) =>
+    btn?.addEventListener('click', closeModal),
+  );
 
   [modal1, modal2].forEach((m) => {
     m?.addEventListener('click', (e) => {
-      if (e.target === m) {
-        m.classList.remove('open');
-        document.body.classList.remove('modal-open');
-      }
+      if (e.target === m) closeModal();
     });
   });
 
-  const step1 = document.getElementById('step1');
-  const step2 = document.getElementById('step2');
-  const step3 = document.getElementById('step3');
+  const steps = [
+    document.getElementById('step1'),
+    document.getElementById('step2'),
+    document.getElementById('step3'),
+  ];
+
+  const validateStep = (stepElement) => {
+    if (!stepElement) return true;
+    const inputs = stepElement.querySelectorAll('input[required]');
+    let isValid = true;
+    inputs.forEach((input) => {
+      const parent = input.parentElement;
+      if (!input.validity.valid) {
+        parent.classList.add('error');
+        isValid = false;
+      } else {
+        parent.classList.remove('error');
+      }
+    });
+    return isValid;
+  };
 
   document.getElementById('toStep2')?.addEventListener('click', () => {
-    step1.classList.add('d-none');
-    step2.classList.remove('d-none');
+    if (validateStep(steps[0])) {
+      steps[0].classList.add('d-none');
+      steps[1].classList.remove('d-none');
+    }
   });
 
   document.getElementById('toStep3')?.addEventListener('click', () => {
-    step2.classList.add('d-none');
-    step3.classList.remove('d-none');
+    if (validateStep(steps[1])) {
+      steps[1].classList.add('d-none');
+      steps[2].classList.remove('d-none');
+    }
   });
 
+  document
+    .getElementById('completeBtn')
+    ?.addEventListener('click', function () {
+      if (validateStep(steps[2])) {
+        const originalText = this.innerHTML;
+        this.innerHTML = 'SUCCESS! ❤️';
+        setTimeout(() => {
+          closeModal();
+          setTimeout(() => {
+            steps[2].classList.add('d-none');
+            steps[1].classList.add('d-none');
+            steps[0].classList.remove('d-none');
+            this.innerHTML = originalText;
+            document
+              .querySelectorAll('.donation-modal input')
+              .forEach((i) => (i.value = ''));
+          }, 500);
+        }, 1500);
+      }
+    });
+
   document.getElementById('backTo1')?.addEventListener('click', () => {
-    step2.classList.add('d-none');
-    step1.classList.remove('d-none');
+    steps[1].classList.add('d-none');
+    steps[0].classList.remove('d-none');
   });
 
   document.getElementById('backTo2')?.addEventListener('click', () => {
-    step3.classList.add('d-none');
-    step2.classList.remove('d-none');
+    steps[2].classList.add('d-none');
+    steps[1].classList.remove('d-none');
   });
 
-  const amountBtns = document.querySelectorAll('.amount-btn');
-  amountBtns.forEach((btn) => {
+  document.querySelectorAll('.amount-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
-      amountBtns.forEach((b) => b.classList.remove('active'));
+      document
+        .querySelectorAll('.amount-btn')
+        .forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
     });
   });
@@ -134,25 +187,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const box = container.querySelector('.select-box');
     const list = container.querySelector('.select-list');
     const currentText = container.querySelector('.select-current');
-
     if (!box || !list) return;
-
     box.addEventListener('click', (e) => {
       e.stopPropagation();
       const isActive = container.classList.contains('active');
       document.querySelectorAll('.custom-select-container').forEach((c) => {
         c.classList.remove('active');
-        c.querySelector('.select-list').classList.add('select-hide');
+        c.querySelector('.select-list')?.classList.add('select-hide');
       });
       if (!isActive) {
         container.classList.add('active');
         list.classList.remove('select-hide');
       }
     });
-
     list.querySelectorAll('.select-item').forEach((item) => {
-      item.addEventListener('click', (e) => {
-        e.stopPropagation();
+      item.addEventListener('click', () => {
         currentText.innerText = item.innerText;
         currentText.style.color = '#000';
         list
@@ -167,48 +216,76 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.custom-select-container').forEach(setupDropdown);
 
-  document.addEventListener('click', (e) => {
-    document.querySelectorAll('.custom-select-container').forEach((c) => {
-      c.classList.remove('active');
-      c.querySelector('.select-list').classList.add('select-hide');
-    });
-  });
-
-  const allInputs = document.querySelectorAll(
-    'input[required], textarea[required]',
-  );
-  allInputs.forEach((input) => {
-    input.addEventListener('blur', () => {
-      if (!input.validity.valid) {
-        input.parentElement.classList.add('error');
-      } else {
-        input.parentElement.classList.remove('error');
-      }
-    });
-
-    input.addEventListener('input', () => {
-      if (input.validity.valid) {
-        input.parentElement.classList.remove('error');
-      }
-    });
-  });
-
-  const forms = document.querySelectorAll('.contact-form, .donation-modal');
-  forms.forEach((form) => {
-    form.addEventListener('submit', (e) => {
-      let isFormValid = true;
-      const inputs = form.querySelectorAll(
-        'input[required], textarea[required]',
+  document
+    .querySelectorAll('input[required], textarea[required]')
+    .forEach((input) => {
+      input.addEventListener('blur', () =>
+        input.parentElement.classList.toggle('error', !input.validity.valid),
       );
-      inputs.forEach((input) => {
-        if (!input.validity.valid) {
-          input.parentElement.classList.add('error');
-          isFormValid = false;
-        }
+      input.addEventListener('input', () => {
+        if (input.validity.valid) input.parentElement.classList.remove('error');
       });
-      if (!isFormValid) {
-        e.preventDefault();
-      }
+    });
+
+  document.addEventListener('click', () => {
+    document
+      .querySelectorAll('.select-list')
+      .forEach((l) => l.classList.add('select-hide'));
+    document
+      .querySelectorAll('.custom-select-container')
+      .forEach((c) => c.classList.remove('active'));
+  });
+
+  document.getElementById('heroViewBtn')?.addEventListener('click', () => {
+    window.location.href = '../zoos/panda.html';
+  });
+
+  const testimonialGrid = document.querySelector('.testimonials-grid');
+  const tDots = document.querySelectorAll('.testimonials-pagination .dot');
+  const testBtnPrev = document.querySelector(
+    '.testimonials-nav button:first-child',
+  );
+  const testBtnNext = document.querySelector(
+    '.testimonials-nav button:last-child',
+  );
+
+  if (testimonialGrid) {
+    if (testBtnNext && testBtnPrev) {
+      let testOffset = 0;
+      testBtnNext.addEventListener('click', () => {
+        const step =
+          testimonialGrid.querySelector('.testimonial-card').offsetWidth + 20;
+        const max = testimonialGrid.scrollWidth - testimonialGrid.offsetWidth;
+        testOffset = testOffset < max ? testOffset + step : 0;
+        testimonialGrid.scrollTo({ left: testOffset, behavior: 'smooth' });
+      });
+      testBtnPrev.addEventListener('click', () => {
+        const step =
+          testimonialGrid.querySelector('.testimonial-card').offsetWidth + 20;
+        testOffset =
+          testOffset > 0 ? testOffset - step : testimonialGrid.scrollWidth;
+        testimonialGrid.scrollTo({ left: testOffset, behavior: 'smooth' });
+      });
+    }
+    tDots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        const step = testimonialGrid.offsetWidth;
+        testimonialGrid.scrollTo({ left: step * index, behavior: 'smooth' });
+        tDots.forEach((d) => d.classList.remove('active'));
+        dot.classList.add('active');
+      });
+    });
+  }
+
+  const careTrack = document.getElementById('careTrack640');
+  const careDots = document.querySelectorAll('.care-pagination .dot');
+  careDots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const slideIndex = dot.getAttribute('data-slide');
+      if (careTrack)
+        careTrack.style.transform = `translateX(-${slideIndex * 100}%)`;
+      careDots.forEach((d) => d.classList.remove('active'));
+      dot.classList.add('active');
     });
   });
 });
