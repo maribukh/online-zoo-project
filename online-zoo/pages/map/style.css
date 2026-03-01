@@ -47,8 +47,6 @@
 .map-pin:hover,
 .map-pin:active {
   background-image: url('../../assets/images/map/tag-white.svg');
-  width: 100px;
-  height: 144px;
   filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.3));
 }
 
