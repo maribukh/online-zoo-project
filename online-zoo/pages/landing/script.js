@@ -41,14 +41,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const icon = button.querySelector('img');
     if (!icon) return;
     const defaultSrc = icon.src;
-    button.addEventListener('mouseenter', () => (icon.src = button.dataset.hoverSrc));
+    button.addEventListener(
+      'mouseenter',
+      () => (icon.src = button.dataset.hoverSrc),
+    );
     button.addEventListener('mouseleave', () => (icon.src = defaultSrc));
   });
 
   const modal1 = document.getElementById('donationModal');
   const modal2 = document.getElementById('stepModal');
   const otherBtn = document.querySelector('.donate-btn_other');
-  const donateButtons = document.querySelectorAll('.btn-orange, .btn-outline-white, .btn-fav, .feed-link, .btn-box');
+  const donateButtons = document.querySelectorAll(
+    '.btn-orange, .btn-outline-white, .btn-fav, .feed-link, .btn-box',
+  );
 
   donateButtons.forEach((btn) => {
     btn.addEventListener('click', (e) => {
@@ -64,13 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const closeModal = () => {
-    document.querySelectorAll('.modal-overlay').forEach((m) => m.classList.remove('open'));
+    document
+      .querySelectorAll('.modal-overlay')
+      .forEach((m) => m.classList.remove('open'));
     document.body.classList.remove('modal-open');
   };
 
-  document.querySelectorAll('.modal-close, #closeModal, #closeStepModal').forEach((btn) => {
-    btn.addEventListener('click', closeModal);
-  });
+  document
+    .querySelectorAll('.modal-close, #closeModal, #closeStepModal')
+    .forEach((btn) => {
+      btn.addEventListener('click', closeModal);
+    });
 
   const steps = [
     document.getElementById('step1'),
@@ -108,22 +117,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  document.getElementById('completeBtn')?.addEventListener('click', function () {
-    if (validateStep(steps[2])) {
-      const originalText = this.innerHTML;
-      this.innerHTML = 'SUCCESS! ❤️';
-      setTimeout(() => {
-        closeModal();
+  document
+    .getElementById('completeBtn')
+    ?.addEventListener('click', function () {
+      if (validateStep(steps[2])) {
+        const originalText = this.innerHTML;
+        this.innerHTML = 'SUCCESS! ❤️';
         setTimeout(() => {
-          steps[2].classList.add('d-none');
-          steps[1].classList.add('d-none');
-          steps[0].classList.remove('d-none');
-          this.innerHTML = originalText;
-          document.querySelectorAll('.donation-modal input').forEach((i) => (i.value = ''));
-        }, 500);
-      }, 1500);
-    }
-  });
+          closeModal();
+          setTimeout(() => {
+            steps[2].classList.add('d-none');
+            steps[1].classList.add('d-none');
+            steps[0].classList.remove('d-none');
+            this.innerHTML = originalText;
+            document
+              .querySelectorAll('.donation-modal input')
+              .forEach((i) => (i.value = ''));
+          }, 500);
+        }, 1500);
+      }
+    });
 
   document.getElementById('backTo1')?.addEventListener('click', () => {
     steps[1].classList.add('d-none');
@@ -157,7 +170,9 @@ document.addEventListener('DOMContentLoaded', () => {
       item.addEventListener('click', () => {
         currentText.innerText = item.innerText;
         currentText.style.color = '#000';
-        list.querySelectorAll('.select-item').forEach((i) => i.classList.remove('selected'));
+        list
+          .querySelectorAll('.select-item')
+          .forEach((i) => i.classList.remove('selected'));
         item.classList.add('selected');
         list.classList.add('select-hide');
         container.classList.remove('active');
@@ -165,21 +180,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  document.querySelectorAll('input[required], textarea[required]').forEach((input) => {
-    input.addEventListener('blur', () => {
-      input.parentElement.classList.toggle('error', !input.validity.valid);
+  document
+    .querySelectorAll('input[required], textarea[required]')
+    .forEach((input) => {
+      input.addEventListener('blur', () => {
+        input.parentElement.classList.toggle('error', !input.validity.valid);
+      });
+      input.addEventListener('input', () => {
+        if (input.validity.valid) input.parentElement.classList.remove('error');
+      });
     });
-    input.addEventListener('input', () => {
-      if (input.validity.valid) input.parentElement.classList.remove('error');
-    });
-  });
 
   document.addEventListener('click', (e) => {
     if (e.target.classList.contains('modal-overlay')) {
       closeModal();
     }
-    document.querySelectorAll('.select-list').forEach((l) => l.classList.add('select-hide'));
-    document.querySelectorAll('.custom-select-container').forEach((c) => c.classList.remove('active'));
+    document
+      .querySelectorAll('.select-list')
+      .forEach((l) => l.classList.add('select-hide'));
+    document
+      .querySelectorAll('.custom-select-container')
+      .forEach((c) => c.classList.remove('active'));
   });
 
   document.getElementById('heroViewBtn')?.addEventListener('click', () => {
@@ -194,9 +215,9 @@ document.addEventListener('DOMContentLoaded', () => {
     headerMenu.classList.toggle('active');
     burgerBtn.classList.toggle('open');
     if (headerMenu.classList.contains('active')) {
-        document.body.classList.add('modal-open');
+      document.body.classList.add('modal-open');
     } else {
-        document.body.classList.remove('modal-open');
+      document.body.classList.remove('modal-open');
     }
   });
 
@@ -207,8 +228,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const testimonialGrid = document.querySelector('.testimonials-grid');
-  const testBtnPrev = document.querySelector('.testimonials-nav button:first-child');
-  const testBtnNext = document.querySelector('.testimonials-nav button:last-child');
+  const testBtnPrev = document.querySelector(
+    '.testimonials-nav button:first-child',
+  );
+  const testBtnNext = document.querySelector(
+    '.testimonials-nav button:last-child',
+  );
 
   if (testimonialGrid && testBtnPrev && testBtnNext) {
     let testOffset = 0;
@@ -223,7 +248,8 @@ document.addEventListener('DOMContentLoaded', () => {
     testBtnPrev.addEventListener('click', () => {
       const card = testimonialGrid.querySelector('.testimonial-card');
       const stepWidth = card.offsetWidth + 20;
-      testOffset = testOffset > 0 ? testOffset - stepWidth : testimonialGrid.scrollWidth;
+      testOffset =
+        testOffset > 0 ? testOffset - stepWidth : testimonialGrid.scrollWidth;
       testimonialGrid.scrollTo({ left: testOffset, behavior: 'smooth' });
     });
   }
@@ -240,5 +266,22 @@ document.addEventListener('DOMContentLoaded', () => {
       careDots.forEach((d) => d.classList.remove('active'));
       dot.classList.add('active');
     });
+  });
+});
+
+const tDots = document.querySelectorAll('.testimonials-pagination .dot');
+const tGrid = document.querySelector('.testimonials-grid');
+
+tDots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    if (tGrid) {
+      const step = tGrid.offsetWidth;
+      tGrid.scrollTo({
+        left: step * index,
+        behavior: 'smooth',
+      });
+    }
+    tDots.forEach((d) => d.classList.remove('active'));
+    dot.classList.add('active');
   });
 });

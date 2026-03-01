@@ -533,6 +533,27 @@
   border: 1px solid white;
 }
 
+.testimonials-pagination {
+  display: none; 
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.testimonials-pagination .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--color-white);
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.testimonials-pagination .dot.active {
+  background-color: var(--color-white);
+}
+
 .btn-feedback {
   display: flex;
   justify-content: center;
@@ -1277,16 +1298,190 @@
 }
 
 @media (max-width: 320px) {
-  .hero h1 {
-    font-size: 28px;
+  .container {
+    max-width: 300px !important;
+  }
+  .bg-img1 {
+    display: none;
   }
 
-  .btn {
-    padding: 15px 20px;
+  .hero-mobile {
+    display: block !important;
+  }
+
+  .hero-mobile .bg-mobile {
     width: 100%;
   }
 
+  .btn-orange,
+  .care-footer .btn-fav,
+  .pets .btn-fav {
+    width: 100% !important;
+    padding: 11px;
+  }
+
+  .pay-footer {
+    position: relative !important;
+    transform: none;
+  }
+
+  .hero {
+    padding: 30px 0 60px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+    line-height: 110%;
+  }
+
+  .hero .description {
+    font-size: 14px;
+    padding: 15px 0;
+  }
+
+  .bg-img1 {
+    background-position: 65% top;
+    min-height: 340px;
+  }
+
+  .how-it-works {
+    padding: 40px 0;
+  }
+
+  .about h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .about .description {
+    font-size: 16px;
+  }
+
+  .donation-banner h3 {
+    font-size: 24px;
+  }
+
+  .btn-container {
+    min-width: 100%;
+  }
+
+  .pets {
+    padding-bottom: 60px;
+  }
+
+  .pets-header h2 {
+    font-size: 24px;
+  }
+
+  #pets-grid {
+    grid-auto-columns: 100%;
+  }
+
+  .pet-card__image-wrapper {
+    height: 300px;
+  }
+
+  .btn-fav {
+    margin-top: 30px;
+    font-size: 16px;
+  }
+
+  .pay-and-feed .second-title {
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
+
+  .pay-and-feed {
+    padding-bottom: 50px;
+  }
+
+  .step-header {
+    margin-bottom: 20px;
+  }
+
+  .step-body {
+    margin-bottom: 40px;
+  }
+
+  .step-title {
+    font-size: 20px;
+  }
+
+  .testimonial-card .content {
+    padding-top: 50px;
+  }
+
+  .testimonials-info .second-title {
+    font-size: 24px;
+  }
+
+  .testimonial-card {
+    min-width: 100%;
+    padding: 20px;
+  }
+
+  .testimonial-city {
+    font-size: 26px !important;
+  }
+
+  .testimonial-header img {
+    position: absolute;
+    left: 0px;
+    top: -50px;
+  }
+
   .testimonials-nav {
-    justify-content: center;
+    display: none;
+  }
+
+  .testimonials-pagination {
+    display: flex !important;
+  }
+
+  .care-header h2 {
+    font-size: 24px;
+  }
+
+  .care-item--mobile {
+    flex-direction: column !important;
+    height: auto;
+  }
+
+  .care-img-wrapper,
+  .care-content {
+    width: 100%;
+  }
+
+  .care-img-wrapper {
+    height: 200px;
+  }
+
+  .care-content {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .care-content p {
+    text-align: center;
+  }
+
+  .video-promo {
+    padding: 40px 0;
+  }
+
+  .step-image img {
+    width: 100%;
+  }
+
+  .testimonials-wrapper {
+    gap: 0;
+  }
+
+  .testimonials {
+    padding-bottom: 400px;
+  }
+
+  .testimonials-info button {
+    display: none;
   }
 }
