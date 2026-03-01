@@ -142,3 +142,45 @@
   transform: translateY(2px);
 }
 
+@media (max-width: 1200px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-info {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .contact-title {
+    font-size: 48px;
+    margin-bottom: 30px;
+  }
+
+  .contact-form {
+    max-width: 100%;
+    width: 770px;
+  }
+}
+
+@media (max-width: 320px) {
+  .contact-form {
+    width: 95%;
+    margin: auto;
+  }
+
+  .contact-hero {
+    height: 217px;
+  }
+
+  .contact-section {
+    padding: 30px 0px;
+  }
+
+  .contact-form .btn-send {
+    width: 100%;
+    padding: 16px 0px;
+  }
+}

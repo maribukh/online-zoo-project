@@ -1,4 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const burgerBtn = document.getElementById('burgerBtn');
+  const headerMenu = document.getElementById('headerMenu');
+  const closeBurger = document.getElementById('closeBurger');
+
+  burgerBtn?.addEventListener('click', () => {
+    headerMenu?.classList.add('active');
+    document.body.classList.add('modal-open');
+  });
+
+  closeBurger?.addEventListener('click', () => {
+    headerMenu?.classList.remove('active');
+    document.body.classList.remove('modal-open');
+  });
+
+  headerMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      headerMenu.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    });
+  });
+
   const panelSmall = document.getElementById('panelSmall');
   const panelLarge = document.getElementById('panelLarge');
   const openBtn = document.querySelector('.toggle-open');
@@ -161,6 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', (e) => {
     if (e.target.classList.contains('modal-overlay')) {
       closeModal();
+      headerMenu?.classList.remove('active');
     }
     document
       .querySelectorAll('.select-list')
@@ -170,4 +192,3 @@ document.addEventListener('DOMContentLoaded', () => {
       .forEach((c) => c.classList.remove('active'));
   });
 });
-

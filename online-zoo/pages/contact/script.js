@@ -1,4 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const burgerBtn = document.getElementById('burgerBtn');
+  const headerMenu = document.getElementById('headerMenu');
+  const closeBurger = document.getElementById('closeBurger');
+
+  burgerBtn?.addEventListener('click', () => {
+    headerMenu?.classList.add('active');
+    document.body.classList.add('modal-open');
+  });
+
+  closeBurger?.addEventListener('click', () => {
+    headerMenu?.classList.remove('active');
+    document.body.classList.remove('modal-open');
+  });
+
+  headerMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      headerMenu.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    });
+  });
+
   const grid = document.getElementById('pets-grid');
   const btnPrev = document.querySelector('.btn-prev');
   const btnNext = document.querySelector('.btn-next');
@@ -146,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.custom-select-container').forEach(setupDropdown);
 
-  document.addEventListener('click', () => {
+  document.addEventListener('click', (e) => {
     document.querySelectorAll('.custom-select-container').forEach((c) => {
       c.classList.remove('active');
       c.querySelector('.select-list').classList.add('select-hide');

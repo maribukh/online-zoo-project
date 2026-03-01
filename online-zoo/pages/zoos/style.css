@@ -767,4 +767,8 @@
     width: 40px;
     height: 18px;
   }
+
+  .btn-bottom {
+    display: block !important;
+  }
 }
