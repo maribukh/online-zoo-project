@@ -41,19 +41,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const icon = button.querySelector('img');
     if (!icon) return;
     const defaultSrc = icon.src;
-    button.addEventListener(
-      'mouseenter',
-      () => (icon.src = button.dataset.hoverSrc),
-    );
+    const hoverSrc = button.dataset.hoverSrc;
+    button.addEventListener('mouseenter', () => (icon.src = hoverSrc));
     button.addEventListener('mouseleave', () => (icon.src = defaultSrc));
   });
 
   const modal1 = document.getElementById('donationModal');
   const modal2 = document.getElementById('stepModal');
-  const otherBtn = document.querySelector('.donate-btn_other');
+  const closeBtn1 = document.getElementById('closeModal');
+  const closeBtn2 = document.getElementById('closeStepModal');
+
   const donateButtons = document.querySelectorAll(
-    '.btn-orange, .btn-outline-white, .btn-fav, .feed-link, .btn-box',
+    '.btn-orange:not(#heroViewBtn), .btn-outline-white, .btn-fav, .feed-link, .btn-box',
   );
+
+  const otherAmountBtn = document.querySelector('.donate-btn_other');
 
   donateButtons.forEach((btn) => {
     btn.addEventListener('click', (e) => {
@@ -63,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  otherBtn?.addEventListener('click', () => {
+  otherAmountBtn?.addEventListener('click', () => {
     modal1?.classList.remove('open');
     modal2?.classList.add('open');
   });
@@ -105,15 +107,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('toStep2')?.addEventListener('click', () => {
     if (validateStep(steps[0])) {
-      steps[0].classList.add('d-none');
-      steps[1].classList.remove('d-none');
+      steps[0]?.classList.add('d-none');
+      steps[1]?.classList.remove('d-none');
     }
   });
 
   document.getElementById('toStep3')?.addEventListener('click', () => {
     if (validateStep(steps[1])) {
-      steps[1].classList.add('d-none');
-      steps[2].classList.remove('d-none');
+      steps[1]?.classList.add('d-none');
+      steps[2]?.classList.remove('d-none');
     }
   });
 
@@ -126,9 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           closeModal();
           setTimeout(() => {
-            steps[2].classList.add('d-none');
-            steps[1].classList.add('d-none');
-            steps[0].classList.remove('d-none');
+            steps[2]?.classList.add('d-none');
+            steps[1]?.classList.add('d-none');
+            steps[0]?.classList.remove('d-none');
             this.innerHTML = originalText;
             document
               .querySelectorAll('.donation-modal input')
@@ -139,13 +141,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   document.getElementById('backTo1')?.addEventListener('click', () => {
-    steps[1].classList.add('d-none');
-    steps[0].classList.remove('d-none');
+    steps[1]?.classList.add('d-none');
+    steps[0]?.classList.remove('d-none');
   });
 
   document.getElementById('backTo2')?.addEventListener('click', () => {
-    steps[2].classList.add('d-none');
-    steps[1].classList.remove('d-none');
+    steps[2]?.classList.add('d-none');
+    steps[1]?.classList.remove('d-none');
   });
 
   document.querySelectorAll('.custom-select-container').forEach((container) => {
@@ -186,8 +188,11 @@ document.addEventListener('DOMContentLoaded', () => {
       input.addEventListener('blur', () => {
         input.parentElement.classList.toggle('error', !input.validity.valid);
       });
+
       input.addEventListener('input', () => {
-        if (input.validity.valid) input.parentElement.classList.remove('error');
+        if (input.validity.valid) {
+          input.parentElement.classList.remove('error');
+        }
       });
     });
 
