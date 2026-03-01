@@ -141,8 +141,6 @@
   visibility: hidden;
 }
 
-
-
 .side-panel--small {
   transform: translateX(0);
   z-index: 2;
@@ -632,4 +630,141 @@
   line-height: 150%;
   letter-spacing: 0%;
   vertical-align: middle;
+}
+
+@media (max-width: 1200px) {
+  .zoos-main-container {
+    width: 100%;
+  }
+
+  .zoos-title {
+    margin-right: 70px;
+  }
+  .more-live {
+    padding: 0px 0px;
+  }
+
+  .donation-banner .container {
+    align-items: flex-start;
+    max-width: 1120px !important;
+    padding: 50px 0px !important;
+  }
+
+  .facts__intro {
+    margin: 100px auto;
+  }
+
+  .donation-banner .left-side {
+    width: 100%;
+  }
+
+  .zoos-main-container .btn-orange {
+    padding: 17px 34px;
+  }
+  .video-content {
+    margin-left: 135px;
+    margin-right: 0px !important;
+  }
+  .live-badge {
+    display: none;
+  }
+  .side-header {
+    justify-content: center;
+  }
+  .icon-circle {
+    width: 100px;
+    height: 100px;
+  }
+  .side-panel--small {
+    width: 115px;
+  }
+
+  .animal-item.active .icon-circle {
+    display: none;
+  }
+
+  .icon-circle {
+    background-color: var(--color-blue);
+  }
+  .icon-circle img {
+    filter: brightness(0) invert(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .video-main-wrapper {
+    height: 450px;
+  }
+  .side-panel--small {
+    z-index: 10000;
+  }
+  .video-content {
+    margin: 0 !important;
+  }
+
+  .zoos-main-container .btn-orange {
+    display: none !important;
+  }
+
+  .btn-bottom {
+    display: block;
+  }
+
+  .donation-banner .container,
+  .donation-banner .right-side {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .donation-banner h3,
+  .donation-banner .description {
+    text-align: center;
+  }
+
+  .donation-banner .description {
+    margin: 30px 20px;
+  }
+
+  .facts__intro {
+    max-width: 100%;
+    margin: 80px 0px;
+  }
+
+  .facts__main {
+    flex-direction: column-reverse;
+  }
+
+  .facts__image {
+    width: 100%;
+  }
+
+  .facts__main {
+    gap: 80px;
+  }
+
+  .facts__description {
+    margin-top: 30px;
+  }
+
+  .sub-title {
+    font-size: 26px;
+    text-transform: lowercase;
+  }
+
+  .live-card {
+    width: 135px;
+    height: 106px;
+  }
+
+  .live-card__badge {
+    font-size: 11px !important;
+    padding: 3px 20px;
+  }
+
+  .live-card__play img {
+    width: 40px;
+    height: 18px;
+  }
 }
