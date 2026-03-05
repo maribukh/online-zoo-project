@@ -693,6 +693,11 @@
     max-width: 1000px;
   }
 
+  .about__image img {
+    width: 100%;
+    max-width: 660px;
+  }
+
   .pets .btn-fav {
     margin-top: 50px;
   }
@@ -836,6 +841,10 @@
   .about-content--reverse {
     align-items: flex-end;
   }
+
+  .donation-banner .btn-container {
+    min-width: 340px;
+  }
 }
 
 @media (min-width: 940px) {
@@ -849,6 +858,10 @@
   .about-content {
     flex-direction: column;
     text-align: center;
+  }
+
+  .step-header {
+    padding: 0px 20px;
   }
 
   .about-content--reverse {
@@ -998,7 +1011,6 @@
   .about-content--reverse {
     align-items: flex-end;
   }
-
 }
 
 @media (max-width: 640px) {
@@ -1184,6 +1196,7 @@
 
   .testimonials {
     padding-bottom: 600px;
+    padding-top: 0px;
   }
 
   .care-header {
@@ -1295,6 +1308,10 @@
 
   .video-promo {
     padding-top: 100px;
+  }
+
+  .step-image img {
+    width: 100%;
   }
 }
 
