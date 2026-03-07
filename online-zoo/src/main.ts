@@ -2,28 +2,34 @@ import type { IPet, IFeedback } from './types';
 import { API } from './api/api';
 
 document.addEventListener('DOMContentLoaded', async () => {
+  const petAssets: Record<number, { img: string; link: string }> = {
+    1: { img: '/assets/images/pets/panda.webp', link: 'panda.html' },
+    2: { img: '/assets/images/pets/lemur.webp', link: 'lemur.html' },
+    3: { img: '/assets/images/pets/gorila.webp', link: 'gorilla.html' },
+    4: { img: '/assets/images/pets/aligator.webp', link: 'alligator.html' },
+    5: { img: '/assets/images/pets/eagles.webp', link: 'eagle.html' },
+    6: { img: '/assets/images/pets/koala.webp', link: 'koala.html' },
+    7: { img: '/assets/images/pets/lion.webp', link: 'lion.html' },
+    8: { img: '/assets/images/pets/tiger.jpg', link: 'tiger.html' },
+  };
+
   const petsGrid = document.getElementById(
     'pets-grid',
   ) as HTMLDivElement | null;
-  const petsLoader = document.getElementById(
-    'pets-loader',
-  ) as HTMLElement | null;
-  const petsError = document.getElementById('pets-error') as HTMLElement | null;
+  const petsLoader = document.getElementById('pets-loader');
+  const petsError = document.getElementById('pets-error');
   const testimonialsGrid = document.getElementById(
     'testimonials-grid',
   ) as HTMLDivElement | null;
-  const testimonialsLoader = document.getElementById(
-    'testimonials-loader',
-  ) as HTMLElement | null;
 
-  async function loadInitialData() {
+  async function loadData(): Promise<void> {
     if (petsGrid) {
       try {
         petsLoader?.classList.remove('hidden');
-        const response = await API.getPets();
-        renderPets(response.data, petsGrid);
+        const res = await API.getPets();
+        renderPets(res.data, petsGrid);
         initPetsSlider(petsGrid);
-      } catch (error) {
+      } catch {
         if (petsError) {
           petsError.innerText =
             'Something went wrong. Please, refresh the page';
@@ -36,53 +42,36 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (testimonialsGrid) {
       try {
-        testimonialsLoader?.classList.remove('hidden');
-        const response = await API.getFeedbacks();
-        renderFeedbacks(response.data, testimonialsGrid);
+        const res = await API.getFeedbacks();
+        renderFeedbacks(res.data, testimonialsGrid);
         initTestimonialsSlider(testimonialsGrid);
-      } catch (error) {
-        console.error('Testimonials load error:', error);
-      } finally {
-        testimonialsLoader?.classList.add('hidden');
+      } catch {
+        console.error('Testimonials load error');
       }
     }
   }
 
-  loadInitialData();
+  loadData();
 
   function renderPets(pets: IPet[], container: HTMLElement): void {
     container.innerHTML = '';
-
-    const assetMap: Record<number, { img: string; link: string }> = {
-      1: { img: '/assets/images/pets/panda.webp', link: 'panda.html' },
-      2: { img: '/assets/images/pets/lemur.webp', link: 'lemur.html' },
-      3: { img: '/assets/images/pets/gorila.webp', link: 'gorilla.html' },
-      4: { img: '/assets/images/pets/aligator.webp', link: 'alligator.html' },
-      5: { img: '/assets/images/pets/eagles.webp', link: 'eagle.html' },
-      6: { img: '/assets/images/pets/koala.webp', link: 'koala.html' },
-      7: { img: '/assets/images/pets/lion.webp', link: 'lion.html' },
-      8: { img: '/assets/images/pets/tiger.jpg', link: 'tiger.html' },
-    };
-
     pets.forEach((pet) => {
-      const card = document.createElement('div');
-      card.className = 'pet-card';
-
       const id = Number(pet.id);
-      const customData = assetMap[id] || {
-        img: `/assets/images/pets/panda.webp`,
+      const assets = petAssets[id] ?? {
+        img: '/assets/images/pets/panda.webp',
         link: 'panda.html',
       };
-
+      const card = document.createElement('div');
+      card.className = 'pet-card';
       card.innerHTML = `
         <div class="pet-card__image-wrapper">
-          <img src="${customData.img}" alt="${pet.name}" class="pet-card__img">
+          <img src="${assets.img}" alt="${pet.name}" class="pet-card__img">
           <span class="pet-card__name-tag">${pet.name}</span>
         </div>
         <div class="pet-card__content">
           <h3 class="pet-card__title">${pet.name}</h3>
           <p class="pet-card__desc">${pet.description}</p>
-          <a href="/pages/zoos/${customData.link}" class="pet-card__link btn">View Live Cam</a>
+          <a href="/pages/zoos/${assets.link}" class="pet-card__link btn">View Live Cam</a>
         </div>`;
       container.appendChild(card);
     });
@@ -100,61 +89,58 @@ document.addEventListener('DOMContentLoaded', async () => {
       page.className = 'testimonials-page';
       const chunk = feedbacks.slice(i, i + cardsPerPage);
 
-      chunk.forEach((fb: any) => {
+      chunk.forEach((fb) => {
         const card = document.createElement('div');
         card.className = 'testimonial-card';
+        const fbRecord = fb as unknown as Record<string, unknown>;
         const dateString =
-          fb.month && fb.year ? `${fb.month} ${fb.year}` : fb.date || 'Recent';
+          fbRecord['month'] && fbRecord['year']
+            ? `${String(fbRecord['month'])} ${String(fbRecord['year'])}`
+            : String(fbRecord['date'] ?? 'Recent');
+
         card.innerHTML = `
-        <div class="content">
-          <div class="testimonial-header">
-            <img src="/assets/icons/“.svg" alt="icon">
-            <span class="testimonial-city">${fb.city || 'Unknown'}, ${dateString}</span>
-          </div>
-          <p class="testimonial-text">${fb.text}</p>
-          <span class="testimonial-author">${fb.name}</span>
-        </div>`;
+          <div class="content">
+            <div class="testimonial-header">
+              <img src="../../assets/icons/“.svg" alt="">
+              <span class="testimonial-city">${String(fbRecord['city'] ?? 'Unknown')}, ${dateString}</span>
+            </div>
+            <p class="testimonial-text">${String(fbRecord['text'] ?? '')}</p>
+            <span class="testimonial-author">${String(fbRecord['name'] ?? '')}</span>
+          </div>`;
         page.appendChild(card);
       });
+
       container.appendChild(page);
     }
   }
 
-  function initPetsSlider(grid: HTMLElement) {
-    const btnPrev = document.querySelector(
-      '.btn-prev',
-    ) as HTMLButtonElement | null;
-    const btnNext = document.querySelector(
-      '.btn-next',
-    ) as HTMLButtonElement | null;
-    if (!btnPrev || !btnNext) return;
+  function initPetsSlider(grid: HTMLElement): void {
+    const btnPrev = document.querySelector('.btn-prev');
+    const btnNext = document.querySelector('.btn-next');
+    let offset = 0;
 
-    let currentOffset = 0;
-    const getParams = () => {
-      const card = grid.querySelector('.pet-card') as HTMLElement;
-      if (!card) return { step: 0, max: 0 };
+    const update = () => {
+      const card = grid.querySelector('.pet-card') as HTMLElement | null;
+      if (!card) return;
       const step = card.offsetWidth + 40;
-      const total = grid.querySelectorAll('.pet-card').length;
-      const isMobile = window.innerWidth <= 940;
-      const max =
-        ((isMobile ? total : Math.ceil(total / 2)) - (isMobile ? 2 : 3)) * step;
-      return { step, max };
+      const total = grid.children.length;
+      const max = (Math.ceil(total / 2) - 3) * step;
+      if (offset > max) offset = 0;
+      if (offset < 0) offset = max;
+      grid.style.transform = `translateX(-${offset}px)`;
     };
 
-    btnNext.addEventListener('click', () => {
-      const { step, max } = getParams();
-      currentOffset = currentOffset < max ? currentOffset + step : 0;
-      grid.style.transform = `translateX(-${currentOffset}px)`;
+    btnNext?.addEventListener('click', () => {
+      offset += 480;
+      update();
     });
-
-    btnPrev.addEventListener('click', () => {
-      const { step, max } = getParams();
-      currentOffset = currentOffset > 0 ? currentOffset - step : max;
-      grid.style.transform = `translateX(-${currentOffset}px)`;
+    btnPrev?.addEventListener('click', () => {
+      offset -= 480;
+      update();
     });
   }
 
-  function initTestimonialsSlider(grid: HTMLElement) {
+  function initTestimonialsSlider(grid: HTMLElement): void {
     const btnPrev = document.querySelector(
       '.testimonials-nav button:first-child',
     ) as HTMLButtonElement | null;
@@ -162,43 +148,35 @@ document.addEventListener('DOMContentLoaded', async () => {
       '.testimonials-nav button:last-child',
     ) as HTMLButtonElement | null;
     const tDots = document.querySelectorAll('.testimonials-pagination .dot');
-
     let currentPage = 0;
 
-    const updateTestimonials = (page: number) => {
+    const update = (page: number) => {
       const pages = grid.querySelectorAll('.testimonials-page');
       const totalPages = pages.length;
       if (totalPages === 0) return;
 
-      let targetPage = page;
-      if (targetPage >= totalPages) targetPage = 0;
-      if (targetPage < 0) targetPage = totalPages - 1;
+      let target = page;
+      if (target >= totalPages) target = 0;
+      if (target < 0) target = totalPages - 1;
 
-      const pageWidth = grid.parentElement?.offsetWidth || 1060;
-      grid.style.transform = `translateX(-${targetPage * (pageWidth + 30)}px)`;
+      const pageWidth = 1060;
+      grid.style.transform = `translateX(-${target * pageWidth}px)`;
 
       tDots.forEach((d) => d.classList.remove('active'));
-      const dotIndex = targetPage % tDots.length;
-      (tDots[dotIndex] as HTMLElement)?.classList.add('active');
+      const dotIndex = target % tDots.length;
+      (tDots[dotIndex] as HTMLElement | undefined)?.classList.add('active');
 
-      currentPage = targetPage;
+      currentPage = target;
     };
 
-    btnNext?.addEventListener('click', () =>
-      updateTestimonials(currentPage + 1),
-    );
-    btnPrev?.addEventListener('click', () =>
-      updateTestimonials(currentPage - 1),
-    );
-
-    tDots.forEach((dot, i) => {
-      dot.addEventListener('click', () => updateTestimonials(i));
-    });
+    btnNext?.addEventListener('click', () => update(currentPage + 1));
+    btnPrev?.addEventListener('click', () => update(currentPage - 1));
+    tDots.forEach((dot, i) => dot.addEventListener('click', () => update(i)));
   }
 
   const modal1 = document.getElementById('donationModal');
   const modal2 = document.getElementById('stepModal');
-  const burgerMenu = document.getElementById('headerMenu');
+  const headerMenu = document.getElementById('headerMenu');
 
   document
     .querySelectorAll(
@@ -220,7 +198,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const closeModal = () => {
     modal1?.classList.remove('open');
     modal2?.classList.remove('open');
-    burgerMenu?.classList.remove('active');
+    headerMenu?.classList.remove('active');
     document.body.classList.remove('modal-open');
   };
 
@@ -228,14 +206,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     .querySelectorAll(
       '.modal-close, #closeModal, #closeStepModal, #closeBurger',
     )
-    .forEach((btn) => btn.addEventListener('click', closeModal));
+    .forEach((b) => b.addEventListener('click', closeModal));
 
   document.getElementById('burgerBtn')?.addEventListener('click', () => {
-    burgerMenu?.classList.toggle('active');
-    document.body.classList.toggle('modal-open');
+    headerMenu?.classList.add('active');
+    document.body.classList.add('modal-open');
   });
 
-  const steps: (HTMLElement | null)[] = [
+  const steps = [
     document.getElementById('step1'),
     document.getElementById('step2'),
     document.getElementById('step3'),
@@ -243,12 +221,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const validate = (el: HTMLElement | null | undefined): boolean => {
     if (!el) return true;
-    const inputs = el.querySelectorAll<HTMLInputElement>('input[required]');
     let ok = true;
-    inputs.forEach((i) => {
-      const isValid = i.validity.valid;
-      i.parentElement?.classList.toggle('error', !isValid);
-      if (!isValid) ok = false;
+    el.querySelectorAll<HTMLInputElement>('input[required]').forEach((i) => {
+      const v = i.validity.valid;
+      i.parentElement?.classList.toggle('error', !v);
+      if (!v) ok = false;
     });
     return ok;
   };
@@ -278,13 +255,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     .getElementById('completeBtn')
     ?.addEventListener('click', function (this: HTMLButtonElement) {
       if (validate(steps[2])) {
-        this.innerHTML = 'SUCCESS! ❤️';
+        this.innerText = 'SUCCESS! ❤️';
         setTimeout(() => {
           closeModal();
           setTimeout(() => {
             steps[2]?.classList.add('d-none');
             steps[0]?.classList.remove('d-none');
-            this.innerHTML = 'COMPLETE DONATION';
+            this.innerText = 'COMPLETE DONATION';
           }, 500);
         }, 1500);
       }
@@ -302,45 +279,46 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.querySelectorAll('.custom-select-container').forEach((container) => {
     const box = container.querySelector('.select-box') as HTMLElement;
     const list = container.querySelector('.select-list') as HTMLElement;
-    const currentText = container.querySelector(
-      '.select-current',
-    ) as HTMLElement;
+    const current = container.querySelector('.select-current') as HTMLElement;
     box?.addEventListener('click', (e) => {
       e.stopPropagation();
-      list?.classList.toggle('select-hide');
+      list.classList.toggle('select-hide');
       container.classList.toggle('active');
     });
-    list?.querySelectorAll('.select-item').forEach((item) => {
+    list?.querySelectorAll('.select-item').forEach((item) =>
       item.addEventListener('click', () => {
-        currentText.innerText = (item as HTMLElement).innerText;
-        currentText.style.color = '#000';
+        current.innerText = (item as HTMLElement).innerText;
+        current.style.color = '#000';
         list.classList.add('select-hide');
         container.classList.remove('active');
-      });
-    });
+      }),
+    );
   });
 
-  document.addEventListener('click', (e) => {
-    if ((e.target as HTMLElement).classList.contains('modal-overlay'))
-      closeModal();
+  document.addEventListener('click', () =>
     document
       .querySelectorAll('.select-list')
-      .forEach((l) => l.classList.add('select-hide'));
-  });
+      .forEach((l) => l.classList.add('select-hide')),
+  );
 
   document.getElementById('heroViewBtn')?.addEventListener('click', () => {
     window.location.href = '/pages/zoos/panda.html';
   });
 
-  document.querySelectorAll('[data-hover-src]').forEach((button) => {
-    const btnElement = button as HTMLElement;
-    const icon = btnElement.querySelector('img') as HTMLImageElement | null;
-    if (!icon) return;
-    const defaultSrc = icon.src;
-    btnElement.addEventListener(
-      'mouseenter',
-      () => (icon.src = btnElement.dataset['hoverSrc'] || defaultSrc),
-    );
-    btnElement.addEventListener('mouseleave', () => (icon.src = defaultSrc));
+  document.querySelectorAll('[data-hover-src]').forEach((btn) => {
+    const icon = btn.querySelector('img') as HTMLImageElement | null;
+    if (icon) {
+      const def = icon.src;
+      btn.addEventListener(
+        'mouseenter',
+        () => (icon.src = (btn as HTMLElement).dataset['hoverSrc'] ?? def),
+      );
+      btn.addEventListener('mouseleave', () => (icon.src = def));
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if ((e.target as HTMLElement).classList.contains('modal-overlay'))
+      closeModal();
   });
 });

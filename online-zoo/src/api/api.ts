@@ -9,10 +9,10 @@ async function fetchData<T>(url: string): Promise<T> {
 }
 
 const BASE_URL =
-  'https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod';
+  'https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/';
 
 export const API = {
-  getPets: () => fetchData<{ data: IPet[] }>(`${BASE_URL}/pets`),
-  getPetByID: (id: string) => fetchData<IPet>(`${BASE_URL}/pets/${id}`),
-  getFeedbacks: () => fetchData<{ data: IFeedback[] }>(`${BASE_URL}/feedback`),
+  getPets: () => fetchData<{ data: IPet[] }>(BASE_URL + 'pets'),
+  getPetByID: (id: string) => fetchData<IPet>(BASE_URL + 'pets/' + id),
+  getFeedbacks: () => fetchData<{ data: IFeedback[] }>(BASE_URL + 'feedback'),
 };
