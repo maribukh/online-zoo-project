@@ -171,6 +171,10 @@
   color: white;
 }
 
+.btn-fav:hover img {
+  fill: white;
+}
+
 .pets button p {
   text-transform: uppercase;
 }
@@ -397,7 +401,7 @@
 .testimonials {
   position: relative;
   padding-top: 100px;
-  padding-bottom: 1360px;
+  padding-bottom: 200px;
   background:
     linear-gradient(144.77deg, #20113d 18.53%, rgba(32, 17, 61, 0) 46.43%),
     linear-gradient(177.34deg, #20113d 7.26%, rgba(32, 17, 61, 0) 14.89%),
@@ -408,68 +412,72 @@
   color: var(--color-white);
 }
 
+.testimonials .container {
+  margin-right: 0px;
+  margin-left: 0px;
+  max-width: 100%;
+}
+
 .testimonials-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 60px;
-}
-
-.testimonials-cards {
-  display: grid;
-  grid-template-columns: repeat(2, 515px);
-  gap: 30px;
+  margin-left: 140px;
 }
 
 .testimonials-info {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  width: 33.73%;
-}
-
-.testimonials-info .top {
-  width: 100%;
-}
-
-.testimonials-info button {
-  position: absolute;
-  min-width: 360px;
-  bottom: 150px;
+  gap: 50px;
+  width: 33%;
+  flex-shrink: 0;
 }
 
 .testimonials-info .second-title {
   color: var(--color-white);
 }
 
-.testimonials-info .description {
-  margin: 40px 0 60px;
-  font-size: 26px;
+.testimonials-content {
+  flex: 1;
+  overflow: hidden;
+  min-width: 0;
 }
 
-.testimonials-content {
-  /* flex: 1; */
-  position: absolute;
-  right: 0;
+.testimonials-slider-window {
+  overflow: hidden;
+  width: 100%;
 }
 
 .testimonials-grid {
+  display: flex !important;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: max-content;
+  transition: transform 0.5s ease-in-out;
+}
+
+.testimonials-page {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 515px);
+  grid-template-rows: auto auto;
   gap: 30px;
+  flex-shrink: 0;
+  width: 1060px;
+  margin-right: 80px;
 }
 
 .testimonial-card {
+  width: 515px;
+  min-height: 463px;
   background-color: var(--color-white);
   color: var(--color-black);
-  padding: 20px 50px 70px 37px;
+  padding: 37px 50px 40px 37px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  min-height: 463px;
-  max-width: 515px;
+  box-shadow: 0 4px 50px rgba(0, 0, 0, 0.5);
 }
 
 .testimonial-card .content {
@@ -479,93 +487,82 @@
   height: 100%;
 }
 
-.testimonial-header img {
+.testimonial-header {
   margin-bottom: 20px;
 }
 
 .quote-icon {
   width: 35px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  display: block;
 }
 
 .testimonial-city {
   display: block;
   font-weight: 500;
-  margin-bottom: 15px;
   font-size: 26px;
+  color: var(--color-black);
+}
+
+.testimonial-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-black);
+  flex-grow: 1;
+  margin: 20px 0;
 }
 
 .testimonial-author {
   display: block;
-  margin-top: 20px;
   font-weight: 700;
   text-transform: uppercase;
-}
-
-.btn-outline-white {
-  background: transparent;
-  border: 1px solid var(--color-white);
-  color: var(--color-white);
+  color: var(--color-black);
+  margin-top: auto;
 }
 
 .testimonials-nav {
   display: flex;
-  gap: 60px;
-  margin-top: 60px;
+  gap: 30px;
+  margin-top: 40px;
 }
 
 .testimonials-nav button {
   width: 60px;
   height: 60px;
   border-radius: 5px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background-color: transparent;
   border: 1px solid var(--color-white);
-  cursor: pointer;
-}
-
-.testimonials-nav button:hover {
-  background-color: white;
-  border: 1px solid white;
-}
-
-.testimonials-pagination {
-  display: none;
-  justify-content: center;
-  gap: 15px;
-  margin: 30px 0;
-}
-
-.testimonials-pagination .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: 1px solid var(--color-white);
-  background-color: transparent;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.testimonials-pagination .dot.active {
-  background-color: var(--color-white);
+.testimonials-nav button:hover {
+  background-color: white;
 }
 
 .btn-feedback {
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 10px;
   background-color: transparent;
   border: 1px solid var(--color-white);
-  cursor: pointer;
   color: var(--color-white);
+  cursor: pointer;
+  padding: 18px 25px;
+  border-radius: 5px;
+  font-weight: 600;
+  width: fit-content;
+  margin-top: 1000px;
 }
 
 .btn-feedback:hover {
-  background-color: var(--color-green-hover);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.testimonials-pagination {
+  display: none;
 }
 
 /* Care Animals Section */
@@ -998,7 +995,6 @@
   .about-content--reverse {
     align-items: flex-end;
   }
-
 }
 
 @media (max-width: 640px) {
