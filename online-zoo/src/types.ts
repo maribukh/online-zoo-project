@@ -78,11 +78,13 @@ export interface PetAsset {
 interface LeafletMap {
   setView(latlng: [number, number], zoom: number): LeafletMap;
 }
+
 interface LeafletMarker {
   addTo(map: LeafletMap): LeafletMarker;
   bindPopup(html: string): LeafletMarker;
   openPopup(): LeafletMarker;
 }
+
 export interface LeafletStatic {
   map(id: string): LeafletMap;
   tileLayer(
