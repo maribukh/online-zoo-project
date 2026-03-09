@@ -53,7 +53,7 @@
 }
 
 .more-live__carousel-viewport {
-  overflow: hidden;
+  overflow: hidden !important;
   flex: 1;
   min-width: 0;
 }
@@ -63,6 +63,24 @@
   gap: 30px;
   transition: transform 0.4s ease;
   will-change: transform;
+}
+
+.live-card {
+  flex: 0 0 calc((100% - 60px) / 3) !important;
+  max-width: calc((100% - 60px) / 3) !important;
+  min-width: 0;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.live-card__img {
+  width: 100% !important;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .more-live__slider-wrapper {

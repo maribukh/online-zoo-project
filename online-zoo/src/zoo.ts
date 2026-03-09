@@ -293,7 +293,7 @@ let sidebarOffset = 0;
 let allPets: IPet[] = [];
 let allCams: CameraItem[] = [];
 let mapModal: HTMLElement | null = null;
-let camSliderReady = false;
+let camItems: Array<{ text: string; img: string }> = [];
 
 function getUrlPetId(): number | null {
   const raw = new URLSearchParams(window.location.search).get('id');
@@ -610,12 +610,13 @@ function buildCamSlider(cams: CameraItem[], petId: number): void {
   void carousel.offsetWidth;
 
   camIndex = 0;
-  camSliderReady = false;
 
   const asset = getAsset(petId);
   const baseCams = asset.cams;
 
-  const items: Array<{ text: string; img: string }> =
+  const MIN_CAMS = CAM_VISIBLE + 2; 
+
+  camItems =
     cams.length > 0
       ? cams.map((cam, i) => ({
           text: cam.text,
@@ -623,17 +624,17 @@ function buildCamSlider(cams: CameraItem[], petId: number): void {
         }))
       : baseCams.map((img, i) => ({ text: `Cam ${i + 1}`, img }));
 
-  while (items.length < CAM_VISIBLE) {
-    items.push({
-      text: `Cam ${items.length + 1}`,
-      img: baseCams[items.length % baseCams.length] ?? DEFAULT_CAM,
+  while (camItems.length < MIN_CAMS) {
+    const i = camItems.length;
+    camItems.push({
+      text: `Cam ${i + 1}`,
+      img: baseCams[i % baseCams.length] ?? DEFAULT_CAM,
     });
   }
 
-  camTotal = items.length;
-  camSliderReady = true;
+  camTotal = camItems.length;
 
-  carousel.innerHTML = items
+  carousel.innerHTML = camItems
     .map(
       (item, i) => `
     <div class="live-card${i === 0 ? ' live-card_active' : ''}" data-index="${i}">
@@ -650,7 +651,7 @@ function buildCamSlider(cams: CameraItem[], petId: number): void {
       const mainImg = document.querySelector(
         '.video-bg-img',
       ) as HTMLImageElement | null;
-      if (mainImg !== null) mainImg.src = items[idx]?.img ?? DEFAULT_CAM;
+      if (mainImg !== null) mainImg.src = camItems[idx]?.img ?? DEFAULT_CAM;
       carousel.querySelectorAll('.live-card').forEach((c) => {
         c.classList.remove('live-card_active');
       });
@@ -663,13 +664,12 @@ function buildCamSlider(cams: CameraItem[], petId: number): void {
 
 function attachCamArrowListeners(): void {
   document.querySelector('.slider-btn_left')?.addEventListener('click', () => {
-    if (!camSliderReady || camIndex <= 0) return;
+    if (camIndex <= 0) return;
     camIndex--;
     moveCamSlider();
   });
   document.querySelector('.slider-btn_right')?.addEventListener('click', () => {
-    if (!camSliderReady || camIndex >= Math.max(0, camTotal - CAM_VISIBLE))
-      return;
+    if (camIndex >= camTotal - CAM_VISIBLE) return;
     camIndex++;
     moveCamSlider();
   });
