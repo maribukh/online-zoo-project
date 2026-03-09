@@ -673,7 +673,6 @@
   vertical-align: middle;
 }
 
-/* ===== SIDEBAR SCROLL ===== */
 .animal-item.sidebar-hidden {
   display: none;
 }
@@ -705,17 +704,7 @@
   opacity: 0.6;
 }
 
-/* ===== LARGE SIDEBAR SLIDE ===== */
-.side-panel--large {
-  transform: translateX(-100%);
-  transition: transform 0.4s ease;
-}
-
-.side-panel--large.active {
-  transform: translateX(0);
-}
-
-/* ===== CAM CAROUSEL ===== */
+/* Cam */
 .more-live__carousel-viewport {
   overflow: hidden;
   flex: 1;
@@ -739,7 +728,7 @@
   flex-shrink: 0;
 }
 
-/* ===== DETAIL LOADER OVERLAY ===== */
+/* Loader */
 #detail-loader {
   position: absolute;
   top: 50%;
@@ -748,7 +737,6 @@
   z-index: 10;
 }
 
-/* ===== FACTS ERROR ===== */
 .facts-error {
   color: #e74c3c;
   font-size: 18px;
@@ -757,7 +745,6 @@
   list-style: none;
 }
 
-/* ===== MAP MODAL ===== */
 .map-modal-overlay {
   position: fixed;
   inset: 0;

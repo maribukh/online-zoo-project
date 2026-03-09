@@ -8,6 +8,7 @@ import type {
 import { API } from './api/api';
 
 const DEFAULT_ICON = '/assets/images/map/animals/Panda.svg';
+const DEFAULT_ICON_ORANGE = '/assets/icons/zoos/Panda-orange.svg';
 const DEFAULT_IMG = '/assets/images/pets/panda.webp';
 const DEFAULT_VIDEO = '/assets/images/panda-live.jpg';
 const DEFAULT_CAM = '/assets/images/cam/cam-views.jpg';
@@ -18,6 +19,7 @@ const petAssets: Record<number, PetAsset> = {
   1: {
     img: '/assets/images/pets/panda.webp',
     icon: '/assets/images/map/animals/Panda.svg',
+    iconOrange: '/assets/icons/zoos/Panda-orange.svg',
     link: 'panda.html',
     mainVideo: '/assets/images/panda-live.jpg',
     cams: [
@@ -29,6 +31,7 @@ const petAssets: Record<number, PetAsset> = {
   2: {
     img: '/assets/images/pets/lemur.webp',
     icon: '/assets/images/map/animals/Lemur.svg',
+    iconOrange: '/assets/icons/zoos/Lemur-orange.svg',
     link: 'lemur.html',
     mainVideo: '/assets/images/lemur-backgorund.jpg',
     cams: [
@@ -40,6 +43,7 @@ const petAssets: Record<number, PetAsset> = {
   3: {
     img: '/assets/images/pets/gorila.webp',
     icon: '/assets/images/map/animals/Gorilla.svg',
+    iconOrange: '/assets/icons/zoos/Gorilla-orange.svg',
     link: 'gorilla.html',
     mainVideo: '/assets/images/gorilla-background.jpg',
     cams: [
@@ -51,6 +55,7 @@ const petAssets: Record<number, PetAsset> = {
   4: {
     img: '/assets/images/pets/aligator.webp',
     icon: '/assets/images/map/animals/Alligator.svg',
+    iconOrange: '/assets/icons/zoos/Panda-orange.svg',
     link: 'zoo.html?id=4',
     mainVideo: '/assets/images/cam/alligator-live.jpg',
     cams: [
@@ -62,6 +67,7 @@ const petAssets: Record<number, PetAsset> = {
   5: {
     img: '/assets/images/pets/eagles.webp',
     icon: '/assets/images/map/animals/Eagle.svg',
+    iconOrange: '/assets/icons/zoos/Eagle-orange.svg',
     link: 'eagle.html',
     mainVideo: '/assets/images/eagle-background.jpg',
     cams: [
@@ -73,6 +79,7 @@ const petAssets: Record<number, PetAsset> = {
   6: {
     img: '/assets/images/pets/koala.webp',
     icon: '/assets/images/map/animals/Coala.svg',
+    iconOrange: '/assets/icons/zoos/Panda-orange.svg',
     link: 'zoo.html?id=6',
     mainVideo: '/assets/images/cam/koala-live.jpg',
     cams: [
@@ -84,6 +91,7 @@ const petAssets: Record<number, PetAsset> = {
   7: {
     img: '/assets/images/pets/lion.webp',
     icon: '/assets/images/map/animals/Lion.svg',
+    iconOrange: '/assets/icons/zoos/Panda-orange.svg',
     link: 'zoo.html?id=7',
     mainVideo: '/assets/images/cam/lion-live.jpg',
     cams: [
@@ -95,6 +103,7 @@ const petAssets: Record<number, PetAsset> = {
   8: {
     img: '/assets/images/pets/tiger.jpg',
     icon: '/assets/images/map/animals/tiger.svg',
+    iconOrange: '/assets/icons/zoos/Panda-orange.svg',
     link: 'zoo.html?id=8',
     mainVideo: '/assets/images/cam/tiger-live.jpg',
     cams: [
@@ -106,6 +115,7 @@ const petAssets: Record<number, PetAsset> = {
   9: {
     img: '/assets/images/pets/cheetah.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=9',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -113,6 +123,7 @@ const petAssets: Record<number, PetAsset> = {
   10: {
     img: '/assets/images/pets/hippo.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=10',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -120,6 +131,7 @@ const petAssets: Record<number, PetAsset> = {
   11: {
     img: '/assets/images/pets/giraffe.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=11',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -127,6 +139,7 @@ const petAssets: Record<number, PetAsset> = {
   12: {
     img: '/assets/images/pets/elephant.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=12',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -134,6 +147,7 @@ const petAssets: Record<number, PetAsset> = {
   13: {
     img: '/assets/images/pets/zebra.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=13',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -141,6 +155,7 @@ const petAssets: Record<number, PetAsset> = {
   14: {
     img: '/assets/images/pets/wolf.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=14',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -148,6 +163,7 @@ const petAssets: Record<number, PetAsset> = {
   15: {
     img: '/assets/images/pets/bear.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=15',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -155,6 +171,7 @@ const petAssets: Record<number, PetAsset> = {
   16: {
     img: '/assets/images/pets/jaguar.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=16',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -162,6 +179,7 @@ const petAssets: Record<number, PetAsset> = {
   17: {
     img: '/assets/images/pets/rhino.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=17',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -169,6 +187,7 @@ const petAssets: Record<number, PetAsset> = {
   18: {
     img: '/assets/images/pets/leopard.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=18',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -176,6 +195,7 @@ const petAssets: Record<number, PetAsset> = {
   19: {
     img: '/assets/images/pets/orangutan.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=19',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -183,6 +203,7 @@ const petAssets: Record<number, PetAsset> = {
   20: {
     img: '/assets/images/pets/flamingo.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=20',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -190,6 +211,7 @@ const petAssets: Record<number, PetAsset> = {
   21: {
     img: '/assets/images/pets/penguin.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=21',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -197,6 +219,7 @@ const petAssets: Record<number, PetAsset> = {
   22: {
     img: '/assets/images/pets/rhino.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=22',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -204,6 +227,7 @@ const petAssets: Record<number, PetAsset> = {
   23: {
     img: '/assets/images/pets/fox.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=23',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -211,6 +235,7 @@ const petAssets: Record<number, PetAsset> = {
   24: {
     img: '/assets/images/pets/crocodile.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=24',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -218,6 +243,7 @@ const petAssets: Record<number, PetAsset> = {
   25: {
     img: '/assets/images/pets/macaw.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=25',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -225,6 +251,7 @@ const petAssets: Record<number, PetAsset> = {
   26: {
     img: '/assets/images/pets/meerkat.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=26',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -232,6 +259,7 @@ const petAssets: Record<number, PetAsset> = {
   27: {
     img: '/assets/images/pets/otter.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=27',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -239,6 +267,7 @@ const petAssets: Record<number, PetAsset> = {
   28: {
     img: '/assets/images/pets/tortoise.jpg',
     icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
     link: 'zoo.html?id=28',
     mainVideo: DEFAULT_VIDEO,
     cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -250,6 +279,7 @@ function getAsset(petId: number): PetAsset {
     petAssets[petId] ?? {
       img: DEFAULT_IMG,
       icon: DEFAULT_ICON,
+      iconOrange: DEFAULT_ICON_ORANGE,
       link: `zoo.html?id=${petId}`,
       mainVideo: DEFAULT_VIDEO,
       cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
@@ -503,7 +533,8 @@ function renderSidebar(panel: 'small' | 'large'): void {
       li.innerHTML = `
         <div class="animal-content">
           <a href="#" class="animal-icon-link">
-            <img src="${asset.icon}" alt="${pet.name}" onerror="this.src='${DEFAULT_ICON}'">
+            <img class="icon-default" src="${asset.iconOrange}" alt="${pet.name}" onerror="this.src='${DEFAULT_ICON_ORANGE}'">
+            <img class="icon-active" src="${asset.icon}" alt="${pet.name}" onerror="this.src='${DEFAULT_ICON}'">
           </a>
           <div class="animal-desc"><p>${pet.description}</p></div>
         </div>`;

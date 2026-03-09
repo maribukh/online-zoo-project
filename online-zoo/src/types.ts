@@ -69,6 +69,7 @@ export interface CameraItem {
 export interface PetAsset {
   img: string;
   icon: string;
+  iconOrange: string;
   link: string;
   mainVideo: string;
   cams: string[];
