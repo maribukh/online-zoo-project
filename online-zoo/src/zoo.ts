@@ -134,6 +134,7 @@ let allPets: IPet[] = [];
 let allCams: CameraItem[] = [];
 let mapModal: HTMLElement | null = null;
 let camItems: Array<{ text: string; img: string }> = [];
+let camItems: Array<{ text: string; img: string }> = [];
 
 function getUrlPetId(): number | null {
   const raw = new URLSearchParams(window.location.search).get('id');
