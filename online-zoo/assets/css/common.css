@@ -118,6 +118,42 @@ header nav ul li a.active {
   color: var(--color-green-hover);
 }
 
+.header-auth {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-auth__link {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: 1.5px solid transparent;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.header-auth__link:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.header-auth__link--register {
+  border-color: #f06c30;
+  color: #f06c30;
+}
+
+.header-auth__link--register:hover {
+  background: #f06c30;
+  color: #fff;
+}
+
 .burger-menu {
   display: none;
   flex-direction: column;
