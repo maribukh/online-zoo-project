@@ -379,23 +379,30 @@ function buildCamSlider(cams: CameraItem[], petId: number): void {
   carousel.style.transform = 'translateX(0)';
   void carousel.offsetWidth;
   camIndex = 0;
+  camSliderReady = false;
+
   const asset = getAsset(petId);
-  camItems =
+  const baseCams = asset.cams;
+
+  const items: Array<{ text: string; img: string }> =
     cams.length > 0
       ? cams.map((cam, i) => ({
           text: cam.text,
           img: asset.cams[i % asset.cams.length] ?? DEFAULT_CAM,
         }))
-      : asset.cams.map((img, i) => ({ text: `Cam ${i + 1}`, img }));
-  while (camItems.length < CAM_VISIBLE + 2) {
-    const i = camItems.length;
-    camItems.push({
-      text: `Cam ${i + 1}`,
-      img: asset.cams[i % asset.cams.length] ?? DEFAULT_CAM,
+      : baseCams.map((img, i) => ({ text: `Cam ${i + 1}`, img }));
+
+  while (items.length < CAM_VISIBLE) {
+    items.push({
+      text: `Cam ${items.length + 1}`,
+      img: baseCams[items.length % baseCams.length] ?? DEFAULT_CAM,
     });
   }
-  camTotal = camItems.length;
-  carousel.innerHTML = camItems
+
+  camTotal = items.length;
+  camSliderReady = true;
+
+  carousel.innerHTML = items
     .map(
       (item, i) => `
     <div class="live-card${i === 0 ? ' live-card_active' : ''}" data-index="${i}">
@@ -411,10 +418,10 @@ function buildCamSlider(cams: CameraItem[], petId: number): void {
       const mainImg = document.querySelector(
         '#main-video-img',
       ) as HTMLImageElement | null;
-      if (mainImg) mainImg.src = camItems[idx]?.img ?? DEFAULT_CAM;
-      carousel
-        .querySelectorAll('.live-card')
-        .forEach((c) => c.classList.remove('live-card_active'));
+      if (mainImg !== null) mainImg.src = items[idx]?.img ?? DEFAULT_CAM;
+      carousel.querySelectorAll('.live-card').forEach((c) => {
+        c.classList.remove('live-card_active');
+      });
       card.classList.add('live-card_active');
     });
   });
@@ -423,16 +430,15 @@ function buildCamSlider(cams: CameraItem[], petId: number): void {
 
 function attachCamArrowListeners(): void {
   document.querySelector('.slider-btn_left')?.addEventListener('click', () => {
-    if (camIndex > 0) {
-      camIndex--;
-      moveCamSlider();
-    }
+    if (!camSliderReady || camIndex <= 0) return;
+    camIndex--;
+    moveCamSlider();
   });
   document.querySelector('.slider-btn_right')?.addEventListener('click', () => {
-    if (camIndex < camTotal - CAM_VISIBLE) {
-      camIndex++;
-      moveCamSlider();
-    }
+    if (!camSliderReady || camIndex >= Math.max(0, camTotal - CAM_VISIBLE))
+      return;
+    camIndex++;
+    moveCamSlider();
   });
 }
 
