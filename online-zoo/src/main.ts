@@ -1,5 +1,6 @@
 import type { IPet, IFeedback } from './types';
 import { API } from './api/api';
+import { initUserProfile } from './auth/userProfile';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const petAssets: Record<number, { img: string; link: string }> = {
@@ -322,3 +323,5 @@ document.addEventListener('DOMContentLoaded', async () => {
       closeModal();
   });
 });
+
+initUserProfile();

@@ -22,13 +22,16 @@
         <div class="left-side">
           <a href="/"><img src="/assets/images/Logo.svg" alt="logo" /></a>
         </div>
+
         <button class="burger-menu" id="burgerBtn">
           <img src="/assets/icons/hamburger.svg" alt="menu" />
         </button>
+
         <div class="right-side" id="headerMenu">
           <button class="close-burger" id="closeBurger">
             <img src="/assets/icons/x-mark.svg" alt="close" />
           </button>
+
           <nav>
             <ul>
               <li><a href="/" class="active">ABOUT</a></li>
@@ -38,39 +41,44 @@
               <li><a href="#design">DESIGN</a></li>
             </ul>
           </nav>
-          <div class="header-auth">
-            <a href="../auth/login.html" class="header-auth__link">Sign In</a>
-            <a
-              href="../auth/register.html"
-              class="header-auth__link header-auth__link--register"
-              >Register</a
-            >
-          </div>
-          <div
-            class="header-actions"
-            style="display: flex; align-items: center; gap: 20px"
-          >
+
+          <div class="header-actions">
+            <div class="header-auth" id="headerAuthBtns">
+              <a href="/pages/auth/login.html" class="header-auth__link"
+                >Sign In</a
+              >
+              <a
+                href="/pages/auth/register.html"
+                class="header-auth__link header-auth__link--register"
+                >Register</a
+              >
+            </div>
+
+            <div id="userProfile" class="user-profile"></div>
+
             <div class="social-icons">
               <a
                 href="https://www.youtube.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                ><img src="/assets/icons/YouTube.svg" alt="YouTube"
-              /></a>
+              >
+                <img src="/assets/icons/YouTube.svg" alt="YouTube" />
+              </a>
               <a
                 href="https://www.instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                ><img src="/assets/icons/Instagram.svg" alt="Instagram"
-              /></a>
+              >
+                <img src="/assets/icons/Instagram.svg" alt="Instagram" />
+              </a>
               <a
                 href="https://www.facebook.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                ><img src="/assets/icons/Facebook.svg" alt="Facebook"
-              /></a>
+              >
+                <img src="/assets/icons/Facebook.svg" alt="Facebook" />
+              </a>
             </div>
-            <div id="userProfile" class="user-profile"></div>
           </div>
         </div>
       </div>

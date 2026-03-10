@@ -72,22 +72,29 @@
                   placeholder="e.g. John Smith"
                 >
                 <svg class="err-icon" viewBox="0 0 20 20" fill="none">
-                  <circle
-                    cx="10"
-                    cy="10"
-                    r="9"
-                    stroke="#D93025"
-                    stroke-width="1.5"
-                  >
-                  <path
-                    d="M10 6v5M10 13.5v.5"
-                    stroke="#D93025"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                  >
+                  <circle cx="10" cy="10" r="9" stroke="#D93025" stroke-width="1.5" >
+                  <path d="M10 6v5M10 13.5v.5" stroke="#D93025" stroke-width="1.5" stroke-linecap="round" >
                 </svg>
               </div>
               <div class="field-msg" id="msg-name"></div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <div class="input-wrap">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="user@example.com"
+                  autocomplete="email"
+                >
+                <svg class="err-icon" viewBox="0 0 20 20" fill="none">
+                  <circle cx="10" cy="10" r="9" stroke="#D93025" stroke-width="1.5" >
+                  <path d="M10 6v5M10 13.5v.5" stroke="#D93025" stroke-width="1.5" stroke-linecap="round" >
+                </svg>
+              </div>
+              <div class="field-msg" id="msg-email"></div>
             </div>
 
             <div class="field">
@@ -101,19 +108,8 @@
                   autocomplete="username"
                 >
                 <svg class="err-icon" viewBox="0 0 20 20" fill="none">
-                  <circle
-                    cx="10"
-                    cy="10"
-                    r="9"
-                    stroke="#D93025"
-                    stroke-width="1.5"
-                  >
-                  <path
-                    d="M10 6v5M10 13.5v.5"
-                    stroke="#D93025"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                  >
+                  <circle cx="10" cy="10" r="9" stroke="#D93025" stroke-width="1.5" >
+                  <path d="M10 6v5M10 13.5v.5" stroke="#D93025" stroke-width="1.5" stroke-linecap="round" >
                 </svg>
               </div>
               <div class="field-msg" id="msg-login"></div>
@@ -144,12 +140,8 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   >
-                    <path
-                      d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"
-                    >
-                    <path
-                      d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"
-                    >
+                    <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94" >
+                    <path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19" >
                     <line x1="1" y1="1" x2="23" y2="23" >
                   </svg>
                   <svg
@@ -198,12 +190,8 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   >
-                    <path
-                      d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"
-                    >
-                    <path
-                      d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"
-                    >
+                    <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94" >
+                    <path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19" >
                     <line x1="1" y1="1" x2="23" y2="23" >
                   </svg>
                   <svg
@@ -230,7 +218,7 @@
             </button>
             <div class="form-error" id="formError"></div>
             <div class="form-success" id="formSuccess">
-              🎉 Account created! Redirecting to sign in…
+               Account created! Redirecting to sign in…
             </div>
           </form>
 

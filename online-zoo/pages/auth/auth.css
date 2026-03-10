@@ -267,19 +267,16 @@ body {
   font-weight: 400;
 }
 
-/* ── Fields ── */
 .field {
   margin-bottom: 18px;
 }
 
 .field label {
   display: block;
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 400;
   color: var(--navy);
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  margin-bottom: 7px;
+  margin-bottom: 10px;
 }
 
 .input-wrap {
@@ -288,45 +285,41 @@ body {
 
 .input-wrap input {
   width: 100%;
-  height: 52px;
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
-  padding: 0 44px 0 16px;
+  height: 60px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 0 44px 0 20px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 400;
   color: var(--text);
-  background: #fafbfd;
+  background: #fff;
   outline: none;
   transition:
     border-color 0.2s,
-    box-shadow 0.2s,
-    background 0.2s;
+    box-shadow 0.2s;
 }
 
 .input-wrap input::placeholder {
-  color: #b0b7c9;
+  color: #a4a8ae;
   font-weight: 400;
+  font-size: 18px;
 }
 
 .input-wrap input:focus {
-  border-color: var(--orange);
-  box-shadow: 0 0 0 3px rgba(240, 108, 48, 0.12);
-  background: #fff;
+  border-color: #00a092;
+  box-shadow: 0px 0px 8px rgba(0, 160, 146, 0.25);
 }
 
 .input-wrap input.error {
   border-color: var(--red);
   box-shadow: 0 0 0 3px rgba(217, 48, 37, 0.09);
-  background: #fff;
 }
 
 .input-wrap input.valid {
-  border-color: var(--green);
-  background: #fff;
+  border-color: #00a092;
 }
 
-/* error icon */
 .err-icon {
   position: absolute;
   right: 14px;
@@ -405,24 +398,22 @@ input.error ~ .err-icon {
     background 0.35s ease;
 }
 
-/* ── Divider ── */
 .divider {
   border: none;
   border-top: 1px solid var(--border);
   margin: 24px 0;
 }
 
-/* ── Submit button ── */
 .btn-submit {
   width: 100%;
-  height: 52px;
-  background: var(--orange);
+  height: 60px;
+  background: #00a092;
   color: var(--white);
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   cursor: pointer;
@@ -434,14 +425,11 @@ input.error ~ .err-icon {
   transition:
     background 0.2s,
     transform 0.1s,
-    opacity 0.2s,
-    box-shadow 0.2s;
-  box-shadow: 0 4px 16px rgba(240, 108, 48, 0.3);
+    opacity 0.2s;
 }
 
 .btn-submit:hover:not(:disabled) {
-  background: #d95a1e;
-  box-shadow: 0 6px 20px rgba(240, 108, 48, 0.4);
+  background: #05786e;
 }
 
 .btn-submit:active:not(:disabled) {
@@ -451,10 +439,8 @@ input.error ~ .err-icon {
 .btn-submit:disabled {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: none;
 }
 
-/* spinner */
 .spinner {
   width: 18px;
   height: 18px;
