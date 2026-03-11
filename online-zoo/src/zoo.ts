@@ -6,6 +6,8 @@ import type {
   LeafletStatic,
 } from './types';
 import { API } from './api/api';
+import { initUserProfile } from './auth/userProfile';
+void initUserProfile();
 
 const DEFAULT_ICON = '/assets/images/map/animals/Panda.svg';
 const DEFAULT_ICON_ORANGE = '/assets/icons/zoos/Panda-orange.svg';
