@@ -82,7 +82,6 @@ Object.keys(elements.inputs).forEach((key) => {
   });
 });
 
-// Password toggle
 function setupToggle(
   btnId: string,
   inputId: string,
@@ -105,6 +104,11 @@ function setupToggle(
 setupToggle('togglePw1', 'password', 'eye1Off', 'eye1On');
 setupToggle('togglePw2', 'confirm', 'eye2Off', 'eye2On');
 
+function showError(msg: string): void {
+  elements.formError.textContent = msg;
+  elements.formError.classList.add('visible');
+}
+
 elements.form.addEventListener('submit', async (e) => {
   e.preventDefault();
   elements.submitBtn.classList.add('loading');
@@ -126,15 +130,29 @@ elements.form.addEventListener('submit', async (e) => {
     if (res.ok || res.status === 201) {
       elements.formSuccess.classList.add('visible');
       setTimeout(() => (window.location.href = 'login.html'), 2000);
+      return;
+    }
+
+    const data = (await res.json().catch(() => ({}))) as {
+      message?: string;
+      error?: string;
+    };
+
+    if (res.status === 409) {
+      showError('This user already exists.');
+    } else if (res.status === 400) {
+      showError(
+        data.message ?? 'Invalid data. Please check your input and try again.',
+      );
+    } else if (res.status >= 500) {
+      showError('Server error. Please try again later.');
     } else {
-      const data = await res.json().catch(() => ({}));
-      elements.formError.textContent =
-        data.message || data.error || 'Registration failed. Please try again.';
-      elements.formError.classList.add('visible');
+      showError(
+        data.message ?? data.error ?? 'Registration failed. Please try again.',
+      );
     }
   } catch {
-    elements.formError.textContent = 'Network error. Please try again.';
-    elements.formError.classList.add('visible');
+    showError('Network error. Please check your connection and try again.');
   } finally {
     elements.submitBtn.classList.remove('loading');
   }

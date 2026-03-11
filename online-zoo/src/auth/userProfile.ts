@@ -3,6 +3,12 @@ const API = 'https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod';
 interface UserProfile {
   login: string;
   name?: string;
+  email?: string;
+}
+
+interface ApiResponse {
+  data?: UserProfile;
+  token?: string;
 }
 
 function getToken(): string | null {
@@ -24,16 +30,11 @@ function logout(): void {
   window.location.reload();
 }
 
-function getInitial(user: UserProfile): string {
-  const src = user.name || user.login || '?';
-  return src.charAt(0).toUpperCase();
-}
-
 function buildDropdown(user: UserProfile): string {
   return `
     <div class="user-profile__dropdown" id="profileDropdown">
       <div class="user-profile__dropdown-header">
-        <div class="user-profile__dropdown-login">${user.name || user.login}</div>
+        <div class="user-profile__dropdown-login">${user.name ?? user.login}</div>
         <div class="user-profile__dropdown-email">@${user.login}</div>
       </div>
       <button class="user-profile__dropdown-item user-profile__dropdown-item--logout" id="logoutBtn">
@@ -48,9 +49,8 @@ function buildDropdown(user: UserProfile): string {
 }
 
 function renderLoggedIn(container: HTMLElement, user: UserProfile): void {
-  const initial = getInitial(user);
   container.innerHTML = `
-    <span class="user-profile__name">${user.name || user.login}</span>
+    <span class="user-profile__name">${user.name ?? user.login}</span>
     <button class="user-profile__avatar" id="profileAvatarBtn" aria-label="Profile menu">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
@@ -61,7 +61,6 @@ function renderLoggedIn(container: HTMLElement, user: UserProfile): void {
 
   const btn = container.querySelector<HTMLButtonElement>('#profileAvatarBtn');
   const dropdown = container.querySelector<HTMLElement>('#profileDropdown');
-  const logoutBtn = container.querySelector<HTMLButtonElement>('#logoutBtn');
 
   btn?.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -72,7 +71,13 @@ function renderLoggedIn(container: HTMLElement, user: UserProfile): void {
     dropdown?.classList.remove('open');
   });
 
-  logoutBtn?.addEventListener('click', logout);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') dropdown?.classList.remove('open');
+  });
+
+  container
+    .querySelector<HTMLButtonElement>('#logoutBtn')
+    ?.addEventListener('click', logout);
 }
 
 function renderLoggedOut(authContainer: HTMLElement | null): void {
@@ -85,10 +90,10 @@ async function fetchProfile(token: string): Promise<UserProfile | null> {
       headers: { Authorization: `Bearer ${token}` },
     });
     if (!res.ok) return null;
-    const data = await res.json();
-    const user: UserProfile = data.data ?? data;
+    const data = (await res.json()) as ApiResponse;
+    const user: UserProfile = data.data ?? (data as unknown as UserProfile);
     localStorage.setItem('zoo_user', JSON.stringify(user));
-    return user;
+    return user.login ? user : null;
   } catch {
     return null;
   }
@@ -109,8 +114,7 @@ export async function initUserProfile(): Promise<void> {
 
   if (authContainer) authContainer.style.display = 'none';
 
-  let user = getStoredUser();
-
+  const user = getStoredUser();
   if (user) {
     renderLoggedIn(profileContainer, user);
   }

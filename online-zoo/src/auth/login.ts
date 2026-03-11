@@ -32,7 +32,9 @@ elements.form.addEventListener('submit', async (e) => {
     });
     const data = await res.json();
     if (res.ok) {
-      localStorage.setItem('zoo_token', data.token || data.jwt);
+      const token =
+        data.token ?? data.jwt ?? data.accessToken ?? data.data?.token;
+      localStorage.setItem('zoo_token', token as string);
       localStorage.setItem(
         'zoo_user',
         JSON.stringify(data.user || { name: elements.login.value }),
