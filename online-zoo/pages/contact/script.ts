@@ -1,3 +1,7 @@
+import { initUserProfile } from '../../src/auth/userProfile';
+
+void initUserProfile();
+
 document.addEventListener('DOMContentLoaded', () => {
   const burgerBtn = document.getElementById('burgerBtn');
   const headerMenu = document.getElementById('headerMenu');
@@ -14,20 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   closeBurger?.addEventListener('click', closeMobileMenu);
-
   headerMenu?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', closeMobileMenu);
   });
 
-  const hoverButtons = document.querySelectorAll('[data-hover-src]');
-  hoverButtons.forEach((button) => {
-    const icon = button.querySelector('img');
-    if (!icon) return;
-    const defaultSrc = icon.src;
-    const hoverSrc = button.dataset.hoverSrc;
-    button.addEventListener('mouseenter', () => (icon.src = hoverSrc));
-    button.addEventListener('mouseleave', () => (icon.src = defaultSrc));
-  });
+  document
+    .querySelectorAll<HTMLElement>('[data-hover-src]')
+    .forEach((button) => {
+      const icon = button.querySelector('img') as HTMLImageElement | null;
+      if (!icon) return;
+      const defaultSrc = icon.src;
+      const hoverSrc = button.dataset['hoverSrc'] ?? defaultSrc;
+      button.addEventListener('mouseenter', () => (icon.src = hoverSrc));
+      button.addEventListener('mouseleave', () => (icon.src = defaultSrc));
+    });
 
   const modal1 = document.getElementById('donationModal');
   const modal2 = document.getElementById('stepModal');
@@ -61,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
   [closeBtn1, closeBtn2].forEach((btn) =>
     btn?.addEventListener('click', closeModal),
   );
-
   [modal1, modal2].forEach((m) => {
     m?.addEventListener('click', (e) => {
       if (e.target === m) closeModal();
@@ -74,53 +77,54 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('step3'),
   ];
 
-  const validateStep = (stepElement) => {
+  const validateStep = (stepElement: HTMLElement | null): boolean => {
     if (!stepElement) return true;
-    const inputs = stepElement.querySelectorAll(
-      'input[required], textarea[required]',
-    );
     let isValid = true;
-    inputs.forEach((input) => {
-      const parent = input.parentElement;
-      if (!input.validity.valid) {
-        parent.classList.add('error');
-        isValid = false;
-      } else {
-        parent.classList.remove('error');
-      }
-    });
+    stepElement
+      .querySelectorAll<
+        HTMLInputElement | HTMLTextAreaElement
+      >('input[required], textarea[required]')
+      .forEach((input) => {
+        const parent = input.parentElement;
+        if (!input.validity.valid) {
+          parent?.classList.add('error');
+          isValid = false;
+        } else {
+          parent?.classList.remove('error');
+        }
+      });
     return isValid;
   };
 
   document.getElementById('toStep2')?.addEventListener('click', () => {
-    if (validateStep(steps[0])) {
-      steps[0].classList.add('d-none');
-      steps[1].classList.remove('d-none');
+    if (validateStep(steps[0] ?? null)) {
+      steps[0]?.classList.add('d-none');
+      steps[1]?.classList.remove('d-none');
     }
   });
 
   document.getElementById('toStep3')?.addEventListener('click', () => {
-    if (validateStep(steps[1])) {
-      steps[1].classList.add('d-none');
-      steps[2].classList.remove('d-none');
+    if (validateStep(steps[1] ?? null)) {
+      steps[1]?.classList.add('d-none');
+      steps[2]?.classList.remove('d-none');
     }
   });
 
   document
     .getElementById('completeBtn')
-    ?.addEventListener('click', function () {
-      if (validateStep(steps[2])) {
+    ?.addEventListener('click', function (this: HTMLButtonElement) {
+      if (validateStep(steps[2] ?? null)) {
         const originalText = this.innerHTML;
         this.innerHTML = 'SUCCESS! ❤️';
         setTimeout(() => {
           closeModal();
           setTimeout(() => {
-            steps[2].classList.add('d-none');
-            steps[1].classList.add('d-none');
-            steps[0].classList.remove('d-none');
+            steps[2]?.classList.add('d-none');
+            steps[1]?.classList.add('d-none');
+            steps[0]?.classList.remove('d-none');
             this.innerHTML = originalText;
             document
-              .querySelectorAll('.donation-modal input')
+              .querySelectorAll<HTMLInputElement>('.donation-modal input')
               .forEach((i) => (i.value = ''));
           }, 500);
         }, 1500);
@@ -128,20 +132,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   document.getElementById('backTo1')?.addEventListener('click', () => {
-    steps[1].classList.add('d-none');
-    steps[0].classList.remove('d-none');
+    steps[1]?.classList.add('d-none');
+    steps[0]?.classList.remove('d-none');
   });
 
   document.getElementById('backTo2')?.addEventListener('click', () => {
-    steps[2].classList.add('d-none');
-    steps[1].classList.remove('d-none');
+    steps[2]?.classList.add('d-none');
+    steps[1]?.classList.remove('d-none');
   });
 
-  const setupDropdown = (container) => {
+  const setupDropdown = (container: Element) => {
     const box = container.querySelector('.select-box');
     const list = container.querySelector('.select-list');
-    const currentText = container.querySelector('.select-current');
+    const currentText = container.querySelector<HTMLElement>('.select-current');
     if (!box || !list) return;
+
     box.addEventListener('click', (e) => {
       e.stopPropagation();
       const isActive = container.classList.contains('active');
@@ -154,10 +159,13 @@ document.addEventListener('DOMContentLoaded', () => {
         list.classList.remove('select-hide');
       }
     });
+
     list.querySelectorAll('.select-item').forEach((item) => {
       item.addEventListener('click', () => {
-        currentText.innerText = item.innerText;
-        currentText.style.color = '#000';
+        if (currentText) {
+          currentText.innerText = (item as HTMLElement).innerText;
+          currentText.style.color = '#000';
+        }
         list
           .querySelectorAll('.select-item')
           .forEach((i) => i.classList.remove('selected'));
@@ -170,43 +178,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.custom-select-container').forEach(setupDropdown);
 
-  const allInputs = document.querySelectorAll(
-    'input[required], textarea[required]',
-  );
-  allInputs.forEach((input) => {
-    input.addEventListener('blur', () => {
-      if (!input.validity.valid) {
-        input.parentElement.classList.add('error');
-      } else {
-        input.parentElement.classList.remove('error');
-      }
-    });
-
-    input.addEventListener('input', () => {
-      if (input.validity.valid) {
-        input.parentElement.classList.remove('error');
-      }
-    });
-  });
-
-  const forms = document.querySelectorAll('.contact-form, .donation-modal');
-  forms.forEach((form) => {
-    form.addEventListener('submit', (e) => {
-      let isFormValid = true;
-      const inputs = form.querySelectorAll(
-        'input[required], textarea[required]',
-      );
-      inputs.forEach((input) => {
-        if (!input.validity.valid) {
-          input.parentElement.classList.add('error');
-          isFormValid = false;
-        }
+  document
+    .querySelectorAll<
+      HTMLInputElement | HTMLTextAreaElement
+    >('input[required], textarea[required]')
+    .forEach((input) => {
+      input.addEventListener('blur', () => {
+        input.parentElement?.classList.toggle('error', !input.validity.valid);
       });
-      if (!isFormValid) {
-        e.preventDefault();
-      }
+      input.addEventListener('input', () => {
+        if (input.validity.valid)
+          input.parentElement?.classList.remove('error');
+      });
     });
-  });
 
   document.addEventListener('click', () => {
     document
