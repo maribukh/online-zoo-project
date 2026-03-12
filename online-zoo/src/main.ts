@@ -1,9 +1,13 @@
 import type { IPet, IFeedback } from './types';
 import { API } from './api/api';
 import { initUserProfile } from './auth/userProfile';
+import { initDonation } from './donation';
+
 void initUserProfile();
 
 document.addEventListener('DOMContentLoaded', async () => {
+  initDonation();
+
   const petAssets: Record<number, { img: string; link: string }> = {
     1: { img: '/assets/images/pets/panda.webp', link: 'panda.html' },
     2: { img: '/assets/images/pets/lemur.webp', link: 'lemur.html' },
@@ -53,7 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  loadData();
+  void loadData();
 
   function renderPets(pets: IPet[], container: HTMLElement): void {
     container.innerHTML = '';
@@ -103,7 +107,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         card.innerHTML = `
           <div class="content">
             <div class="testimonial-header">
-              <img src="../../assets/icons/“.svg" alt="">
               <span class="testimonial-city">${String(fbRecord['city'] ?? 'Unknown')}, ${dateString}</span>
             </div>
             <p class="testimonial-text">${String(fbRecord['text'] ?? '')}</p>
@@ -156,18 +159,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       const pages = grid.querySelectorAll('.testimonials-page');
       const totalPages = pages.length;
       if (totalPages === 0) return;
-
       let target = page;
       if (target >= totalPages) target = 0;
       if (target < 0) target = totalPages - 1;
-
-      const pageWidth = 1060;
-      grid.style.transform = `translateX(-${target * pageWidth}px)`;
-
+      grid.style.transform = `translateX(-${target * 1060}px)`;
       tDots.forEach((d) => d.classList.remove('active'));
-      const dotIndex = target % tDots.length;
-      (tDots[dotIndex] as HTMLElement | undefined)?.classList.add('active');
-
+      (tDots[target % tDots.length] as HTMLElement | undefined)?.classList.add(
+        'active',
+      );
       currentPage = target;
     };
 
@@ -179,6 +178,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   const modal1 = document.getElementById('donationModal');
   const modal2 = document.getElementById('stepModal');
   const headerMenu = document.getElementById('headerMenu');
+
+  const closeModal = () => {
+    modal1?.classList.remove('open');
+    modal2?.classList.remove('open');
+    headerMenu?.classList.remove('active');
+    document.body.classList.remove('modal-open');
+  };
 
   document
     .querySelectorAll(
@@ -192,116 +198,18 @@ document.addEventListener('DOMContentLoaded', async () => {
       }),
     );
 
-  document.querySelector('.donate-btn_other')?.addEventListener('click', () => {
-    modal1?.classList.remove('open');
-    modal2?.classList.add('open');
-  });
-
-  const closeModal = () => {
-    modal1?.classList.remove('open');
-    modal2?.classList.remove('open');
-    headerMenu?.classList.remove('active');
-    document.body.classList.remove('modal-open');
-  };
-
   document
     .querySelectorAll(
       '.modal-close, #closeModal, #closeStepModal, #closeBurger',
     )
     .forEach((b) => b.addEventListener('click', closeModal));
 
+  document.addEventListener('closeModals', closeModal);
+
   document.getElementById('burgerBtn')?.addEventListener('click', () => {
     headerMenu?.classList.add('active');
     document.body.classList.add('modal-open');
   });
-
-  const steps = [
-    document.getElementById('step1'),
-    document.getElementById('step2'),
-    document.getElementById('step3'),
-  ];
-
-  const validate = (el: HTMLElement | null | undefined): boolean => {
-    if (!el) return true;
-    let ok = true;
-    el.querySelectorAll<HTMLInputElement>('input[required]').forEach((i) => {
-      const v = i.validity.valid;
-      i.parentElement?.classList.toggle('error', !v);
-      if (!v) ok = false;
-    });
-    return ok;
-  };
-
-  document.getElementById('toStep2')?.addEventListener('click', () => {
-    if (validate(steps[0])) {
-      steps[0]?.classList.add('d-none');
-      steps[1]?.classList.remove('d-none');
-    }
-  });
-  document.getElementById('toStep3')?.addEventListener('click', () => {
-    if (validate(steps[1])) {
-      steps[1]?.classList.add('d-none');
-      steps[2]?.classList.remove('d-none');
-    }
-  });
-  document.getElementById('backTo1')?.addEventListener('click', () => {
-    steps[1]?.classList.add('d-none');
-    steps[0]?.classList.remove('d-none');
-  });
-  document.getElementById('backTo2')?.addEventListener('click', () => {
-    steps[2]?.classList.add('d-none');
-    steps[1]?.classList.remove('d-none');
-  });
-
-  document
-    .getElementById('completeBtn')
-    ?.addEventListener('click', function (this: HTMLButtonElement) {
-      if (validate(steps[2])) {
-        this.innerText = 'SUCCESS! ❤️';
-        setTimeout(() => {
-          closeModal();
-          setTimeout(() => {
-            steps[2]?.classList.add('d-none');
-            steps[0]?.classList.remove('d-none');
-            this.innerText = 'COMPLETE DONATION';
-          }, 500);
-        }, 1500);
-      }
-    });
-
-  document.querySelectorAll('input[required]').forEach((input) => {
-    input.addEventListener('blur', () =>
-      (input as HTMLElement).parentElement?.classList.toggle(
-        'error',
-        !(input as HTMLInputElement).validity.valid,
-      ),
-    );
-  });
-
-  document.querySelectorAll('.custom-select-container').forEach((container) => {
-    const box = container.querySelector('.select-box') as HTMLElement;
-    const list = container.querySelector('.select-list') as HTMLElement;
-    const current = container.querySelector('.select-current') as HTMLElement;
-    box?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      list.classList.toggle('select-hide');
-      container.classList.toggle('active');
-    });
-    list?.querySelectorAll('.select-item').forEach((item) =>
-      item.addEventListener('click', () => {
-        current.innerText = (item as HTMLElement).innerText;
-        current.style.color = '#000';
-        list.classList.add('select-hide');
-        container.classList.remove('active');
-      }),
-    );
-  });
-
-  document.addEventListener('click', () =>
-    document
-      .querySelectorAll('.select-list')
-      .forEach((l) => l.classList.add('select-hide')),
-  );
 
   document.getElementById('heroViewBtn')?.addEventListener('click', () => {
     window.location.href = '/pages/zoos/panda.html';

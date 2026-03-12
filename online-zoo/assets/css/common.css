@@ -460,6 +460,11 @@ header nav ul li a.active {
 }
 
 .amount-btn.active {
+  background-color: var(--color-green-hover) !important;
+  color: #fff;
+}
+
+.amount-btn.active {
   background-color: var(--color-teal);
   color: #fff;
 }
