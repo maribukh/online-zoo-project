@@ -1,21 +1,21 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Online-zoo</title>
     <link
       rel="shortcut icon"
       href="../../assets/icons/Favicon.svg"
       type="image/x-icon"
-    />
-    <link rel="stylesheet" href="../../assets/css/common.css" />
-    <link rel="stylesheet" href="./style.css" />
+    >
+    <link rel="stylesheet" href="../../assets/css/common.css" >
+    <link rel="stylesheet" href="./style.css" >
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800&display=swap"
       rel="stylesheet"
-    />
-    <script src="./script.js" defer></script>
+    >
+    <script type="module" src="./script.ts"></script>
   </head>
   <body>
     <header class="header">
@@ -23,16 +23,16 @@
         <div class="left-side">
           <a href="../landing/index.html"
             ><img src="../../assets/images/Logo.svg" alt="logo"
-          /></a>
+          ></a>
         </div>
 
         <button class="burger-menu" id="burgerBtn">
-          <img src="../../assets/icons/hamburger.svg" alt="menu" />
+          <img src="../../assets/icons/hamburger.svg" alt="menu" >
         </button>
 
         <div class="right-side" id="headerMenu">
           <button class="close-burger" id="closeBurger">
-            <img src="../../assets/icons/x-mark.svg" alt="close" />
+            <img src="../../assets/icons/x-mark.svg" alt="close" >
           </button>
 
           <nav>
@@ -51,7 +51,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="../../assets/icons/YouTube.svg" alt="YouTube icon" />
+              <img src="../../assets/icons/YouTube.svg" alt="YouTube icon" >
             </a>
             <a
               href="https://www.instagram.com/"
@@ -61,16 +61,18 @@
               <img
                 src="../../assets/icons/Instagram.svg"
                 alt="Instagram icon"
-              />
+              >
             </a>
             <a
               href="https://www.facebook.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="../../assets/icons/Facebook.svg" alt="Facebook icon" />
+              <img src="../../assets/icons/Facebook.svg" alt="Facebook icon" >
             </a>
           </div>
+          <div id="userProfile" class="user-profile"></div>
+          <div class="header-auth" id="headerAuthBtns">...</div>
         </div>
       </div>
     </header>
@@ -85,7 +87,7 @@
                 src="../../assets/images/map/animals/Eagle.svg"
                 alt="Eagle"
                 class="pin-animal"
-              />
+              >
             </a>
 
             <a href="../zoos/alligator.html" class="map-pin pin-alligator">
@@ -93,7 +95,7 @@
                 src="../../assets/images/map/animals/Alligator.svg"
                 alt="Alligator"
                 class="pin-animal"
-              />
+              >
             </a>
 
             <a href="../zoos/gorilla.html" class="map-pin pin-gorilla">
@@ -101,7 +103,7 @@
                 src="../../assets/images/map/animals/Gorilla.svg"
                 alt="Gorilla"
                 class="pin-animal"
-              />
+              >
             </a>
 
             <a href="../zoos/lion.html" class="map-pin pin-lion">
@@ -109,7 +111,7 @@
                 src="../../assets/images/map/animals/Lion.svg"
                 alt="Lion"
                 class="pin-animal"
-              />
+              >
             </a>
 
             <a href="../zoos/lemur.html" class="map-pin pin-lemur">
@@ -117,7 +119,7 @@
                 src="../../assets/images/map/animals/Lemur.svg"
                 alt="Lemur"
                 class="pin-animal"
-              />
+              >
             </a>
 
             <a href="../zoos/tiger.html" class="map-pin pin-tiger">
@@ -125,7 +127,7 @@
                 src="../../assets/images/map/animals/tiger.svg"
                 alt="Tiger"
                 class="pin-animal"
-              />
+              >
             </a>
 
             <a href="../zoos/panda.html" class="map-pin pin-panda">
@@ -133,7 +135,7 @@
                 src="../../assets/images/map/animals/Panda.svg"
                 alt="Panda"
                 class="pin-animal"
-              />
+              >
             </a>
 
             <a href="../zoos/koala.html" class="map-pin pin-koala">
@@ -141,7 +143,7 @@
                 src="../../assets/images/map/animals/Coala.svg"
                 alt="Koala"
                 class="pin-animal"
-              />
+              >
             </a>
           </div>
         </div>
@@ -153,19 +155,19 @@
         <div class="footer-main">
           <div class="footer-logos">
             <a href="index.html" class="logo">
-              <img src="../../assets/images/Logo2.svg" alt="Online Zoo" />
+              <img src="../../assets/images/Logo2.svg" alt="Online Zoo" >
             </a>
             <a href="#" class="logo-partnership">
               <img
                 src="../../assets/images/Yem-Digital.svg"
                 alt="Partnership Logo"
-              />
+              >
             </a>
             <a href="https://rs.school/" target="_blank" class="logo-rss">
               <img
                 src="../../assets/images/rs_school_js-logo.svg"
                 alt="RS School"
-              />
+              >
             </a>
           </div>
           <nav class="footer-nav">
@@ -178,11 +180,11 @@
           </nav>
           <button class="btn btn-outline-white">
             DONATE FOR VOLUNTEERS
-            <img src="../../assets/icons/Union.svg" alt="" aria-hidden="true" />
+            <img src="../../assets/icons/Union.svg" alt="" aria-hidden="true" >
           </button>
         </div>
 
-        <hr class="footer-divider" />
+        <hr class="footer-divider" >
 
         <div class="footer-info">
           <div class="copyrights">
@@ -193,21 +195,21 @@
 
           <div class="footer-socials">
             <a href="https://youtube.com" target="_blank" aria-label="YouTube">
-              <img src="../../assets/icons/YouTube.svg" alt="" />
+              <img src="../../assets/icons/YouTube.svg" alt="" >
             </a>
             <a
               href="https://instagram.com"
               target="_blank"
               aria-label="Instagram"
             >
-              <img src="../../assets/icons/Instagram.svg" alt="" />
+              <img src="../../assets/icons/Instagram.svg" alt="" >
             </a>
             <a
               href="https://facebook.com"
               target="_blank"
               aria-label="Facebook"
             >
-              <img src="../../assets/icons/Facebook.svg" alt="" />
+              <img src="../../assets/icons/Facebook.svg" alt="" >
             </a>
           </div>
         </div>
@@ -216,18 +218,18 @@
     <div class="modal-overlay" id="donationModal">
       <div class="modal-window">
         <button class="modal-close" id="closeModal">
-          <img src="../../assets/icons/x-mark.svg" alt="close" />
+          <img src="../../assets/icons/x-mark.svg" alt="close" >
         </button>
 
         <div class="modal-image">
           <img
             src="../../assets/images/donate-image.jpg"
             alt="Together we care"
-          />
+          >
         </div>
 
         <div class="modal-content">
-          <h2 class="modal-title">TOGETHER WE CARE, <br />SAVE AND PROTECT!</h2>
+          <h2 class="modal-title">TOGETHER WE CARE, <br >SAVE AND PROTECT!</h2>
           <p class="modal-text">
             Your most generous gift not only cares for countless animals, but it
             also offers hope and a vital lifeline to the world’s most endangered
@@ -261,7 +263,7 @@
             >
               Donation Information:
             </h3>
-            <hr class="divider" />
+            <hr class="divider" >
 
             <label class="input-label"
               ><span>*</span> Choose your donation amount:</label
@@ -277,7 +279,7 @@
 
             <div class="other-amount-row">
               <button class="btn-dark-turquoise">OTHER AMOUNT</button>
-              <input type="number" class="other-input" placeholder="" />
+              <input type="number" class="other-input" placeholder="" >
             </div>
 
             <div class="pet-select-row">
@@ -291,7 +293,7 @@
                       src="../../assets/icons/arrow-down-black.svg"
                       alt=""
                       id="selectArrow"
-                    />
+                    >
                   </div>
                 </div>
 
@@ -309,7 +311,7 @@
             </div>
 
             <label class="recurring-label">
-              <input type="checkbox" />
+              <input type="checkbox" >
               <span class="checkbox-custom"></span>
               Make this a monthly recurring gift
             </label>
@@ -322,7 +324,7 @@
               </div>
               <button class="btn-next" id="toStep2">
                 NEXT
-                <img src="../../assets/icons/Union.svg" alt="" />
+                <img src="../../assets/icons/Union.svg" alt="" >
               </button>
             </div>
           </div>
@@ -335,7 +337,7 @@
             >
               Billing Information:
             </h3>
-            <hr class="divider" />
+            <hr class="divider" >
 
             <div class="forms-group">
               <div class="form-group">
@@ -345,7 +347,7 @@
                   id="bill-name"
                   placeholder="First and last name"
                   required
-                />
+                >
                 <span class="error-message">Error message</span>
               </div>
 
@@ -358,7 +360,7 @@
                   id="bill-email"
                   placeholder="Enter your email"
                   required
-                />
+                >
                 <span class="error-message">Error message</span>
               </div>
             </div>
@@ -379,7 +381,7 @@
                 <button class="btn-back" id="backTo1">Back</button>
                 <button class="btn-next" id="toStep3">
                   NEXT
-                  <img src="../../assets/icons/arrow-right-white.svg" alt="" />
+                  <img src="../../assets/icons/arrow-right-white.svg" alt="" >
                 </button>
               </div>
             </div>
@@ -392,17 +394,17 @@
             >
               Payment Information:
             </h3>
-            <hr class="divider" />
+            <hr class="divider" >
 
             <div class="payment-row">
               <div class="form-group flex-grow">
                 <label for="card-num"><span>*</span> Credit Card Number</label>
-                <input type="text" id="card-num" required />
+                <input type="text" id="card-num" required >
                 <span class="error-message">Error message</span>
               </div>
               <div class="form-group cvv-group">
                 <label for="cvv"><span>*</span> CVV Number</label>
-                <input type="password" id="cvv" maxlength="3" required />
+                <input type="password" id="cvv" maxlength="3" required >
                 <span class="error-message">Error message</span>
               </div>
             </div>
@@ -417,7 +419,7 @@
                       <img
                         src="../../assets/icons/arrow-down-black.svg"
                         alt=""
-                      />
+                      >
                     </div>
                   </div>
                   <ul class="select-list select-hide" id="monthList">
@@ -442,7 +444,7 @@
                       <img
                         src="../../assets/icons/arrow-down-black.svg"
                         alt=""
-                      />
+                      >
                     </div>
                   </div>
                   <ul class="select-list select-hide" id="yearList">
@@ -473,4 +475,4 @@
       </div>
     </div>
   </body>
-</html>
+</html>
