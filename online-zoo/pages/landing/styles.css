@@ -682,6 +682,10 @@
 /* Responsive */
 
 @media (max-width: 1200px) {
+  .header-actions {
+    margin: 0px;
+  }
+
   #pets-grid {
     gap: 20px !important;
   }
@@ -701,6 +705,7 @@
   .testimonials-info {
     width: 100%;
     margin-bottom: 40px;
+    height: 100px;
   }
 
   .testimonials-wrapper {
@@ -733,6 +738,7 @@
 
   .about__image img {
     width: 660px;
+    max-width: 100%;
     height: auto;
   }
 
@@ -751,7 +757,7 @@
   }
 
   .donation-banner .container .right-side {
-    width: 40%;
+    width: 42%;
   }
 
   .pets-header .description {
@@ -925,71 +931,121 @@
     padding-bottom: 80px;
   }
 
+  .testimonials .container {
+    max-width: 100%;
+    margin: auto;
+    padding: 0 20px;
+  }
+
   .testimonials-wrapper {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 40px;
+    margin-left: 0;
   }
 
   .testimonials-info {
     width: 100%;
-    text-align: center;
+    gap: 30px;
   }
 
   .testimonials-info .second-title {
     font-size: 36px;
-    margin-bottom: 20px;
-  }
-
-  .testimonials-info .description {
-    font-size: 18px;
-    margin: 0 auto 30px;
-    max-width: 100%;
-  }
-
-  .testimonials-info button {
-    position: static;
-    margin: 0 auto;
-    min-width: 240px;
-    width: fit-content;
   }
 
   .testimonials-content {
-    position: static;
     width: 100%;
-    margin-top: 20px;
+    overflow: hidden;
+  }
+
+  .testimonials-slider-window {
+    overflow: hidden;
+    width: 100%;
   }
 
   .testimonials-grid {
     display: flex !important;
-    grid-template-columns: none;
+    flex-wrap: nowrap;
+    transition: transform 0.5s ease-in-out;
+    width: max-content;
     gap: 20px;
-    overflow-x: auto;
-    padding-bottom: 20px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
   }
 
-  .testimonials-grid::-webkit-scrollbar {
-    display: none;
+  .testimonials-page {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: auto;
+    flex-shrink: 0;
+    margin-right: 0;
   }
 
   .testimonial-card {
-    min-width: 440px;
-    max-width: 440px;
-    padding: 30px;
-    scroll-snap-align: start;
-    text-align: left;
+    width: calc(100vw - 40px);
+    min-width: calc(100vw - 40px);
+    max-width: calc(100vw - 40px);
+    min-height: auto;
+    padding: 30px 25px;
+    text-align: center;
+  }
+
+  .testimonial-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .quote-icon {
+    width: 50px;
+    margin-bottom: 15px;
+    display: block;
   }
 
   .testimonial-city {
-    font-size: 18px;
+    font-size: 22px !important;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .testimonial-text {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .testimonial-author {
+    text-align: center;
   }
 
   .testimonials-nav {
+    display: none;
+  }
+
+  .testimonials-pagination {
+    display: flex !important;
     justify-content: center;
-    margin-top: 30px;
-    gap: 30px;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .testimonials-pagination .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--color-white);
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .testimonials-pagination .dot.active {
+    background-color: var(--color-white);
+  }
+
+  .btn-feedback {
+    margin-top: 30px !important;
+    position: static !important;
+    bottom: auto !important;
+    left: auto !important;
   }
 
   .about-content--reverse {
@@ -1151,35 +1207,28 @@
     transform: translate(-50%, -50%);
   }
 
-  .testimonial-header {
-    display: flex;
-    justify-content: center;
-    position: relative;
+  .testimonials {
+    padding-bottom: 60px;
+  }
+
+  .testimonials-info .second-title {
+    font-size: 28px;
+  }
+
+  .testimonials-info .description {
+    font-size: 16px;
+  }
+
+  .testimonial-card {
+    padding: 30px 20px;
   }
 
   .testimonial-city {
-    font-size: 26px !important;
-    text-align: center;
-    max-width: 290px;
+    font-size: 20px !important;
   }
 
-  .testimonial-header img {
-    position: absolute;
-    left: 0px;
-  }
-
-  .testimonial-card .content {
-    text-align: center;
-  }
-
-  .testimonials-info button {
-    position: absolute;
-    bottom: 500px;
-    left: 20px;
-  }
-
-  .testimonials {
-    padding-bottom: 600px;
+  .quote-icon {
+    width: 44px;
   }
 
   .care-header {
@@ -1449,10 +1498,6 @@
     width: 100%;
   }
 
-  .care-img-wrapper {
-    height: 200px;
-  }
-
   .care-content {
     padding: 20px;
     text-align: center;
@@ -1492,5 +1537,13 @@
 
   .modal-image img {
     height: 150px;
+  }
+
+  .testimonials-info {
+    text-align: center;
+  }
+
+  .btn-fav {
+    max-width: 95% !important;
   }
 }

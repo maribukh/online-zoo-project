@@ -153,28 +153,67 @@ document.addEventListener('DOMContentLoaded', async () => {
       '.testimonials-nav button:last-child',
     ) as HTMLButtonElement | null;
     const tDots = document.querySelectorAll('.testimonials-pagination .dot');
-    let currentPage = 0;
+    let currentIndex = 0;
 
-    const update = (page: number) => {
-      const pages = grid.querySelectorAll('.testimonials-page');
-      const totalPages = pages.length;
-      if (totalPages === 0) return;
-      let target = page;
-      if (target >= totalPages) target = 0;
-      if (target < 0) target = totalPages - 1;
-      grid.style.transform = `translateX(-${target * 1060}px)`;
-      tDots.forEach((d) => d.classList.remove('active'));
-      (tDots[target % tDots.length] as HTMLElement | undefined)?.classList.add(
-        'active',
+    function getAllCards(): HTMLElement[] {
+      return Array.from(
+        grid.querySelectorAll<HTMLElement>('.testimonial-card'),
       );
-      currentPage = target;
+    }
+
+    function isMobile(): boolean {
+      return window.innerWidth <= 940;
+    }
+
+    const update = (index: number) => {
+      const cards = getAllCards();
+      const total = isMobile()
+        ? cards.length
+        : grid.querySelectorAll('.testimonials-page').length;
+
+      if (total === 0) return;
+
+      let target = index;
+      if (target >= total) target = 0;
+      if (target < 0) target = total - 1;
+
+      if (isMobile()) {
+        const cardWidth = cards[0]?.offsetWidth ?? 0;
+        const gap = 20;
+        grid.style.transform = `translateX(-${target * (cardWidth + gap)}px)`;
+      } else {
+        grid.style.transform = `translateX(-${target * 1060}px)`;
+      }
+
+      tDots.forEach((d) => d.classList.remove('active'));
+      const dotIndex = target % (tDots.length || 1);
+      (tDots[dotIndex] as HTMLElement | undefined)?.classList.add('active');
+
+      currentIndex = target;
     };
 
-    btnNext?.addEventListener('click', () => update(currentPage + 1));
-    btnPrev?.addEventListener('click', () => update(currentPage - 1));
+    btnNext?.addEventListener('click', () => update(currentIndex + 1));
+    btnPrev?.addEventListener('click', () => update(currentIndex - 1));
     tDots.forEach((dot, i) => dot.addEventListener('click', () => update(i)));
-  }
 
+    let startX = 0;
+    grid.addEventListener(
+      'touchstart',
+      (e) => {
+        startX = e.touches[0]?.clientX ?? 0;
+      },
+      { passive: true },
+    );
+    grid.addEventListener(
+      'touchend',
+      (e) => {
+        const diff = startX - (e.changedTouches[0]?.clientX ?? 0);
+        if (Math.abs(diff) > 50)
+          update(diff > 0 ? currentIndex + 1 : currentIndex - 1);
+      },
+      { passive: true },
+    );
+  }
   const modal1 = document.getElementById('donationModal');
   const modal2 = document.getElementById('stepModal');
   const headerMenu = document.getElementById('headerMenu');

@@ -122,6 +122,7 @@ header nav ul li a.active {
   display: flex;
   align-items: center;
   gap: 24px;
+  margin-left: 60px;
 }
 
 .header-auth {
@@ -1097,7 +1098,7 @@ header nav ul li a.active {
   }
   header .right-side {
     width: 100%;
-    gap: 80px;
+    gap: 20px;
     justify-content: flex-end;
   }
   header ul {
@@ -1506,7 +1507,6 @@ header nav ul li a.active {
 
   .btn-next,
   .btn-complete {
-    width: 100%;
     order: 1;
     padding: 15px;
     font-size: 16px;
