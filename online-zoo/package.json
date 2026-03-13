@@ -33,6 +33,7 @@
     "tinyglobby": "^0.2.15"
   },
   "devDependencies": {
+    "@types/node": "^25.5.0",
     "@typescript-eslint/eslint-plugin": "^8.56.1",
     "@typescript-eslint/parser": "^8.56.1",
     "eslint": "^10.0.2",

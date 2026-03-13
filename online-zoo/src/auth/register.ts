@@ -157,3 +157,5 @@ elements.form.addEventListener('submit', async (e) => {
     elements.submitBtn.classList.remove('loading');
   }
 });
+
+export {};
