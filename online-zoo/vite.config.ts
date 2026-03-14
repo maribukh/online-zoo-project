@@ -1,25 +1,24 @@
 import { defineConfig } from 'vite';
-import { resolve, dirname } from 'path';
-import { fileURLToPath } from 'url';
- 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
- 
-export default defineConfig({
-  root: './',
-  base: '/',
+
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/online-zoo-project/' : '/',
+
   build: {
     outDir: 'dist',
+
     rollupOptions: {
       input: {
-        landing: resolve(__dirname, 'pages/landing/index.html'),
-        map: resolve(__dirname, 'pages/map/index.html'),
-        contact: resolve(__dirname, 'pages/contact/index.html'),
-        login: resolve(__dirname, 'pages/auth/login.html'),
-        register: resolve(__dirname, 'pages/auth/register.html'),
-        pandaZoo: resolve(__dirname, 'pages/zoos/panda.html'),
+        main: 'index.html',
+        landing: 'pages/landing/index.html',
+        map: 'pages/map/index.html',
+        panda: 'pages/zoos/panda.html',
+        gorilla: 'pages/zoos/gorilla.html',
+        eagle: 'pages/zoos/eagle.html',
+        lemur: 'pages/zoos/lemur.html',
+        contact: 'pages/contact/index.html',
+        login: 'pages/auth/login.html',
+        register: 'pages/auth/register.html',
       },
     },
   },
-});
- 
+}));
