@@ -1,8 +1,7 @@
 node_modules
-dist
 .vite
 
-dist/
+
 **/*.js.map
 pages/**/*.js
 pages/**/*.d.ts
