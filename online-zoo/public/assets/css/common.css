@@ -83,7 +83,7 @@ header .right-side {
 }
 
 header .right-side {
-  width: 60%;
+  width: 70%;
 }
 
 header nav {
@@ -490,9 +490,7 @@ header nav ul li a.active {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-green);
   color: #fff;
-  padding: 26px 55px;
   border-radius: 5px;
   font-size: 18px;
   font-weight: 600;
