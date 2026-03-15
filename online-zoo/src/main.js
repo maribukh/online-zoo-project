@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.body.classList.add('modal-open');
     });
     document.getElementById('heroViewBtn')?.addEventListener('click', () => {
-        window.location.href = '/pages/zoos/panda.html';
+        window.location.href = '/online-zoo-project/pages/zoos/panda.html';
     });
     document.querySelectorAll('[data-hover-src]').forEach((btn) => {
         const icon = btn.querySelector('img');
