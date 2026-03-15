@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite';
 
-export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/online-zoo-project/' : '/',
-
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/online-zoo-project/' : '/',
   build: {
     outDir: 'dist',
 
