@@ -7,274 +7,126 @@ import type {
 } from './types';
 import { API } from './api/api';
 import { initUserProfile } from './auth/userProfile';
+
 void initUserProfile();
 
-const DEFAULT_ICON = '/assets/images/map/animals/Panda.svg';
-const DEFAULT_ICON_ORANGE = '/assets/icons/zoos/Panda-orange.svg';
-const DEFAULT_IMG = '/assets/images/pets/panda.webp';
-const DEFAULT_VIDEO = '/assets/images/panda-live.jpg';
-const DEFAULT_CAM = '/assets/images/cam/cam-views.jpg';
+const DEFAULT_ICON = '../../assets/images/map/animals/Panda.svg';
+const DEFAULT_ICON_ORANGE = '../../assets/icons/zoos/Panda-orange.svg';
+const DEFAULT_IMG = '../../assets/images/pets/panda.webp';
+const DEFAULT_VIDEO = '../../assets/images/panda-live.jpg';
+const DEFAULT_CAM = '../../assets/images/cam/cam-views.jpg';
 const CAM_VISIBLE = 3;
 const SIDEBAR_VISIBLE = 4;
 
 const petAssets: Record<number, PetAsset> = {
   1: {
-    img: '/assets/images/pets/panda.webp',
-    icon: '/assets/images/map/animals/Panda.svg',
-    iconOrange: '/assets/icons/zoos/Panda-orange.svg',
+    img: '../../assets/images/pets/panda.webp',
+    icon: '../../assets/images/map/animals/Panda.svg',
+    iconOrange: '../../assets/icons/zoos/Panda-orange.svg',
     link: 'panda.html',
-    mainVideo: '/assets/images/panda-live.jpg',
+    mainVideo: '../../assets/images/panda-live.jpg',
     cams: [
-      '/assets/images/cam/cam-views.jpg',
-      '/assets/images/cam/cam-view2.jpg',
-      '/assets/images/cam/cam-view3.jpg',
+      '../../assets/images/cam/cam-views.jpg',
+      '../../assets/images/cam/cam-view2.jpg',
+      '../../assets/images/cam/cam-view3.jpg',
     ],
   },
   2: {
-    img: '/assets/images/pets/lemur.webp',
-    icon: '/assets/images/map/animals/Lemur.svg',
-    iconOrange: '/assets/icons/zoos/Lemur-orange.svg',
+    img: '../../assets/images/pets/lemur.webp',
+    icon: '../../assets/images/map/animals/Lemur.svg',
+    iconOrange: '../../assets/icons/zoos/Lemur-orange.svg',
     link: 'lemur.html',
-    mainVideo: '/assets/images/lemur-backgorund.jpg',
+    mainVideo: '../../assets/images/lemur-backgorund.jpg',
     cams: [
-      '/assets/images/cam/lemur-live.jpg',
-      '/assets/images/cam/lemur-live2.jpg',
-      '/assets/images/cam/lemur-live3.jpg',
+      '../../assets/images/cam/lemur-live.jpg',
+      '../../assets/images/cam/lemur-live2.jpg',
+      '../../assets/images/cam/lemur-live3.jpg',
     ],
   },
   3: {
-    img: '/assets/images/pets/gorila.webp',
-    icon: '/assets/images/map/animals/Gorilla.svg',
-    iconOrange: '/assets/icons/zoos/Gorilla-orange.svg',
+    img: '../../assets/images/pets/gorila.webp',
+    icon: '../../assets/images/map/animals/Gorilla.svg',
+    iconOrange: '../../assets/icons/zoos/Gorilla-orange.svg',
     link: 'gorilla.html',
-    mainVideo: '/assets/images/gorilla-background.jpg',
+    mainVideo: '../../assets/images/gorilla-background.jpg',
     cams: [
-      '/assets/images/cam/gorilla-live.jpg',
-      '/assets/images/cam/gorilla-live2.jpg',
-      '/assets/images/cam/gorilla-live3.jpg',
+      '../../assets/images/cam/gorilla-live.jpg',
+      '../../assets/images/cam/gorilla-live2.jpg',
+      '../../assets/images/cam/gorilla-live3.jpg',
     ],
   },
   4: {
-    img: '/assets/images/pets/aligator.webp',
-    icon: '/assets/images/map/animals/Alligator.svg',
-    iconOrange: '/assets/icons/zoos/Panda-orange.svg',
+    img: '../../assets/images/pets/aligator.webp',
+    icon: '../../assets/images/map/animals/Alligator.svg',
+    iconOrange: '../../assets/icons/zoos/Panda-orange.svg',
     link: 'zoo.html?id=4',
-    mainVideo: '/assets/images/cam/alligator-live.jpg',
+    mainVideo: '../../assets/images/cam/alligator-live.jpg',
     cams: [
-      '/assets/images/cam/alligator-live.jpg',
-      '/assets/images/cam/alligator-live2.jpg',
-      '/assets/images/cam/alligator-live3.jpg',
+      '../../assets/images/cam/alligator-live.jpg',
+      '../../assets/images/cam/alligator-live2.jpg',
+      '../../assets/images/cam/alligator-live3.jpg',
     ],
   },
   5: {
-    img: '/assets/images/pets/eagles.webp',
-    icon: '/assets/images/map/animals/Eagle.svg',
-    iconOrange: '/assets/icons/zoos/Eagle-orange.svg',
+    img: '../../assets/images/pets/eagles.webp',
+    icon: '../../assets/images/map/animals/Eagle.svg',
+    iconOrange: '../../assets/icons/zoos/Eagle-orange.svg',
     link: 'eagle.html',
-    mainVideo: '/assets/images/eagle-background.jpg',
+    mainVideo: '../../assets/images/eagle-background.jpg',
     cams: [
-      '/assets/images/cam/Eagles-live.jpg',
-      '/assets/images/cam/Eagle-live2.jpg',
-      '/assets/images/cam/Eagle-live3.jpg',
+      '../../assets/images/cam/Eagles-live.jpg',
+      '../../assets/images/cam/Eagle-live2.jpg',
+      '../../assets/images/cam/Eagle-live3.jpg',
     ],
   },
   6: {
-    img: '/assets/images/pets/koala.webp',
-    icon: '/assets/images/map/animals/Coala.svg',
-    iconOrange: '/assets/icons/zoos/Panda-orange.svg',
+    img: '../../assets/images/pets/koala.webp',
+    icon: '../../assets/images/map/animals/Coala.svg',
+    iconOrange: '../../assets/icons/zoos/Panda-orange.svg',
     link: 'zoo.html?id=6',
-    mainVideo: '/assets/images/cam/koala-live.jpg',
+    mainVideo: '../../assets/images/cam/koala-live.jpg',
     cams: [
-      '/assets/images/cam/koala-live.jpg',
-      '/assets/images/cam/koala-live2.jpg',
-      '/assets/images/cam/koala-live3.jpg',
+      '../../assets/images/cam/koala-live.jpg',
+      '../../assets/images/cam/koala-live2.jpg',
+      '../../assets/images/cam/koala-live3.jpg',
     ],
   },
   7: {
-    img: '/assets/images/pets/lion.webp',
-    icon: '/assets/images/map/animals/Lion.svg',
-    iconOrange: '/assets/icons/zoos/Panda-orange.svg',
+    img: '../../assets/images/pets/lion.webp',
+    icon: '../../assets/images/map/animals/Lion.svg',
+    iconOrange: '../../assets/icons/zoos/Panda-orange.svg',
     link: 'zoo.html?id=7',
-    mainVideo: '/assets/images/cam/lion-live.jpg',
+    mainVideo: '../../assets/images/cam/lion-live.jpg',
     cams: [
-      '/assets/images/cam/lion-live.jpg',
-      '/assets/images/cam/lion-live2.jpg',
-      '/assets/images/cam/lion-live3.jpg',
+      '../../assets/images/cam/lion-live.jpg',
+      '../../assets/images/cam/lion-live2.jpg',
+      '../../assets/images/cam/lion-live3.jpg',
     ],
   },
   8: {
-    img: '/assets/images/pets/tiger.jpg',
-    icon: '/assets/images/map/animals/tiger.svg',
-    iconOrange: '/assets/icons/zoos/Panda-orange.svg',
+    img: '../../assets/images/pets/tiger.jpg',
+    icon: '../../assets/images/map/animals/tiger.svg',
+    iconOrange: '../../assets/icons/zoos/Panda-orange.svg',
     link: 'zoo.html?id=8',
-    mainVideo: '/assets/images/cam/tiger-live.jpg',
+    mainVideo: '../../assets/images/cam/tiger-live.jpg',
     cams: [
-      '/assets/images/cam/tiger-live.jpg',
-      '/assets/images/cam/tiger-live2.jpg',
-      '/assets/images/cam/tiger-view3.jpg',
+      '../../assets/images/cam/tiger-live.jpg',
+      '../../assets/images/cam/tiger-live2.jpg',
+      '../../assets/images/cam/tiger-live3.jpg',
     ],
   },
-  9: {
-    img: '/assets/images/pets/cheetah.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=9',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  10: {
-    img: '/assets/images/pets/hippo.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=10',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  11: {
-    img: '/assets/images/pets/giraffe.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=11',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  12: {
-    img: '/assets/images/pets/elephant.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=12',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  13: {
-    img: '/assets/images/pets/zebra.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=13',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  14: {
-    img: '/assets/images/pets/wolf.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=14',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  15: {
-    img: '/assets/images/pets/bear.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=15',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  16: {
-    img: '/assets/images/pets/jaguar.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=16',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  17: {
-    img: '/assets/images/pets/rhino.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=17',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  18: {
-    img: '/assets/images/pets/leopard.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=18',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  19: {
-    img: '/assets/images/pets/orangutan.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=19',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  20: {
-    img: '/assets/images/pets/flamingo.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=20',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  21: {
-    img: '/assets/images/pets/penguin.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=21',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  22: {
-    img: '/assets/images/pets/rhino.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=22',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  23: {
-    img: '/assets/images/pets/fox.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=23',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  24: {
-    img: '/assets/images/pets/crocodile.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=24',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  25: {
-    img: '/assets/images/pets/macaw.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=25',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  26: {
-    img: '/assets/images/pets/meerkat.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=26',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  27: {
-    img: '/assets/images/pets/otter.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=27',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
-  28: {
-    img: '/assets/images/pets/tortoise.jpg',
-    icon: DEFAULT_ICON,
-    iconOrange: DEFAULT_ICON_ORANGE,
-    link: 'zoo.html?id=28',
-    mainVideo: DEFAULT_VIDEO,
-    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
-  },
 };
+
+for (let i = 9; i <= 28; i++) {
+  petAssets[i] = {
+    img: DEFAULT_IMG,
+    icon: DEFAULT_ICON,
+    iconOrange: DEFAULT_ICON_ORANGE,
+    link: `zoo.html?id=${i}`,
+    mainVideo: DEFAULT_VIDEO,
+    cams: [DEFAULT_CAM, DEFAULT_CAM, DEFAULT_CAM],
+  };
+}
 
 function getAsset(petId: number): PetAsset {
   return (
@@ -289,12 +141,13 @@ function getAsset(petId: number): PetAsset {
   );
 }
 
+const detailCache = new Map<number, IPetDetail>();
+let currentPetId: number | null = null;
 let camIndex = 0;
 let camTotal = 0;
 let sidebarOffset = 0;
 let allPets: IPet[] = [];
 let allCams: CameraItem[] = [];
-let mapModal: HTMLElement | null = null;
 let camItems: Array<{ text: string; img: string }> = [];
 
 function getUrlPetId(): number | null {
@@ -318,9 +171,7 @@ async function init(): Promise<void> {
     panelLarge?.classList.remove('active');
   });
 
-  initMapModal();
   attachCamArrowListeners();
-
   sideLoader?.classList.remove('hidden');
 
   try {
@@ -361,25 +212,38 @@ async function init(): Promise<void> {
 }
 
 async function fetchCameras(): Promise<CameraItem[]> {
-  const res = await fetch(
-    'https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/cameras',
-  );
-  if (!res.ok) throw new Error(`Cameras ${res.status}`);
-  const json = (await res.json()) as { data?: CameraItem[] } | CameraItem[];
-  return Array.isArray(json) ? json : (json.data ?? []);
+  try {
+    const res = await fetch(
+      'https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/cameras',
+    );
+    if (!res.ok) return [];
+    const json = (await res.json()) as { data?: CameraItem[] } | CameraItem[];
+    return Array.isArray(json) ? json : (json.data ?? []);
+  } catch {
+    return [];
+  }
 }
 
-async function fetchPetDetail(id: number): Promise<IPetDetail> {
-  const res = await fetch(
-    `https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/pets/${id}`,
-  );
-  if (!res.ok) throw new Error(`Pet ${id}: ${res.status}`);
-  const json = (await res.json()) as { data?: IPetDetail } | IPetDetail;
-  return (json as { data?: IPetDetail }).data ?? (json as IPetDetail);
+async function fetchPetDetail(id: number): Promise<IPetDetail | null> {
+  if (detailCache.has(id)) return detailCache.get(id) ?? null;
+  try {
+    const res = await fetch(
+      `https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/pets/${id}`,
+    );
+    if (!res.ok) return null;
+    const json = (await res.json()) as { data?: IPetDetail } | IPetDetail;
+    const detail = (json as { data?: IPetDetail }).data ?? (json as IPetDetail);
+    detailCache.set(id, detail);
+    return detail;
+  } catch {
+    return null;
+  }
 }
 
 async function selectAnimal(pet: IPet): Promise<void> {
   const petId = Number(pet.id);
+  if (currentPetId === petId) return;
+  currentPetId = petId;
 
   ['sidebar-list-small', 'sidebar-list-large'].forEach((listId) => {
     document
@@ -405,19 +269,20 @@ async function selectAnimal(pet: IPet): Promise<void> {
 
   showDetailLoader(true);
   clearFactsError();
-  try {
-    const detail = await fetchPetDetail(petId);
+
+  const detail = await fetchPetDetail(petId);
+  if (currentPetId !== petId) return;
+
+  if (detail !== null) {
     updateDidYouKnow(detail, petId);
-  } catch {
+  } else {
     showFactsError('Something went wrong. Please, refresh the page');
-  } finally {
-    showDetailLoader(false);
   }
+  showDetailLoader(false);
 }
 
 function updateMainVideo(petId: number, petName: string): void {
   const asset = getAsset(petId);
-
   const mainImg = document.querySelector(
     '.video-bg-img',
   ) as HTMLImageElement | null;
@@ -425,30 +290,28 @@ function updateMainVideo(petId: number, petName: string): void {
     mainImg.src = asset.mainVideo;
     mainImg.alt = petName;
   }
-
   const titleEl = document.querySelector('.video-title-overlay');
   if (titleEl !== null) titleEl.textContent = `${petName}, cam 1`;
-
   const zooTitle = document.querySelector('.zoos-title');
   if (zooTitle !== null)
     zooTitle.textContent = `LIVE ${petName.toUpperCase()} CAMS`;
-
   document.title = `Online-zoo — ${petName}`;
 }
 
 function updateDidYouKnow(detail: IPetDetail, petId: number): void {
   const asset = getAsset(petId);
   const el = (id: string): HTMLElement | null => document.getElementById(id);
-
   const intro = el('did-you-know-content');
   if (intro !== null) intro.textContent = detail.description;
-
   const factImg = el('fact-image') as HTMLImageElement | null;
   if (factImg !== null) {
+    factImg.onerror = () => {
+      factImg.onerror = null;
+      factImg.src = DEFAULT_IMG;
+    };
     factImg.src = asset.img;
     factImg.alt = detail.commonName;
   }
-
   const list = el('facts-list');
   if (list !== null) {
     const rows: Array<[string, string]> = [
@@ -463,28 +326,10 @@ function updateDidYouKnow(detail: IPetDetail, petId: number): void {
     list.innerHTML = rows
       .map(([label, value], i) => {
         const isLast = i === rows.length - 1;
-        return `<li${isLast ? ' class="position"' : ''}>
-        <strong>${label}:</strong> ${value}
-        ${
-          isLast
-            ? `<button class="view-map-link btn view-map-btn"
-            data-lat="${detail.latitude}"
-            data-lng="${detail.longitude}"
-            data-name="${detail.commonName}"
-            data-range="${detail.range}">
-            VIEW MAP <img src="/assets/icons/union-orange.svg" alt="">
-          </button>`
-            : ''
-        }
-      </li>`;
+        return `<li${isLast ? ' class="position"' : ''}><strong>${label}:</strong> ${value}${isLast ? `<a href="../map/index.html" class="view-map-link btn">VIEW MAP <img src="../../assets/icons/union-orange.svg" alt=""></a>` : ''}</li>`;
       })
       .join('');
-
-    list.querySelector('.view-map-btn')?.addEventListener('click', () => {
-      openMapModal(detail);
-    });
   }
-
   const desc = el('pet-full-desc');
   if (desc !== null) desc.textContent = detail.detailedDescription;
 }
@@ -525,21 +370,9 @@ function renderSidebar(panel: 'small' | 'large'): void {
     li.dataset['petId'] = String(petId);
 
     if (panel === 'small') {
-      li.innerHTML = `
-        <a href="#" class="animal-icon-link">
-          <div class="icon-circle">
-            <img src="${asset.icon}" alt="${pet.name}" onerror="this.src='${DEFAULT_ICON}'">
-          </div>
-        </a>`;
+      li.innerHTML = `<a href="#" class="animal-icon-link"><div class="icon-circle"><img src="${asset.icon}" alt="${pet.name}" onerror="this.onerror=null;this.src='${DEFAULT_ICON}'"></div></a>`;
     } else {
-      li.innerHTML = `
-        <div class="animal-content">
-          <a href="#" class="animal-icon-link">
-            <img class="icon-default" src="${asset.iconOrange}" alt="${pet.name}" onerror="this.src='${DEFAULT_ICON_ORANGE}'">
-            <img class="icon-active" src="${asset.icon}" alt="${pet.name}" onerror="this.src='${DEFAULT_ICON}'">
-          </a>
-          <div class="animal-desc"><p>${pet.description}</p></div>
-        </div>`;
+      li.innerHTML = `<div class="animal-content"><a href="#" class="animal-icon-link"><img class="icon-default" src="${asset.iconOrange}" alt="${pet.name}" onerror="this.onerror=null;this.src='${DEFAULT_ICON_ORANGE}'"><img class="icon-active" src="${asset.icon}" alt="${pet.name}" onerror="this.onerror=null;this.src='${DEFAULT_ICON}'"></a><div class="animal-desc"><p>${pet.description}</p></div></div>`;
     }
 
     li.addEventListener('click', (e: MouseEvent) => {
@@ -586,7 +419,6 @@ function applySidebarScroll(): void {
 function scrollSidebar(panel: 'small' | 'large'): void {
   sidebarOffset = Math.min(sidebarOffset + 1, allPets.length - SIDEBAR_VISIBLE);
   applySidebarScroll();
-
   const listId =
     panel === 'small' ? 'sidebar-list-small' : 'sidebar-list-large';
   const visible = document
@@ -610,12 +442,10 @@ function buildCamSlider(cams: CameraItem[], petId: number): void {
   carousel.style.transition = 'none';
   carousel.style.transform = 'translateX(0)';
   void carousel.offsetWidth;
-
   camIndex = 0;
 
   const asset = getAsset(petId);
   const baseCams = asset.cams;
-
   const MIN_CAMS = CAM_VISIBLE + 2;
 
   camItems =
@@ -635,14 +465,13 @@ function buildCamSlider(cams: CameraItem[], petId: number): void {
   }
 
   camTotal = camItems.length;
-
   carousel.innerHTML = camItems
     .map(
-      (item, i) => `
-    <div class="live-card${i === 0 ? ' live-card_active' : ''}" data-index="${i}">
-      <img src="${item.img}" alt="${item.text}" class="live-card__img" onerror="this.src='${DEFAULT_CAM}'">
-      <div class="live-card__badge">CAM ${i + 1} <img src="/assets/icons/cam.svg" alt=""></div>
-      <button class="live-card__play"><img src="/assets/icons/play-button.svg" alt="play"></button>
+      (item, i) =>
+        `<div class="live-card${i === 0 ? ' live-card_active' : ''}" data-index="${i}">
+      <img src="${item.img}" alt="${item.text}" class="live-card__img" onerror="this.onerror=null;this.src='${DEFAULT_CAM}'">
+      <div class="live-card__badge">CAM ${i + 1} <img src="../../assets/icons/cam.svg" alt=""></div>
+      <button class="live-card__play"><img src="../../assets/icons/play-button.svg" alt="play"></button>
     </div>`,
     )
     .join('');
@@ -702,63 +531,4 @@ function updateCamArrows(): void {
   if (btnRight !== null) btnRight.style.opacity = camIndex >= max ? '0.3' : '1';
 }
 
-function initMapModal(): void {
-  mapModal = document.createElement('div');
-  mapModal.id = 'mapModal';
-  mapModal.className = 'map-modal-overlay hidden';
-  mapModal.innerHTML = `
-    <div class="map-modal-window">
-      <button class="map-modal-close" id="mapModalClose">
-        <img src="/assets/icons/x-mark.svg" alt="close">
-      </button>
-      <div id="leaflet-map" class="leaflet-map-container"></div>
-    </div>`;
-  document.body.appendChild(mapModal);
-
-  document
-    .getElementById('mapModalClose')
-    ?.addEventListener('click', closeMapModal);
-  mapModal.addEventListener('click', (e: MouseEvent) => {
-    if (e.target === mapModal) closeMapModal();
-  });
-  document.addEventListener('keydown', (e: KeyboardEvent) => {
-    if (e.key === 'Escape') closeMapModal();
-  });
-}
-
-function openMapModal(detail: IPetDetail): void {
-  if (mapModal === null) return;
-  const lat = parseFloat(detail.latitude) || 0;
-  const lng = parseFloat(detail.longitude) || 0;
-
-  mapModal.classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
-
-  setTimeout(() => {
-    const container = document.getElementById('leaflet-map');
-    if (container === null) return;
-    container.innerHTML = '';
-
-    const L = (window as unknown as { L?: LeafletStatic }).L;
-    if (L === undefined) {
-      container.innerHTML = `<p class="map-error">Map unavailable. Coordinates: ${detail.latitude}, ${detail.longitude}</p>`;
-      return;
-    }
-    const map = L.map('leaflet-map').setView([lat, lng], 5);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors',
-    }).addTo(map);
-    L.marker([lat, lng])
-      .addTo(map)
-      .bindPopup(`<b>${detail.commonName}</b><br>${detail.range}`)
-      .openPopup();
-  }, 50);
-}
-
-function closeMapModal(): void {
-  if (mapModal === null) return;
-  mapModal.classList.add('hidden');
-  document.body.style.overflow = '';
-  const container = document.getElementById('leaflet-map');
-  if (container !== null) container.innerHTML = '';
-}
+export {};
