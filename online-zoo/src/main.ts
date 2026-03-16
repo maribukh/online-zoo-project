@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <div class="pet-card__content">
           <h3 class="pet-card__title">${pet.name}</h3>
           <p class="pet-card__desc">${pet.description}</p>
-          <a href="/pages/zoos/${assets.link}" class="pet-card__link btn">View Live Cam</a>
+          <a href="/online-zoo-project/pages/zoos/${assets.link}" class="pet-card__link btn">View Live Cam</a>
         </div>`;
       container.appendChild(card);
     });
