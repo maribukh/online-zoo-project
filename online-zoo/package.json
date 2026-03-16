@@ -1,0 +1,43 @@
+{
+  "name": "online-zoo",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/maribukh/online-zoo-project#readme",
+  "bugs": {
+    "url": "https://github.com/maribukh/online-zoo-project/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maribukh/online-zoo-project.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src/**/*.ts"
+  },
+  "dependencies": {
+    "esbuild": "^0.27.3",
+    "fdir": "^6.5.0",
+    "nanoid": "^3.3.11",
+    "picocolors": "^1.1.1",
+    "picomatch": "^4.0.3",
+    "postcss": "^8.5.8",
+    "rollup": "^4.59.0",
+    "source-map-js": "^1.2.1",
+    "tinyglobby": "^0.2.15"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
+    "@typescript-eslint/parser": "^8.56.1",
+    "eslint": "^10.0.2",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  }
+}

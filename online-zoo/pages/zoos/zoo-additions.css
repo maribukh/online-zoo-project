@@ -1,0 +1,173 @@
+.animal-item.sidebar-hidden {
+  display: none;
+}
+
+.animal-item.sliding-in {
+  animation: slideDown 0.35s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animal-nav-bottom.sidebar-hidden {
+  display: none;
+}
+
+.animal-nav-bottom {
+  cursor: pointer;
+}
+
+.animal-nav-bottom:hover {
+  opacity: 0.6;
+}
+
+.side-panel--large .icon-active {
+  display: none;
+}
+.side-panel--large .icon-default {
+  display: block;
+}
+
+.side-panel--large .animal-item.active .icon-default {
+  display: none;
+}
+.side-panel--large .animal-item.active .icon-active {
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+.side-panel--large.active {
+  height: fit-content;
+}
+
+.side-panel--large.active .animal-nav-bottom {
+  padding: 32px 0px;
+}
+
+.more-live__carousel-viewport {
+  overflow: hidden !important;
+  flex: 1;
+  min-width: 0;
+}
+
+.more-live__carousel {
+  display: flex;
+  gap: 30px;
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+.live-card {
+  flex: 0 0 calc((100% - 60px) / 3) !important;
+  max-width: calc((100% - 60px) / 3) !important;
+  min-width: 0;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.live-card__img {
+  width: 100% !important;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.more-live__slider-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.slider-btn {
+  flex-shrink: 0;
+}
+
+#detail-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.facts-error {
+  color: #e74c3c;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 20px 0;
+  list-style: none;
+}
+
+.map-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-modal-overlay.hidden {
+  display: none;
+}
+
+.map-modal-window {
+  position: relative;
+  width: 90%;
+  max-width: 860px;
+  height: 540px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+}
+
+.map-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1000;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.map-modal-close:hover {
+  opacity: 0.7;
+}
+
+.map-modal-close img {
+  width: 16px;
+  height: 16px;
+}
+
+.leaflet-map-container {
+  width: 100%;
+  height: 100%;
+}
+
+.map-error {
+  padding: 40px;
+  text-align: center;
+  color: #e74c3c;
+  font-size: 16px;
+}
