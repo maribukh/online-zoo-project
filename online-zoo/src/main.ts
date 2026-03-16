@@ -9,10 +9,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   initDonation();
 
   const petAssets: Record<number, { img: string; link: string }> = {
-1: { img: '../../assets/images/pets/panda.webp', link: 'panda.html' },
+    1: { img: '../../assets/images/pets/panda.webp', link: 'panda.html' },
     2: { img: '../../assets/images/pets/lemur.webp', link: 'lemur.html' },
     3: { img: '../../assets/images/pets/gorila.webp', link: 'gorilla.html' },
-    4: { img: '../../assets/images/pets/aligator.webp', link: 'alligator.html' },
+    4: {
+      img: '../../assets/images/pets/aligator.webp',
+      link: 'alligator.html',
+    },
     5: { img: '../../assets/images/pets/eagles.webp', link: 'eagle.html' },
     6: { img: '../../assets/images/pets/koala.webp', link: 'koala.html' },
     7: { img: '../../assets/images/pets/lion.webp', link: 'lion.html' },
