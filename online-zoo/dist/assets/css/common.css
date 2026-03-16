@@ -497,6 +497,14 @@ header nav ul li a.active {
   gap: 10px;
 }
 
+.btn-nextStep {
+  background-color: var(--color-green);
+  padding: 22px 18px;
+  color: #fff;
+  border-radius: 5px;
+  gap: 10px;
+}
+
 .btn-light-turquoise {
   background-color: var(--color-teal-pale);
   color: white;
