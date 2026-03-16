@@ -5,17 +5,38 @@ void initUserProfile();
 document.addEventListener('DOMContentLoaded', async () => {
     initDonation();
     const petAssets = {
-        1: { img: '../../assets/images/pets/panda.webp', link: 'panda.html' },
-    2: { img: '../../assets/images/pets/lemur.webp', link: 'lemur.html' },
-    3: { img: '../../assets/images/pets/gorila.webp', link: 'gorilla.html' },
-    4: {
-      img: '../../assets/images/pets/aligator.webp',
-      link: 'alligator.html',
-    },
-    5: { img: '../../assets/images/pets/eagles.webp', link: 'eagle.html' },
-    6: { img: '../../assets/images/pets/koala.webp', link: 'koala.html' },
-    7: { img: '../../assets/images/pets/lion.webp', link: 'lion.html' },
-    8: { img: '../../assets/images/pets/tiger.jpg', link: 'tiger.html' },
+        1: {
+            img: '/online-zoo-project/assets/images/pets/panda.webp',
+            link: 'panda.html',
+        },
+        2: {
+            img: '/online-zoo-project/assets/images/pets/lemur.webp',
+            link: 'lemur.html',
+        },
+        3: {
+            img: '/online-zoo-project/assets/images/pets/gorila.webp',
+            link: 'gorilla.html',
+        },
+        4: {
+            img: '../../assets/images/pets/aligator.webp',
+            link: 'alligator.html',
+        },
+        5: {
+            img: '/online-zoo-project/assets/images/pets/eagles.webp',
+            link: 'eagle.html',
+        },
+        6: {
+            img: '/online-zoo-project/assets/images/pets/koala.webp',
+            link: 'koala.html',
+        },
+        7: {
+            img: '/online-zoo-project/assets/images/pets/lion.webp',
+            link: 'lion.html',
+        },
+        8: {
+            img: '/online-zoo-project/assets/images/pets/tiger.jpg',
+            link: 'tiger.html',
+        },
     };
     const petsGrid = document.getElementById('pets-grid');
     const petsLoader = document.getElementById('pets-loader');
