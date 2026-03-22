@@ -15,7 +15,7 @@ export default defineConfig(({ command }) => ({
         contact: 'pages/contact/index.html',
         login: 'pages/auth/login.html',
         register: 'pages/auth/register.html',
-        event: 'pages/event/index.html',
+        event: 'pages/events/index.html',
       },
     },
   },
