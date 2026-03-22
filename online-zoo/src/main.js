@@ -1,6 +1,7 @@
 import { API } from './api/api';
 import { initUserProfile } from './auth/userProfile';
 import { initDonation } from './donation';
+import './event';
 void initUserProfile();
 document.addEventListener('DOMContentLoaded', async () => {
     initDonation();
