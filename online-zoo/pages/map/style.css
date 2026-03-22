@@ -17,7 +17,7 @@
 }
 
 .map .bg-img {
-  background-image: url(../../assets/images/map/Map.svg);
+  background-image: url(/online-zoo-project/assets/images/map/Map.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -34,7 +34,7 @@
   justify-content: center;
   align-items: center;
 
-  background-image: url('../../assets/images/map/tag-orange.svg');
+  background-image: url('/online-zoo-project/assets/images/map/tag-orange.svg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -46,7 +46,7 @@
 
 .map-pin:hover,
 .map-pin:active {
-  background-image: url('../../assets/images/map/tag-white.svg');
+  background-image: url('/online-zoo-project/assets/images/map/tag-white.svg');
   filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.3));
 }
 
