@@ -4,10 +4,8 @@ export default defineConfig(({ command }) => ({
   base: command === 'build' ? '/online-zoo-project/' : '/',
   build: {
     outDir: 'dist',
-
     rollupOptions: {
       input: {
-        main: 'index.html',
         landing: 'pages/landing/index.html',
         map: 'pages/map/index.html',
         panda: 'pages/zoos/panda.html',
