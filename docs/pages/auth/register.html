@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Online Zoo — Register</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="shortcut icon" href="../../assets/icons/Favicon.svg" type="image/x-icon">
+    <script type="module" crossorigin src="/online-zoo-project/assets/register-DRE3RK6Y.js"></script>
+    <link rel="modulepreload" crossorigin href="/online-zoo-project/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="stylesheet" crossorigin href="/online-zoo-project/assets/auth-BLlqHLDs.css">
+  </head>
+  <body>
+    <div class="auth-page">
+      <div class="auth-visual">
+        <img
+          class="auth-visual__img"
+          src="../../assets/images/pets/gorila.webp"
+          alt="Gorilla"
+          onerror="this.src = '../../assets/images/gorilla-background.jpg'"
+        >
+        <div class="auth-visual__content">
+          <a href="../landing/index.html" class="auth-visual__logo">
+            <img src="../../assets/images/Logo.svg" alt="Online Zoo" >
+          </a>
+          <div class="auth-visual__quote">
+            <p class="auth-visual__quote-text">
+              Join our<br ><em>community</em><br >of animal lovers.
+            </p>
+            <p class="auth-visual__quote-sub">
+              Create an account to donate, follow your favourite animals and get
+              live updates.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-form-panel">
+        <div class="auth-top-nav">
+          <a href="../landing/index.html" class="auth-top-nav__back">
+            <svg
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            >
+              <path d="M10 3L5 8l5 5" >
+            </svg>
+            Back to site
+          </a>
+          <div class="auth-tabs">
+            <a href="login.html" class="auth-tab">Sign In</a>
+            <a href="register.html" class="auth-tab active">Register</a>
+          </div>
+        </div>
+
+        <div class="auth-form-wrap">
+          <div class="form-heading">
+            <h1 class="form-heading__title">Create account</h1>
+            <p class="form-heading__sub">Join the Online Zoo community today</p>
+          </div>
+
+          <form id="registerForm" novalidate>
+            <div class="field">
+              <label for="name">Full Name</label>
+              <div class="input-wrap">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="e.g. John Smith"
+                >
+                <svg class="err-icon" viewBox="0 0 20 20" fill="none">
+                  <circle cx="10" cy="10" r="9" stroke="#D93025" stroke-width="1.5" >
+                  <path d="M10 6v5M10 13.5v.5" stroke="#D93025" stroke-width="1.5" stroke-linecap="round" >
+                </svg>
+              </div>
+              <div class="field-msg" id="msg-name"></div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <div class="input-wrap">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="user@example.com"
+                  autocomplete="email"
+                >
+                <svg class="err-icon" viewBox="0 0 20 20" fill="none">
+                  <circle cx="10" cy="10" r="9" stroke="#D93025" stroke-width="1.5" >
+                  <path d="M10 6v5M10 13.5v.5" stroke="#D93025" stroke-width="1.5" stroke-linecap="round" >
+                </svg>
+              </div>
+              <div class="field-msg" id="msg-email"></div>
+            </div>
+
+            <div class="field">
+              <label for="login">Login</label>
+              <div class="input-wrap">
+                <input
+                  type="text"
+                  id="login"
+                  name="login"
+                  placeholder="e.g. johnsmith"
+                  autocomplete="username"
+                >
+                <svg class="err-icon" viewBox="0 0 20 20" fill="none">
+                  <circle cx="10" cy="10" r="9" stroke="#D93025" stroke-width="1.5" >
+                  <path d="M10 6v5M10 13.5v.5" stroke="#D93025" stroke-width="1.5" stroke-linecap="round" >
+                </svg>
+              </div>
+              <div class="field-msg" id="msg-login"></div>
+            </div>
+
+            <div class="field">
+              <label for="password">Password</label>
+              <div class="input-wrap has-toggle">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="••••••••"
+                  autocomplete="new-password"
+                >
+                <button
+                  type="button"
+                  class="toggle-pw"
+                  id="togglePw1"
+                  aria-label="Show password"
+                >
+                  <svg
+                    id="eye1Off"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94" >
+                    <path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19" >
+                    <line x1="1" y1="1" x2="23" y2="23" >
+                  </svg>
+                  <svg
+                    id="eye1On"
+                    style="display: none"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" >
+                    <circle cx="12" cy="12" r="3" >
+                  </svg>
+                </button>
+              </div>
+              <div class="strength-bar">
+                <div class="strength-fill" id="strengthFill"></div>
+              </div>
+              <div class="field-msg" id="msg-password"></div>
+            </div>
+
+            <div class="field">
+              <label for="confirm">Confirm Password</label>
+              <div class="input-wrap has-toggle">
+                <input
+                  type="password"
+                  id="confirm"
+                  name="confirm"
+                  placeholder="••••••••"
+                  autocomplete="new-password"
+                >
+                <button
+                  type="button"
+                  class="toggle-pw"
+                  id="togglePw2"
+                  aria-label="Show password"
+                >
+                  <svg
+                    id="eye2Off"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94" >
+                    <path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19" >
+                    <line x1="1" y1="1" x2="23" y2="23" >
+                  </svg>
+                  <svg
+                    id="eye2On"
+                    style="display: none"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" >
+                    <circle cx="12" cy="12" r="3" >
+                  </svg>
+                </button>
+              </div>
+              <div class="field-msg" id="msg-confirm"></div>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submitBtn" disabled>
+              <span class="btn-text">Create Account</span>
+              <div class="spinner"></div>
+            </button>
+            <div class="form-error" id="formError"></div>
+            <div class="form-success" id="formSuccess">
+               Account created! Redirecting to sign in…
+            </div>
+          </form>
+
+          <hr class="divider" >
+          <div class="switch-link">
+            Already have an account? <a href="login.html">Sign in</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

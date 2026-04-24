@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online-zoo — Live Events Calendar</title>
+    <link
+      rel="shortcut icon"
+      href="../../assets/icons/Favicon.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../../assets/css/common.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/online-zoo-project/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/online-zoo-project/assets/api-DMRThXhE.js"></script>
+    <script type="module" crossorigin src="/online-zoo-project/assets/userProfile-BJPpkEkw.js"></script>
+    <script type="module" crossorigin src="/online-zoo-project/assets/main-CYYbYiXc.js"></script>
+    <link rel="stylesheet" crossorigin href="/online-zoo-project/assets/event-BjB14CH0.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="left-side">
+          <a href="../landing/index.html"
+            ><img src="../../assets/images/Logo.svg" alt="logo"
+          /></a>
+        </div>
+        <button class="burger-menu" id="burgerBtn">
+          <img src="../../assets/icons/hamburger.svg" alt="menu" />
+        </button>
+        <div class="right-side" id="headerMenu">
+          <button class="close-burger" id="closeBurger">
+            <img src="../../assets/icons/x-mark.svg" alt="close" />
+          </button>
+          <nav>
+            <ul>
+              <li><a href="../landing/index.html">ABOUT</a></li>
+              <li><a href="../map/index.html">MAP</a></li>
+              <li><a href="../zoos/panda.html">ZOOS</a></li>
+              <li><a href="index.html" class="active">EVENTS</a></li>
+              <li><a href="../contact/index.html">CONTACT US</a></li>
+            </ul>
+          </nav>
+          <div
+            class="header-actions"
+            style="display: flex; align-items: center; gap: 20px"
+          >
+            <div class="social-icons">
+              <a
+                href="https://www.youtube.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="../../assets/icons/YouTube.svg" alt="" />
+              </a>
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="../../assets/icons/Instagram.svg" alt="" />
+              </a>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="../../assets/icons/Facebook.svg" alt="" />
+              </a>
+            </div>
+            <div id="userProfile" class="user-profile"></div>
+            <div class="header-auth" id="headerAuthBtns">
+              <a href="../auth/login.html" class="header-auth__link">Sign In</a>
+              <a
+                href="../auth/register.html"
+                class="header-auth__link header-auth__link--register"
+                >Register</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="events-main">
+      <section class="events-hero">
+        <div class="container">
+          <h1 class="events-title">Live Events Calendar</h1>
+          <p class="events-subtitle">
+            Never miss a feeding time, enrichment activity, or special event.
+            Set reminders and watch your favorite animals live!
+          </p>
+        </div>
+      </section>
+
+      <section class="events-content">
+        <div class="container">
+          <div class="events-layout">
+            <!-- Sidebar Filters -->
+            <aside class="events-sidebar">
+              <div class="filter-section">
+                <h3 class="filter-title">Filter by Animal</h3>
+                <div class="filter-options" id="animalFilters">
+                  <label class="filter-option">
+                    <input type="checkbox" value="all" checked />
+                    <span class="checkbox-custom"></span>
+                    <span>All Animals</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="filter-section">
+                <h3 class="filter-title">Event Type</h3>
+                <div class="filter-options" id="typeFilters">
+                  <label class="filter-option">
+                    <input type="checkbox" value="all" checked />
+                    <span class="checkbox-custom"></span>
+                    <span>All Types</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="feeding" />
+                    <span class="checkbox-custom"></span>
+                    <span>Feeding</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="enrichment" />
+                    <span class="checkbox-custom"></span>
+                    <span>Enrichment</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="veterinary" />
+                    <span class="checkbox-custom"></span>
+                    <span>Veterinary</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="special" />
+                    <span class="checkbox-custom"></span>
+                    <span>Special Events</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="filter-section">
+                <h3 class="filter-title">Time of Day</h3>
+                <div class="filter-options" id="timeFilters">
+                  <label class="filter-option">
+                    <input type="checkbox" value="all" checked />
+                    <span class="checkbox-custom"></span>
+                    <span>All Day</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="morning" />
+                    <span class="checkbox-custom"></span>
+                    <span>Morning (6am-12pm)</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="afternoon" />
+                    <span class="checkbox-custom"></span>
+                    <span>Afternoon (12pm-6pm)</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="evening" />
+                    <span class="checkbox-custom"></span>
+                    <span>Evening (6pm-10pm)</span>
+                  </label>
+                </div>
+              </div>
+            </aside>
+
+            <div class="events-main-area">
+              <div class="calendar-header">
+                <button class="calendar-nav-btn" id="prevWeek">
+                  <img
+                    src="../../assets/icons/union-blue-left.svg"
+                    alt="Previous"
+                  />
+                </button>
+                <div class="calendar-current-week" id="currentWeekLabel">
+                  March 2026
+                </div>
+                <button class="calendar-nav-btn" id="nextWeek">
+                  <img
+                    src="../../assets/icons/union-blue-right.svg"
+                    alt="Next"
+                  />
+                </button>
+                <button class="btn-today" id="todayBtn">Today</button>
+              </div>
+
+              <div class="calendar-week" id="calendarWeek">
+                <!-- Days will be rendered by JS -->
+              </div>
+
+              <div class="events-timeline">
+                <div id="eventsLoader" class="loader hidden"></div>
+                <div id="eventsError" class="error-text hidden"></div>
+                <div class="events-list" id="eventsList">
+                  <!-- Events will be rendered by JS -->
+                </div>
+                <div class="no-events hidden" id="noEvents">
+                  <img
+                    src="../../assets/icons/time.svg"
+                    alt=""
+                    class="no-events-icon"
+                  />
+                  <p>No events scheduled for this day.</p>
+                  <p class="no-events-hint">
+                    Try selecting a different date or clearing your filters.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Upcoming Highlights -->
+          <section class="upcoming-highlights">
+            <h2 class="section-title">Upcoming Highlights</h2>
+            <div class="highlights-grid" id="highlightsGrid">
+              <!-- Highlights will be rendered by JS -->
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- Reminder Modal -->
+      <div class="modal-overlay" id="reminderModal">
+        <div class="reminder-modal">
+          <button class="modal-close" id="closeReminderModal">
+            <img src="../../assets/icons/x-mark.svg" alt="Close" />
+          </button>
+          <div class="reminder-modal__header">
+            <h3>Set Reminder</h3>
+          </div>
+          <div class="reminder-modal__body">
+            <div class="reminder-event-info" id="reminderEventInfo">
+            </div>
+            <div class="reminder-options">
+              <h4>Remind me:</h4>
+              <label class="reminder-option">
+                <input type="radio" name="reminderTime" value="15" checked />
+                <span class="radio-custom"></span>
+                <span>15 minutes before</span>
+              </label>
+              <label class="reminder-option">
+                <input type="radio" name="reminderTime" value="30" />
+                <span class="radio-custom"></span>
+                <span>30 minutes before</span>
+              </label>
+              <label class="reminder-option">
+                <input type="radio" name="reminderTime" value="60" />
+                <span class="radio-custom"></span>
+                <span>1 hour before</span>
+              </label>
+            </div>
+            <div class="reminder-actions">
+              <button class="btn btn-outline-teal" id="cancelReminder">
+                Cancel
+              </button>
+              <button class="btn btn-orange" id="setReminder">
+                Set Reminder
+                <img src="../../assets/icons/Union.svg" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="toast hidden" id="toast">
+        <span class="toast-icon">&#10003;</span>
+        <span class="toast-message" id="toastMessage"
+          >Reminder set successfully!</span
+        >
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-logos">
+            <a href="../landing/index.html" class="logo"
+              ><img src="../../assets/images/Logo2.svg" alt=""
+            /></a>
+            <a href="#" class="logo-partnership"
+              ><img src="../../assets/images/Yem-Digital.svg" alt=""
+            /></a>
+            <a href="https://rs.school/" target="_blank" class="logo-rss"
+              ><img src="../../assets/images/rs_school_js-logo.svg" alt=""
+            /></a>
+          </div>
+          <nav class="footer-nav">
+            <ul>
+              <li><a href="../landing/index.html">ABOUT</a></li>
+              <li><a href="../map/index.html">MAP</a></li>
+              <li><a href="../zoos/panda.html">ZOOS</a></li>
+              <li><a href="index.html" class="active">EVENTS</a></li>
+              <li><a href="../contact/index.html">CONTACT US</a></li>
+            </ul>
+          </nav>
+          <button class="btn btn-outline-white">
+            DONATE FOR VOLUNTEERS
+            <img src="../../assets/icons/Union.svg" alt="" />
+          </button>
+        </div>
+        <hr class="footer-divider" />
+        <div class="footer-info">
+          <div class="copyrights">
+            <span>&copy; 2021 DinaK</span><span>&copy; Yem Digital</span
+            ><span>&copy; RSSchool</span>
+          </div>
+          <div class="footer-socials">
+            <a href="#"><img src="../../assets/icons/YouTube.svg" alt="" /></a>
+            <a href="#"
+              ><img src="../../assets/icons/Instagram.svg" alt=""
+            /></a>
+            <a href="#"><img src="../../assets/icons/Facebook.svg" alt="" /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

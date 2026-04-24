@@ -1,0 +1,1 @@
+async function t(e){const a=await fetch(e);if(!a.ok)throw new Error("Something went wrong. Please, refresh the page");return await a.json()}const s="https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/",n={getPets:()=>t(s+"pets"),getPetByID:e=>t(s+"pets/"+e),getFeedbacks:()=>t(s+"feedback")};export{n as A};
